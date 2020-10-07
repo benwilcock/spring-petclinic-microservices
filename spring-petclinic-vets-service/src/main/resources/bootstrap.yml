@@ -1,12 +1,20 @@
 spring:
+  application:
+    name: vets-service
   cloud:
     config:
       uri: http://localhost:8888
-  application:
-    name: vets-service
+
 ---
 spring:
   profiles: docker
   cloud:
     config:
       uri: http://config-server:8888
+
+---
+spring:
+  profiles: cloud
+  cloud:
+    config:
+      uri: http://bens-config-server.apps.tas.workload.tkglab.tanzu-demo.net
