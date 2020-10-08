@@ -1,6 +1,6 @@
 spring:
   application:
-    name: discovery-server
+    name: config-checker
   cloud:
     config:
       uri: http://localhost:8888

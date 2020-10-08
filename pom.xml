@@ -23,6 +23,9 @@
         <module>spring-petclinic-config-server</module>
         <module>spring-petclinic-discovery-server</module>
         <module>spring-petclinic-api-gateway</module>
+        <module>spring-petclinic-discovery-checker</module>
+        <module>spring-petclinic-config-checker</module>
+
     </modules>
 
     <properties>

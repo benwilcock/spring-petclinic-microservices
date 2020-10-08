@@ -1,11 +1,11 @@
 applications:
-  - name: bens-config-server
-    path: target/spring-petclinic-config-server-2.3.2.jar
+  - name: bens-admin-server
+    path: target/spring-petclinic-admin-server-2.3.2.jar
     buildpacks:
       - java_buildpack
     disk_quota: 1G
     env:
-#      SPRING_PROFILES_ACTIVE: 'cloud'
+      SPRING_PROFILES_ACTIVE: 'cloud'
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     instances: 1
     memory: 1G
