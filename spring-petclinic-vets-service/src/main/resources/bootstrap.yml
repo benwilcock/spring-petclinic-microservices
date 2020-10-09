@@ -14,8 +14,7 @@ spring:
 
 ---
 spring:
-  profiles: cloud
+  profiles: tas
   cloud:
     config:
       uri: http://bens-config-server.apps.tas.tanzu-demo.net
-#      uri: http://bens-config-server.apps.tas.workload.tkglab.tanzu-demo.net

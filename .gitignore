@@ -16,3 +16,6 @@ target/
 
 # Branch switching
 generated/
+
+# Symlinks
+spring-petclinic-microservices-config

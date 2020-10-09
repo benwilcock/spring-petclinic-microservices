@@ -1,11 +1,11 @@
 applications:
   - name: bens-visits-service
-    path: target/spring-petclinic-visits-service-2.3.2.jar
+    path: target/spring-petclinic-visits-service-2.3.4.jar
     buildpacks:
       - java_buildpack
     disk_quota: 1G
     env:
-      SPRING_PROFILES_ACTIVE: 'cloud'
+      SPRING_PROFILES_ACTIVE: 'tas'
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     instances: 1
     memory: 1G
