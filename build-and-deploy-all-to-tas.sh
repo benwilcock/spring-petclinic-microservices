@@ -4,6 +4,21 @@
 echo 'Building the code'
 mvn clean package
 
+# Stop everything
+echo 'Attempting to STOP all Petclinic apps in parrallel.'
+cf stop bens-api-gateway-service -f &
+cf stop bens-visits-service -f &
+cf stop bens-customers-service -f &
+cf stop bens-vets-service -f &
+cf stop bens-discovery-checker -f &
+cf stop bens-config-checker -f &
+cf stop bns-zipkin-server -f &
+cf stop bens-admin-server -f &
+cf stop bens-discovery-server -f &
+cf stop bens-config-server -f
+wait
+echo 'All apps have stopped.'
+
 echo 'pushing bens-config-server'
 cd spring-petclinic-config-server
 cf push -f manifest.yml
@@ -30,6 +45,11 @@ cd ..
 
 echo 'pushing bens-admin-server'
 cd spring-petclinic-admin-server
+cf push -f manifest.yml
+cd ..
+
+echo 'pushing bens-zipkin-server'
+cd spring-petclinic-zipkin-server
 cf push -f manifest.yml
 cd ..
 

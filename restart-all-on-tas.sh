@@ -12,7 +12,7 @@ cf restart bens-admin-server &
 cf restart bens-discovery-checker &
 cf restart bens-customers-service &
 cf restart bens-vets-service &
-cf restart bens-visits-service &
+cf restart bens-visits-service
 wait
 cf start bens-api-gateway-service
 
