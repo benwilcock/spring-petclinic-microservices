@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo 'Attempting to delete all Petclinic apps in parrallel.'
+echo 'Attempting to DELETE all Petclinic apps in parrallel.'
 cf delete bens-api-gateway-service -f &
 cf delete bens-visits-service -f &
 cf delete bens-customers-service -f &
