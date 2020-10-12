@@ -19,6 +19,8 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.samples.petclinic.vets.model.Vet;
 import org.springframework.samples.petclinic.vets.model.VetRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,9 +40,12 @@ import org.springframework.web.bind.annotation.RestController;
 class VetResource {
 
     private final VetRepository vetRepository;
+    private static Logger log = LoggerFactory.getLogger(VetResource.class);
+
 
     @GetMapping
     public List<Vet> showResourcesVetList() {
+        log.info("Getting all the vets...");
         return vetRepository.findAll();
     }
 }
