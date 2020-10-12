@@ -7,7 +7,7 @@ cf delete bens-customers-service -f &
 cf delete bens-vets-service -f &
 cf delete bens-discovery-checker -f &
 cf delete bens-config-checker -f &
-cf delete bns-zipkin-server -f &
+cf delete bens-zipkin-server -f &
 cf delete bens-admin-server -f &
 cf delete bens-discovery-server -f &
 cf delete bens-config-server -f

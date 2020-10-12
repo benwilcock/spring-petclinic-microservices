@@ -5,19 +5,7 @@ echo 'Building the code'
 mvn clean package
 
 # Stop everything
-echo 'Attempting to STOP all Petclinic apps in parrallel.'
-cf stop bens-api-gateway-service -f &
-cf stop bens-visits-service -f &
-cf stop bens-customers-service -f &
-cf stop bens-vets-service -f &
-cf stop bens-discovery-checker -f &
-cf stop bens-config-checker -f &
-cf stop bns-zipkin-server -f &
-cf stop bens-admin-server -f &
-cf stop bens-discovery-server -f &
-cf stop bens-config-server -f
-wait
-echo 'All apps have stopped.'
+sh stop-all-on-tas.sh
 
 echo 'pushing bens-config-server'
 cd spring-petclinic-config-server

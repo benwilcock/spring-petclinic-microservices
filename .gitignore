@@ -19,3 +19,6 @@ generated/
 
 # Symlinks
 spring-petclinic-microservices-config
+
+# Zipkin server binary
+**/*.jar
