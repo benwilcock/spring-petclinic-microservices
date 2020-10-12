@@ -1,5 +1,6 @@
 package com.vmware.trellis.configchecker;
 
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -18,9 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class ConfigCheckerApplication {
 
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(ConfigCheckerApplication.class, args);
 	}
+
 
 	@RefreshScope
 	@RestController
@@ -31,6 +35,7 @@ public class ConfigCheckerApplication {
 
 		@GetMapping("/message")
 		String getMessage() {
+		    log.info("Sending greeting message '{}'", this.message);
 			return this.message;
 		}
 
@@ -46,7 +51,7 @@ public class ConfigCheckerApplication {
 
 		@Scheduled(fixedRate = 30000)
 		void logMessage(){
-			log.info("Configuration message is set to: {}", message);
+			log.info("Configuration greeting message is set to: {}", message);
 		}
 	}
 

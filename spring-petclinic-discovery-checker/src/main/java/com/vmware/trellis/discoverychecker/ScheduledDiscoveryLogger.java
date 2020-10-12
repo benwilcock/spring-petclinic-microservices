@@ -28,7 +28,7 @@ public class ScheduledDiscoveryLogger {
 
     @SneakyThrows
     @Scheduled(fixedRate = 30000)
-    private void checkRegistry() {
+    protected void checkRegistry() {
         List<String> serviceIds = this.discoveryChecker.getServiceList();
         serviceIds.stream().forEach(s -> log.info("Found listing in registry for application: {}", s));
         serviceIds.stream().forEach(s -> log.info("Known Instances: {}", this.discoveryChecker.getServiceInstancesByApplicationName(s)));
