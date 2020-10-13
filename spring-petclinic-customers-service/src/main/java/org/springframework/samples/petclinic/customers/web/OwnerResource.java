@@ -49,6 +49,7 @@ class OwnerResource {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Owner createOwner(@Valid @RequestBody Owner owner) {
+        log.info("Creating new Owner {}", owner.getLastName());
         return ownerRepository.save(owner);
     }
 
@@ -57,6 +58,7 @@ class OwnerResource {
      */
     @GetMapping(value = "/{ownerId}")
     public Optional<Owner> findOwner(@PathVariable("ownerId") int ownerId) {
+        log.info("Getting Ownder with Id {}", ownerId);
         return ownerRepository.findById(ownerId);
     }
 
@@ -65,6 +67,7 @@ class OwnerResource {
      */
     @GetMapping
     public List<Owner> findAll() {
+        log.info("Getting all owners");
         return ownerRepository.findAll();
     }
 
@@ -74,6 +77,7 @@ class OwnerResource {
     @PutMapping(value = "/{ownerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateOwner(@PathVariable("ownerId") int ownerId, @Valid @RequestBody Owner ownerRequest) {
+        log.info("Updating Owner with Id {}", ownerId);
         final Optional<Owner> owner = ownerRepository.findById(ownerId);
 
         final Owner ownerModel = owner.orElseThrow(() -> new ResourceNotFoundException("Owner "+ownerId+" not found"));

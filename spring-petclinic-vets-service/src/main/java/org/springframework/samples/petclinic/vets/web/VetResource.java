@@ -45,7 +45,7 @@ class VetResource {
 
     @GetMapping
     public List<Vet> showResourcesVetList() {
-        log.info("Getting all the vets...");
+        log.info("Getting the list of Vets");
         return vetRepository.findAll();
     }
 }

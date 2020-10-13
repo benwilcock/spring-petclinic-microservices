@@ -53,7 +53,6 @@ class VisitResource {
     Visit create(
         @Valid @RequestBody Visit visit,
         @PathVariable("petId") int petId) {
-
         visit.setPetId(petId);
         log.info("Saving visit {}", visit);
         return visitRepository.save(visit);
@@ -61,11 +60,13 @@ class VisitResource {
 
     @GetMapping("owners/*/pets/{petId}/visits")
     List<Visit> visits(@PathVariable("petId") int petId) {
+        log.info("Getting all visits for Pet with Id {}", petId);
         return visitRepository.findByPetId(petId);
     }
 
     @GetMapping("pets/visits")
     Visits visitsMultiGet(@RequestParam("petId") List<Integer> petIds) {
+        log.info("Getting all visits for Pets with Ids '{}'", petIds);
         final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);
         return new Visits(byPetIdIn);
     }

@@ -7,27 +7,18 @@
 # Stop everything
 sh stop-all-on-tas.sh
 
+echo 'pushing bens-zipkin-server'
+cd spring-petclinic-zipkin-server
+cf push -f manifest.yml
+cd ..
+
 echo 'pushing bens-config-server'
 cd spring-petclinic-config-server
 cf push -f manifest.yml
 cd ..
 
-echo 'pushing bens-config-checker'
-cd spring-petclinic-config-checker
-cf push -f manifest.yml
-cd ..
-
-echo 'Testing that the config server is working...'
-http bens-config-checker.apps.tas.tanzu-demo.net/message
-echo 'If the message was not what was expected, stop now'
-
 echo 'pushing bens-discovery-server'
 cd spring-petclinic-discovery-server
-cf push -f manifest.yml
-cd ..
-
-echo 'pushing bens-discovery-checker'
-cd spring-petclinic-discovery-checker
 cf push -f manifest.yml
 cd ..
 
@@ -36,8 +27,13 @@ cd spring-petclinic-admin-server
 cf push -f manifest.yml
 cd ..
 
-echo 'pushing bens-zipkin-server'
-cd spring-petclinic-zipkin-server
+echo 'pushing bens-config-checker'
+cd spring-petclinic-config-checker
+cf push -f manifest.yml
+cd ..
+
+echo 'pushing bens-discovery-checker'
+cd spring-petclinic-discovery-checker
 cf push -f manifest.yml
 cd ..
 

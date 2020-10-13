@@ -2,6 +2,7 @@
 
 echo "Stopping traffic & restarting the Config server first..."
 cf stop bens-api-gateway-service &
+cf restart bens-zipkin-server
 cf restart bens-config-server
 wait
 

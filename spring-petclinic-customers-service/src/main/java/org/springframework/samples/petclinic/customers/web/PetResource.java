@@ -43,6 +43,7 @@ class PetResource {
 
     @GetMapping("/petTypes")
     public List<PetType> getPetTypes() {
+        log.info("Gettinga a list of pet types.");
         return petRepository.findPetTypes();
     }
 
@@ -51,7 +52,7 @@ class PetResource {
     public Pet processCreationForm(
         @RequestBody PetRequest petRequest,
         @PathVariable("ownerId") int ownerId) {
-
+        log.info("Creating Pet '{}' for Owner with Id {}", petRequest.getName(), ownerId);
         final Pet pet = new Pet();
         final Optional<Owner> optionalOwner = ownerRepository.findById(ownerId);
         Owner owner = optionalOwner.orElseThrow(() -> new ResourceNotFoundException("Owner "+ownerId+" not found"));
@@ -63,6 +64,7 @@ class PetResource {
     @PutMapping("/owners/*/pets/{petId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void processUpdateForm(@RequestBody PetRequest petRequest) {
+        log.info("Updating Pet with Id {}", petRequest.getId());
         int petId = petRequest.getId();
         Pet pet = findPetById(petId);
         save(pet, petRequest);
@@ -82,6 +84,7 @@ class PetResource {
 
     @GetMapping("owners/*/pets/{petId}")
     public PetDetails findPet(@PathVariable("petId") int petId) {
+        log.info("Getting Pet with Id {}", petId);
         return new PetDetails(findPetById(petId));
     }
 

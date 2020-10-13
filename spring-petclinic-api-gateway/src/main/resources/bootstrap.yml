@@ -4,7 +4,9 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
-
+  sleuth:
+    reactor:
+      decorate-on-each: false
 ---
 spring:
   profiles: docker
@@ -18,4 +20,3 @@ spring:
   cloud:
     config:
       uri: http://bens-config-server.apps.tas.tanzu-demo.net
-      #uri: http://bens-config-server.apps.tas.workload.tkglab.tanzu-demo.net

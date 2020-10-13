@@ -16,6 +16,7 @@
 package org.springframework.samples.petclinic.api.application;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.samples.petclinic.api.dto.Visits;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -28,6 +29,7 @@ import static java.util.stream.Collectors.joining;
 /**
  * @author Maciej Szarlinski
  */
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class VisitsServiceClient {
@@ -38,6 +40,7 @@ public class VisitsServiceClient {
     private final WebClient.Builder webClientBuilder;
 
     public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {
+        log.info("Getting visits for Pet(s) `{}`", petIds);
         return webClientBuilder.build()
             .get()
             .uri(hostname + "pets/visits?petId={petId}", joinIds(petIds))
