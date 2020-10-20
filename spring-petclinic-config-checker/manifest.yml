@@ -6,7 +6,8 @@ applications:
     disk_quota: 1G
     env:
       SPRING_PROFILES_ACTIVE: 'tas'
-      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+      BP_JVM_VERSION: 11
+#      JAVA_OPTS: '-agentlib:jdwp=transport=dt_socket,server=n,address=2.102.146.44:5005,suspend=y'
     instances: 1
     memory: 1G
     health-check-type: http

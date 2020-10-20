@@ -20,3 +20,8 @@ spring:
   cloud:
     config:
       uri: http://bens-config-server.apps.tas.tanzu-demo.net
+#logging:
+#  level:
+#    root: INFO
+#    org.springframework.cloud.sleuth.instrument.web: DEBUG
+#    io.zipkin.brave: DEBUG
