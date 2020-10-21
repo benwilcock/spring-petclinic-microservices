@@ -1,10 +1,10 @@
 # Spring PetClinic Microservices Sample for Tanzu Application Service (TAS)
 
+> NOTE: Requires Java 11 to be installed locally. I use the excellent SDKMan to install JDK's and switch on demand.
+
 This microservices branch was initially derived from [spring-petclinic-microservices version](https://github.com/spring-petclinic/spring-petclinic-microservices) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal we use Spring Cloud API Gateway, Spring Cloud Config, Spring Cloud Sleuth, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
 
-> NOTE: The Config Server and the Zipkin Server do NOT require or use the Discovery Server or any other microservices. They act in isolation.
-
-After cloning this code repository, decide if you want to run locally on your PC or remotely on Tanzu Application Service and then follow the instructions below.
+Decide if you want to run locally on your PC or remotely on Tanzu Application Service and then follow the relevant instructions below.
 
 ## In All Cases: Modify The Config Server
 
@@ -60,6 +60,8 @@ Each application requires an environment variable named `PORT` to be set at runt
 Applications marked as 'optional' in the table above are not required.
 
 The boot order specified in the table above is important. The Config Server must start first, followed by the Discovery Server. The API Gateway contains the UI code, so generally it's advisable to start this service last. All the other services can be started inbetween. Applications with the same boot order in the table can be started together if desired.
+
+> NOTE: The Config Server and the Zipkin Server do NOT require or use the Discovery Server or any other microservices.
 
 #### [Optional] Run The Config Server Locally Using Cloned Configuration
 
