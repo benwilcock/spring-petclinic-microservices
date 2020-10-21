@@ -1,22 +1,24 @@
-# Spring PetClinic Microservices Sample for Tanzu Application Service (TAS)
+# Spring Petclinic Microservices Sample for Tanzu Application Service (TAS)
 
 > NOTE: Requires Java 11 to be installed locally. I use the excellent SDKMan to install JDK's and switch on demand.
 
 This microservices branch was initially derived from [spring-petclinic-microservices version](https://github.com/spring-petclinic/spring-petclinic-microservices) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal we use Spring Cloud API Gateway, Spring Cloud Config, Spring Cloud Sleuth, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
 
-Decide if you want to run locally on your PC or remotely on Tanzu Application Service and then follow the relevant instructions below.
+Decide if you want to run locally on your PC or remotely on [Tanzu Application Service](https://tanzu.vmware.com/application-service) and then follow the relevant instructions below.
 
-## In All Cases: Modify The Config Server
+## All Cases: Configure The Config Server
 
-The Config Server is the source of most of the configuration properties used in this Petclinic Microservices demo. To get a copy of the configuration files that you can modify, you must fork the configuration repository at [https://github.com/benwilcock/spring-petclinic-microservices-config](https://github.com/benwilcock/spring-petclinic-microservices-config) into a folder. 
+The Config Server is the source of most of the configuration properties used in this Petclinic Microservices demo. 
+
+Step one is to get a copy of the configuration files that you can modify. To do this you must fork the configuration repository at [https://github.com/benwilcock/spring-petclinic-microservices-config](https://github.com/benwilcock/spring-petclinic-microservices-config). 
 
 To tell your Config Server to use _your_ forked configuration, change the `spring.cloud.config.server.git.uri` property in the `bootstrap.yml` file located in the `src/main/resources` folder of the `spring-petclinic-config-server`. Change this setting to use the URI of your forked configuration repository, for example: `https://github.com/<your-github-username>/spring-petclinic-microservices-config`
 
 > When you make changes to the files in this repository, be sure to commit and push your changes back to your fork and restart any applications who's configuration has been modified.
 
-## In All Cases: Finding the Configuration Server At Runtime From Other Applications
+Because the config server is the primary location for all the application config, you'll notice that the Spring Boot applications themselves have exceptionally light configuration files within their `src/main/resources` folders. Generally, only a `bootstrap.yml` file has been provided, and its configuration limited to the application name property, and the location of the config server for each possible Spring profile. 
 
-Because the config server is the primary location for all the application config, you'll notice that the Spring Boot applications themselves have exceptionally light configuration files within their `src/main/resources` folders. Generally, only a `bootstrap.yml` file has been provided, and its configuration limited to the application name property and the location of the config server for each possible Spring profile. For example, if you examine the Discovery Server applications `src/main/resources/bootstrap.yml` file, you'll see only the following items:
+For example, if you examine the Discovery Server's `src/main/resources/bootstrap.yml` file, you'll see only the following items:
 
 ```yaml
 spring:
@@ -34,15 +36,17 @@ spring:
       uri: http://bens-config-server.apps.tas.tanzu-demo.net
 ```
 
-In the example the config server uri is expected to be local (at `http://localhost:8888`), but when the `tas` profile is active, the config server is expected to be remote (at `http://bens-config-server.apps.tas.tanzu-demo.net`). 
+In this example, the config server uri is expected to be hosted locally at `http://localhost:8888`, but when the `tas` profile is active, the config server is expected to be hosted remotely at `http://bens-config-server.apps.tas.tanzu-demo.net`. 
+
+> NOTE: When running locally, no change to this configuration is required - the default setting of http://localhost:8888 should work if the Config Server is running on the correct port. When running on TAS a small change to this configuration is required and is detailed later in the 'Running The Petclinic Microservices on TAS' instructions.
 
 ## Running The Petclinic Microservices Locally
 
-Every microservice in the sample is a Java application and therefore each can be started locally using your Java IDE.
+Every microservice in the sample is a Java application and therefore each can be run locally using your Java IDE.
 
 #### Start The Applications
 
-Each application requires an environment variable named `PORT` to be set at runtime. Without a `PORT` setting, generally the applications will refuse to start or clash with others already running. Configuring your apps to run in the IDE is particularly convenient for handling this aspect of operations as you can create a 'run' configuration specific to each application in the sample. Each run configuration can include the correct PORT setting as shown in the table below:
+Each application requires an environment variable named `PORT` to be set at runtime. Without a `PORT` setting, generally the applications will refuse to start or clash with others already running. Configuring your apps to run in the IDE is particularly convenient as most allow you to create a 'run' configuration that's specific to each application in the project. Each of these run configurations can include the correct PORT setting as shown in the table below:
 
 | Service | Port | Boot Order | Optional? |
 |---------|:----:|:----------:|:---------:|
@@ -57,13 +61,11 @@ Each application requires an environment variable named `PORT` to be set at runt
 | Zipkin Tracing Server | 9411 | 2 | Yes |
 | [Api Gateway Service (Petclinic UI)](http://localhost:8080) | 8080 | 4 | No |
 
-Applications marked as 'optional' in the table above are not required.
-
-The boot order specified in the table above is important. The Config Server must start first, followed by the Discovery Server. The API Gateway contains the UI code, so generally it's advisable to start this service last. All the other services can be started inbetween. Applications with the same boot order in the table can be started together if desired.
+The boot order specified in the table above is important. The Config Server must start first, followed by the Discovery Server. The API Gateway contains the UI code, so generally it's advisable to start this service last. All the other services can be started inbetween. Applications with the same boot order in the table can be started together if desired. Applications marked as 'optional' in the table above are not required.
 
 > NOTE: The Config Server and the Zipkin Server do NOT require or use the Discovery Server or any other microservices.
 
-#### [Optional] Run The Config Server Locally Using Cloned Configuration
+#### [Optional] Run The Config Server Locally Using A Clone Of The Configuration Repository
 
 A `native` profile exists which allows you to set the local filesystem as the location of the configuration repository. This means that you don't have to rely on GitHub being available or files being pushed when testing. You can activate and control the location of the configuration folder with the following VM options. Use these options when starting the config server:
 
@@ -72,7 +74,7 @@ A `native` profile exists which allows you to set the local filesystem as the lo
 -DGIT_REPO=/<path-to-forked-and-cloned-folder-location>/spring-petclinic-microservices-config
 ```
 
-#### Visit The Petclinic
+#### Visit The Local Petclinic
 
 When all the applications have started, point your browser to [http://localhost:8080](http://localhost:8080) to visit the homepage of the Petclinic Microservices application. If all is well, visiting the 'Veterinarians' page will show a list of their names. 
 
@@ -144,13 +146,13 @@ To simplify this process bash scripts and manifests have been provided. It's rec
 
 The manifest for each application tells TAS where to find the local code package bundle and which environment properties to set. The environment properties are important - they set the `SPRING_PROFILES_ACTIVE` to `tas`. This profile ensures that the correct configuration gets downloaded from the Config Server. Without this profile, the apps in TAS won't be correctly configured.
 
-#### Visit The Petclinic
+#### Visit The Petclinic On TAS
 
 When all the applications have started, use the URL of the `spring-petclinic-api-gateway` application in your browser to visit the homepage of the Petclinic Microservices application. If all is well, visiting the 'Veterinarians' page will show a list of their names. If your unsure of the URL, use the `cf apps` command to obtain a list of all the running applications, their status, and their URL's.
 
-## How Configuration Works
+## How Cloud Based Configuration Works
 
-In your forked and cloned [configuration repository][Configuration repository] you'll notice the file `application-tas.yml`. When the `tas` profile is active, the configuration in this file is layered over the configuration in the `application.yml` and any application specific configuration is also added (such as `customers-service.yml` as an example). It is the combination of these three files which ultimately provide the configuration used by the application at runtime. The following table is intended to help clarify the configuration process.
+In your forked and cloned [configuration repository][Configuration repository] you'll notice the file `application-tas.yml`. When the `tas` profile is active, the configuration in this file is layered over the configuration in the `application.yml` and any application specific configuration is also added (such as `customers-service.yml` for example). It is the combination of these three files which ultimately provide the configuration used by the application at runtime. The following table clarifies what happens during the configuration process.
 
 | Configuration File | Location | Description |
 | :------- | :-----------: | :------ |
