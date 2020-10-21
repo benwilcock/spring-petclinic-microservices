@@ -2,7 +2,7 @@
 
 > NOTE: Requires Java 11 to be installed locally. I use the excellent SDKMan to install JDK's and switch on demand.
 
-This microservices branch was initially derived from [spring-petclinic-microservices version](https://github.com/spring-petclinic/spring-petclinic-microservices) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal we use Spring Cloud API Gateway, Spring Cloud Config, Spring Cloud Sleuth, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
+This microservices branch was initially derived from [spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal we use Spring Cloud API Gateway, Spring Cloud Config, Spring Cloud Sleuth, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
 
 Decide if you want to run locally on your PC or remotely on [Tanzu Application Service](https://tanzu.vmware.com/application-service) and then follow the relevant instructions below.
 
