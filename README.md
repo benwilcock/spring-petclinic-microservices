@@ -1,69 +1,172 @@
-# Distributed version of the Spring PetClinic Sample Application built with Spring Cloud 
+# Spring PetClinic Microservices Sample for Tanzu Application Service (TAS)
 
-[![Build Status](https://travis-ci.org/spring-petclinic/spring-petclinic-microservices.svg?branch=master)](https://travis-ci.org/spring-petclinic/spring-petclinic-microservices/) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+This microservices branch was initially derived from [spring-petclinic-microservices version](https://github.com/spring-petclinic/spring-petclinic-microservices) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal we use Spring Cloud API Gateway, Spring Cloud Config, Spring Cloud Sleuth, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
 
-This microservices branch was initially derived from [AngularJS version](https://github.com/spring-petclinic/spring-petclinic-angular1) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html).
-To achieve that goal we use Spring Cloud Gateway, Spring Cloud Circuit Breaker, Spring Cloud Config, Spring Cloud Sleuth, Resilience4j, Micrometer 
-and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
+> NOTE: The Config Server and the Zipkin Server do NOT require or use the Discovery Server or any other microservices. They act in isolation.
 
-## Starting services locally without Docker
+After cloning this code repository, decide if you want to run locally on your PC or remotely on Tanzu Application Service and then follow the instructions below.
 
-Every microservice is a Spring Boot application and can be started locally using IDE ([Lombok](https://projectlombok.org/) plugin has to be set up) or `../mvnw spring-boot:run` command. Please note that supporting services (Config and Discovery Server) must be started before any other application (Customers, Vets, Visits and API).
-Startup of Tracing server, Admin server, Grafana and Prometheus is optional.
-If everything goes well, you can access the following services at given location:
-* Discovery Server - http://localhost:8761
-* Config Server - http://localhost:8888
-* AngularJS frontend (API Gateway) - http://localhost:8080
-* Customers, Vets and Visits Services - random port, check Eureka Dashboard 
-* Tracing Server (Zipkin) - http://localhost:9411/zipkin/ (we use [openzipkin](https://github.com/openzipkin/zipkin/tree/master/zipkin-server))
-* Admin Server (Spring Boot Admin) - http://localhost:9090
-* Grafana Dashboards - http://localhost:3000
-* Prometheus - http://localhost:9091
+## In All Cases: Modify The Config Server
 
-You can tell Config Server to use your local Git repository by using `native` Spring profile and setting
-`GIT_REPO` environment variable, for example:
-`-Dspring.profiles.active=native -DGIT_REPO=/projects/spring-petclinic-microservices-config`
+The Config Server is the source of most of the configuration properties used in this Petclinic Microservices demo. To get a copy of the configuration files that you can modify, you must fork the configuration repository at [https://github.com/benwilcock/spring-petclinic-microservices-config](https://github.com/benwilcock/spring-petclinic-microservices-config) into a folder. 
 
-## Starting services locally with docker-compose
-In order to start entire infrastructure using Docker, you have to build images by executing `./mvnw clean install -P buildDocker` 
-from a project root. Once images are ready, you can start them with a single command
-`docker-compose up`. Containers startup order is coordinated with [`dockerize` script](https://github.com/jwilder/dockerize). 
-After starting services it takes a while for API Gateway to be in sync with service registry,
-so don't be scared of initial Spring Cloud Gateway timeouts. You can track services availability using Eureka dashboard
-available by default at http://localhost:8761.
+To tell your Config Server to use _your_ forked configuration, change the `spring.cloud.config.server.git.uri` property in the `bootstrap.yml` file located in the `src/main/resources` folder of the `spring-petclinic-config-server`. Change this setting to use the URI of your forked configuration repository, for example: `https://github.com/<your-github-username>/spring-petclinic-microservices-config`
 
-The `master` branch uses an  Alpine linux  with JRE 8 as Docker base. You will find a Java 11 version in the `release/java11` branch.
+> When you make changes to the files in this repository, be sure to commit and push your changes back to your fork and restart any applications who's configuration has been modified.
 
-*NOTE: Under MacOSX or Windows, make sure that the Docker VM has enough memory to run the microservices. The default settings
-are usually not enough and make the `docker-compose up` painfully slow.*
+## In All Cases: Finding the Configuration Server At Runtime From Other Applications
 
-## Understanding the Spring Petclinic application
+Because the config server is the primary location for all the application config, you'll notice that the Spring Boot applications themselves have exceptionally light configuration files within their `src/main/resources` folders. Generally, only a `bootstrap.yml` file has been provided, and its configuration limited to the application name property and the location of the config server for each possible Spring profile. For example, if you examine the Discovery Server applications `src/main/resources/bootstrap.yml` file, you'll see only the following items:
 
-[See the presentation of the Spring Petclinic Framework version](http://fr.slideshare.net/AntoineRey/spring-framework-petclinic-sample-application)
+```yaml
+spring:
+  application:
+    name: discovery-server
+  cloud:
+    config:
+      uri: http://localhost:8888
 
-[A blog bost introducing the Spring Petclinic Microsevices](http://javaetmoi.com/2018/10/architecture-microservices-avec-spring-cloud/) (french language)
+---
+spring:
+  profiles: tas
+  cloud:
+    config:
+      uri: http://bens-config-server.apps.tas.tanzu-demo.net
+```
 
-You can then access petclinic here: http://localhost:8080/
+In the example the config server uri is expected to be local (at `http://localhost:8888`), but when the `tas` profile is active, the config server is expected to be remote (at `http://bens-config-server.apps.tas.tanzu-demo.net`). 
 
-![Spring Petclinic Microservices screenshot](docs/application-screenshot.png)
+## Running The Petclinic Microservices Locally
 
+Every microservice in the sample is a Java application and therefore each can be started locally using your Java IDE.
 
-**Architecture diagram of the Spring Petclinic Microservices**
+#### Start The Applications
 
-![Spring Petclinic Microservices architecture](docs/microservices-architecture-diagram.jpg)
+Each application requires an environment variable named `PORT` to be set at runtime. Without a `PORT` setting, generally the applications will refuse to start or clash with others already running. Configuring your apps to run in the IDE is particularly convenient for handling this aspect of operations as you can create a 'run' configuration specific to each application in the sample. Each run configuration can include the correct PORT setting as shown in the table below:
 
+| Service | Port | Boot Order | Optional? |
+|---------|:----:|:----------:|:---------:|
+| Config Server | 8888 | 1 | No |
+| Discovery Server | 8761 | 2 | No |
+| Vets Microservice | 8083 | 3 | No |
+| Visits Microservice | 8082 | 3 | No |
+| Customers Microservice| 8081 | 3 | No |
+| [Spring Boot Admin Server](http://localhost:9090) | 9090 | 3 | Yes |
+| Config Checker | 9091 | 3 | Yes |
+| Discovery Checker | 9092 | 3 | Yes |
+| Zipkin Tracing Server | 9411 | 2 | Yes |
+| [Api Gateway Service (Petclinic UI)](http://localhost:8080) | 8080 | 4 | No |
 
-## In case you find a bug/suggested improvement for Spring Petclinic Microservices
+Applications marked as 'optional' in the table above are not required.
 
-Our issue tracker is available here: https://github.com/spring-petclinic/spring-petclinic-microservices/issues
+The boot order specified in the table above is important. The Config Server must start first, followed by the Discovery Server. The API Gateway contains the UI code, so generally it's advisable to start this service last. All the other services can be started inbetween. Applications with the same boot order in the table can be started together if desired.
 
-## Database configuration
+#### [Optional] Run The Config Server Locally Using Cloned Configuration
 
-In its default configuration, Petclinic uses an in-memory database (HSQLDB) which gets populated at startup with data.
+A `native` profile exists which allows you to set the local filesystem as the location of the configuration repository. This means that you don't have to rely on GitHub being available or files being pushed when testing. You can activate and control the location of the configuration folder with the following VM options. Use these options when starting the config server:
+
+```
+-Dspring.profiles.active=native
+-DGIT_REPO=/<path-to-forked-and-cloned-folder-location>/spring-petclinic-microservices-config
+```
+
+#### Visit The Petclinic
+
+When all the applications have started, point your browser to [http://localhost:8080](http://localhost:8080) to visit the homepage of the Petclinic Microservices application. If all is well, visiting the 'Veterinarians' page will show a list of their names. 
+
+> Notice how the API Gateway provides a dual function - hosting the UI and routing REST requests to vets, visits, and customers.
+
+## Running The Petclinic Microservices on TAS
+
+Running the Petclinic Microservices demo on Tanzu Application Service requires some reconfiguration, re-packaging and "pushing" of the applications to your preferred Org and Space.
+
+#### Specify the Config Server Location For Each Application
+
+When running on TAS, the Config Server is no longer hosted locally and won't be found automatically by the applications that need it. This means that in each application's `src/main/resources/bootstrap.yml`, you must change the `spring.cloud.config.uri` property for the `tas` profile to correctly identify the location of your `spring-petclinic-config-server` application. For example:
+
+```yaml
+---
+spring:
+  profiles: tas
+  cloud:
+    config:
+      uri: http://<your-config-server-uri>
+``` 
+
+If the configuration server can't be found, the applications tend not to start successfully.
+
+> The only applications that don't require this change are the Config Server and the Zipkin Server which isn't a Spring Boot application.
+
+#### Specify the Discovery Server Location For All Applications
+
+When running on TAS, the Discovery Server is no longer hosted locally and won't be found automatically. As this configuration is shared with all applications via the Config Server, you only have to make a single change and it will affect all the apps.
+
+In the `application-tas.yml` file in your fork of the configuration repository, change the `eureka.client.serviceUrl.defaultZone` property in the `tas` profile to the location of your discovery server as follows:
+
+```yaml
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://<your-discovery-server-uri>/eureka
+```
+
+> If the apps are running, you should restart them so that they can pick up their new configuration.
+
+#### [Optional] Specify the Zipkin Server Location For All Applications
+
+When running on TAS, the Zipkin Server is no longer hosted locally and won't be found automatically. As this configuration is shared by all applications via the Config Server, you only have to make a single change.
+
+In the `application-tas.yml` file in your fork of the configuration repository, change the `spring.zipkin.baseUrl` property in the `tas` profile to the location of your discovery server as follows:
+
+```yaml
+spring:
+  profiles: tas
+  zipkin:
+    baseUrl: http://<your-zipkin-uri>:80
+```
+
+> If the apps are running, you should restart them so that they can pick up their new configuration.
+
+#### Rebuild, Package, And "push" The Petclinic Microservices
+
+To simplify this process bash scripts and manifests have been provided. It's recommended that you use these scripts, or at least make yourself familiar with their contents. These scripts are intended to automate the process of building and running the Petclinic Microservices on TAS. They scripts rely heavily on the `cf` command line tool. You must install the `cf` tool before proceeding.
+
+> [Docs: Installing the CF Cli](https://github.com/cloudfoundry/cli/wiki/V6-CLI-Installation-Guide)
+
+| Script | Purpose |
+| :------ |:------- |
+| build-and-deploy-all-to-tas.sh | Uses Maven Wrapper to build the code, then pushes each component to TAS using the Manifests provided. |
+| restart-all-on-tas.sh | Stops and starts all the applications in an orderly fashion. |
+| stop-all-on-tas.sh | Stops all the Petclinic applications but does not delete them. |
+| delete-all-on-tas.sh | Deletes all the applications from TAS. |
+
+The manifest for each application tells TAS where to find the local code package bundle and which environment properties to set. The environment properties are important - they set the `SPRING_PROFILES_ACTIVE` to `tas`. This profile ensures that the correct configuration gets downloaded from the Config Server. Without this profile, the apps in TAS won't be correctly configured.
+
+#### Visit The Petclinic
+
+When all the applications have started, use the URL of the `spring-petclinic-api-gateway` application in your browser to visit the homepage of the Petclinic Microservices application. If all is well, visiting the 'Veterinarians' page will show a list of their names. If your unsure of the URL, use the `cf apps` command to obtain a list of all the running applications, their status, and their URL's.
+
+## How Configuration Works
+
+In your forked and cloned [configuration repository][Configuration repository] you'll notice the file `application-tas.yml`. When the `tas` profile is active, the configuration in this file is layered over the configuration in the `application.yml` and any application specific configuration is also added (such as `customers-service.yml` as an example). It is the combination of these three files which ultimately provide the configuration used by the application at runtime. The following table is intended to help clarify the configuration process.
+
+| Configuration File | Location | Description |
+| :------- | :-----------: | :------ |
+| bootstrap.yml | packaged in the JAR | Contains the application's given name and the location of the config server for each profile. |
+| application.yml | configuration repo | Common properties used by all the Spring Boot applications in the demo.
+| application-tas.yml | configuration repo | Configuration overrides that should be used by all applications when running under the `tas` profile. |
+| vets-service.yml | configuration repo | Configuration that is exclusive the the Vets microservice. |
+
+## In-Memory Petclinic Databases (Default In All Cases)
+
+In its default configuration, the Petclinic applications use an in-memory database (HSQLDB). The database gets populated at startup with sample data, so the applications are ready to use.
+
+## MySQL Petclinic Databases (Optional, In All Cases)
+
 A similar setup is provided for MySql in case a persistent database configuration is needed.
 Dependency for Connector/J, the MySQL JDBC driver is already included in the `pom.xml` files.
 
-### Start a MySql database
+#### Start a MySql Database
 
 You may start a MySql database with docker:
 
@@ -72,14 +175,13 @@ docker run -e MYSQL_ROOT_PASSWORD=petclinic -e MYSQL_DATABASE=petclinic -p 3306:
 ```
 or download and install the MySQL database (e.g., MySQL Community Server 5.7 GA), which can be found here: https://dev.mysql.com/downloads/
 
-### Use the Spring 'mysql' profile
+#### Use the Spring 'mysql' profile
 
 To use a MySQL database, you have to start 3 microservices (`visits-service`, `customers-service` and `vets-services`)
-with the `mysql` Spring profile. Add the `--spring.profiles.active=mysql` as programm argument.
+with the `mysql` Spring profile. Add the `--spring.profiles.active=mysql` as program argument.
 
-By default, at startup, database schema will be created and data will be populated.
-You may also manually create the PetClinic database and data by executing the `"db/mysql/{schema,data}.sql"` scripts of each 3 microservices. 
-In the `application.yml` of the [Configuration repository], set the `initialization-mode` to `never`.
+By default, at startup, the database schema will be created and the sample data will be populated.
+You may also manually create the PetClinic database and data by executing the `"db/mysql/{schema,data}.sql"` scripts of each 3 data driven microservices (vets, visits, and customers). In the `application.yml` of the [Configuration repository], set the `initialization-mode` to `never`.
 
 If you are running the microservices with Docker, you have to add the `mysql` profile into the (Dockerfile)[docker/Dockerfile]:
 ```
@@ -88,74 +190,9 @@ ENV SPRING_PROFILES_ACTIVE docker,mysql
 In the `mysql section` of the `application.yml` from the [Configuration repository], you have to change 
 the host and port of your MySQL JDBC connection string. 
 
-## Custom metrics monitoring
-
-Grafana and Prometheus are included in the `docker-compose.yml` configuration, and the public facing applications
-have been instrumented with [MicroMeter](https://micrometer.io) to collect JVM and custom business metrics.
-
-A JMeter load testing script is available to stress the application and generate metrics: [petclinic_test_plan.jmx](spring-petclinic-api-gateway/src/test/jmeter/petclinic_test_plan.jmx)
-
-![Grafana metrics dashboard](docs/grafana-custom-metrics-dashboard.png)
-
-### Using Prometheus
-
-* Prometheus can be accessed from your local machine at http://localhost:9091
-
-### Using Grafana with Prometheus
-
-* An anonymous access and a Prometheus datasource are setup.
-* A `Spring Petclinic Metrics` Dashboard is available at the URL http://localhost:3000/d/69JXeR0iw/spring-petclinic-metrics.
-You will find the JSON configuration file here: [docker/grafana/dashboards/grafana-petclinic-dashboard.json]().
-* You may create your own dashboard or import the [Micrometer/SpringBoot dashboard](https://grafana.com/dashboards/4701) via the Import Dashboard menu item.
-The id for this dashboard is `4701`.
-
-### Custom metrics
-Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback... 
-The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.
-All those three REST controllers `OwnerResource`, `PetResource` and `VisitResource` have been instrumented by the `@Timed` Micrometer annotation at class level.
-
-* `customers-service` application has the following custom metrics enabled:
-  * @Timed: `petclinic.owner`
-  * @Timed: `petclinic.pet`
-* `visits-service` application has the following custom metrics enabled:
-  * @Timed: `petclinic.visit`
-
-## Looking for something in particular?
-
-| Spring Cloud components         | Resources  |
-|---------------------------------|------------|
-| Configuration server            | [Config server properties](spring-petclinic-config-server/src/main/resources/application.yml) and [Configuration repository] |
-| Service Discovery               | [Eureka server](spring-petclinic-discovery-server) and [Service discovery client](spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/VetsServiceApplication.java) |
-| API Gateway                     | [Spring Cloud Gateway starter](spring-petclinic-api-gateway/pom.xml) and [Routing configuration](/spring-petclinic-api-gateway/src/main/resources/application.yml) |
-| Docker Compose                  | [Spring Boot with Docker guide](https://spring.io/guides/gs/spring-boot-docker/) and [docker-compose file](docker-compose.yml) |
-| Circuit Breaker                 | [Resilience4j fallback method](spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java)  |
-| Grafana / Prometheus Monitoring | [Micrometer implementation](https://micrometer.io/), [Spring Boot Actuator Production Ready Metrics] |
-
- Front-end module  | Files |
-|-------------------|-------|
-| Node and NPM      | [The frontend-maven-plugin plugin downloads/installs Node and NPM locally then runs Bower and Gulp](spring-petclinic-ui/pom.xml)  |
-| Bower             | [JavaScript libraries are defined by the manifest file bower.json](spring-petclinic-ui/bower.json)  |
-| Gulp              | [Tasks automated by Gulp: minify CSS and JS, generate CSS from LESS, copy other static resources](spring-petclinic-ui/gulpfile.js)  |
-| Angular JS        | [app.js, controllers and templates](spring-petclinic-ui/src/scripts/)  |
-
-
-## Interesting Spring Petclinic forks
+## The Original Spring Petclinic
 
 The Spring Petclinic `main` branch in the main [spring-projects](https://github.com/spring-projects/spring-petclinic)
 GitHub org is the "canonical" implementation, currently based on Spring Boot and Thymeleaf.
 
-This [spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices/) project is one of the [several forks](https://spring-petclinic.github.io/docs/forks.html) 
-hosted in a special GitHub org: [spring-petclinic](https://github.com/spring-petclinic).
-If you have a special interest in a different technology stack
-that could be used to implement the Pet Clinic then please join the community there.
-
-
-# Contributing
-
-The [issue tracker](https://github.com/spring-petclinic/spring-petclinic-microservices/issues) is the preferred channel for bug reports, features requests and submitting pull requests.
-
-For pull requests, editor preferences are available in the [editor config](.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
-
-
-[Configuration repository]: https://github.com/spring-petclinic/spring-petclinic-microservices-config
-[Spring Boot Actuator Production Ready Metrics]: https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-metrics.html
+[Configuration repository]: https://github.com/benwilcock/spring-petclinic-microservices-config
