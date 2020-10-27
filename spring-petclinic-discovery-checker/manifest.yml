@@ -1,8 +1,6 @@
 applications:
   - name: bens-discovery-checker
     path: target/spring-petclinic-discovery-checker-2.3.4.jar
-    buildpacks:
-      - java_buildpack
     disk_quota: 1G
     env:
       SPRING_PROFILES_ACTIVE: 'tas'

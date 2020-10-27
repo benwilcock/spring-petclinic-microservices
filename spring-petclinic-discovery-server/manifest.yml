@@ -1,8 +1,6 @@
 applications:
   - name: bens-discovery-server
     path: target/spring-petclinic-discovery-server-2.3.4.jar
-    buildpacks:
-      - java_buildpack
     disk_quota: 1G
     env:
       SPRING_PROFILES_ACTIVE: 'tas'

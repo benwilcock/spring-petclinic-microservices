@@ -60,11 +60,8 @@ cd ..
 echo 'Sleeping for 30s so that services can finish registering...'
 sleep 30s
 
-echo 'Testing the the discovery service registry...'
-http bens-discovery-checker.apps.tas.tanzu-demo.net/services
-
 echo 'Testing the Petclinic Homepage is responding...'
-http bens-api-gateway-service.apps.tas.tanzu-demo.net
+http bens-api-gateway-service.tas.tanzu-demo.net
 
 echo 'done'
 exit 0
