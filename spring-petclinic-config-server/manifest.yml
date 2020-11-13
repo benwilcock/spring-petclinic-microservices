@@ -3,7 +3,10 @@ applications:
     path: target/spring-petclinic-config-server-2.3.4.jar
     disk_quota: 1G
     env:
-      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+      SPRING_PROFILES_ACTIVE: 'tas'
+      BP_JVM_VERSION: 11
+    #      JAVA_OPTS: '-agentlib:jdwp=transport=dt_socket,server=n,address=2.102.146.44:5005,suspend=y'
     instances: 1
     memory: 1G
-    health-check-type: port
+    health-check-type: http
+    health-check-http-endpoint: /actuator/health
