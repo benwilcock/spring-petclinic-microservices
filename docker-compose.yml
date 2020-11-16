@@ -45,34 +45,6 @@ services:
       - discovery-server
       - tracing-server
 
-  config-checker:
-    image: benwilcock/spring-petclinic-config-checker:2.3.4
-    container_name: config-checker
-    mem_limit: 1024M
-    ports:
-      - 8889:8889
-    environment:
-      - PORT=8889
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - config-server
-      - discovery-server
-      - tracing-server
-
-  discovery-checker:
-    image: benwilcock/spring-petclinic-discovery-checker:2.3.4
-    container_name: discovery-checker
-    mem_limit: 1024M
-    ports:
-      - 8762:8762
-    environment:
-      - PORT=8762
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - config-server
-      - discovery-server
-      - tracing-server
-
   customers-service:
     image: benwilcock/spring-petclinic-customers-service:2.3.4
     container_name: customers-service
@@ -128,3 +100,31 @@ services:
       - config-server
       - discovery-server
       - tracing-server
+
+  # config-checker:
+  #   image: benwilcock/spring-petclinic-config-checker:2.3.4
+  #   container_name: config-checker
+  #   mem_limit: 1024M
+  #   ports:
+  #     - 8889:8889
+  #   environment:
+  #     - PORT=8889
+  #     - SPRING_PROFILES_ACTIVE=docker
+  #   depends_on:
+  #     - config-server
+  #     - discovery-server
+  #     - tracing-server
+
+  # discovery-checker:
+  #   image: benwilcock/spring-petclinic-discovery-checker:2.3.4
+  #   container_name: discovery-checker
+  #   mem_limit: 1024M
+  #   ports:
+  #     - 8762:8762
+  #   environment:
+  #     - PORT=8762
+  #     - SPRING_PROFILES_ACTIVE=docker
+  #   depends_on:
+  #     - config-server
+  #     - discovery-server
+  #     - tracing-server

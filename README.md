@@ -1,12 +1,12 @@
 # Spring Petclinic Microservices Sample for Tanzu Application Service (TAS)
 
-> NOTE: Requires Java 11 to be installed locally. I use the excellent SDKMan to install JDK's and switch on demand.
+> Building these microservices requires Java 11 and Maven. I use the excellent [SDKMan](sdkman.io) to install these tools.
 
 This microservices branch was initially derived from [spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal we use Spring Cloud API Gateway, Spring Cloud Config, Spring Cloud Sleuth, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
 
-Decide if you want to run locally on your PC or remotely on [Tanzu Application Service](https://tanzu.vmware.com/application-service) and then follow the relevant instructions below.
+Decide if you want to run locally on your PC (bare or Docker) or remotely on [Tanzu Application Service](https://tanzu.vmware.com/application-service) and then follow the relevant instructions below.
 
-## All Cases: Configure The Config Server
+## In All Cases: Configure The Config Server
 
 The Config Server is the source of most of the configuration properties used in this Petclinic Microservices demo. 
 
@@ -42,26 +42,26 @@ In this example, the config server uri is expected to be hosted locally at `http
 
 ## Running The Petclinic Microservices Locally
 
-Every microservice in the sample is a Java application and therefore each can be run locally using your Java IDE.
+Every microservice in the sample is a Java application and therefore each can be run locally using your Java IDE or by building Docker images and starting them (using Docker).
 
-#### Start The Applications
+#### Start The Applications (Boot Order)
 
 Each application requires an environment variable named `PORT` to be set at runtime. Without a `PORT` setting, generally the applications will refuse to start or clash with others already running. Configuring your apps to run in the IDE is particularly convenient as most allow you to create a 'run' configuration that's specific to each application in the project. Each of these run configurations can include the correct PORT setting as shown in the table below:
 
-| Service | Port | Boot Order | Optional? |
-|---------|:----:|:----------:|:---------:|
-| Config Server | 8888 | 1 | No |
-| Discovery Server | 8761 | 2 | No |
-| Vets Microservice | 8083 | 3 | No |
-| Visits Microservice | 8082 | 3 | No |
-| Customers Microservice| 8081 | 3 | No |
-| [Spring Boot Admin Server](http://localhost:9090) | 9090 | 3 | Yes |
-| Config Checker | 9091 | 3 | Yes |
-| Discovery Checker | 9092 | 3 | Yes |
-| Zipkin Tracing Server | 9411 | 2 | Yes |
-| [Api Gateway Service (Petclinic UI)](http://localhost:8080) | 8080 | 4 | No |
+| Service                                                     | Port | Boot Order | Optional? |
+| ----------------------------------------------------------- |:----:|:----------:|:---------:|
+| Config Server                                               | 8888 | 1          | No        |
+| Discovery Server                                            | 8761 | 2          | No        |
+| Vets Microservice                                           | 8083 | 3          | No        |
+| Visits Microservice                                         | 8082 | 3          | No        |
+| Customers Microservice                                      | 8081 | 3          | No        |
+| [Spring Boot Admin Server](http://localhost:9090)           | 9090 | 3          | Yes       |
+| Config Checker                                              | 9091 | 3          | Yes       |
+| Discovery Checker                                           | 9092 | 3          | Yes       |
+| [Zipkin Tracing Server](http://localhost:9411)              | 9411 | 2          | Yes       |
+| [Api Gateway Service (Petclinic UI)](http://localhost:8080) | 8080 | 4          | No        |
 
-The boot order specified in the table above is important. The Config Server must start first, followed by the Discovery Server. The API Gateway contains the UI code, so generally it's advisable to start this service last. All the other services can be started inbetween. Applications with the same boot order in the table can be started together if desired. Applications marked as 'optional' in the table above are not required.
+The boot order specified in the table above is important. The Config Server must start first, followed by the Discovery Server. The API Gateway contains the UI code, so generally it's advisable to start this service last. All the other services can be started in between. Applications with the same boot order in the table can be started together if desired. Applications marked as 'optional' in the table above are not required.
 
 > NOTE: The Config Server and the Zipkin Server do NOT require or use the Discovery Server or any other microservices.
 
@@ -80,6 +80,49 @@ When all the applications have started, point your browser to [http://localhost:
 
 > Notice how the API Gateway provides a dual function - hosting the UI and routing REST requests to vets, visits, and customers.
 
+## Running The Petclinic Microservices on Docker
+
+Running this sample on Docker works well, but you need to build docker images, and be prepared to get your hands dirty in order to control the start order of the applications in Docker.
+
+> Note: A `docker` profile has been added to control the configuration in this mode.
+
+#### Build The Petclinic Microservice Docker Images
+
+Before building the Docker images, set the property `docker.library.name` in the `properties` section of the `pom.xml` file. By default, this is set to `benwilcock`.
+
+Spring Boot's Maven plugin can build your images for you, you just need to have the Docker demon running in the background. To start the build process, run the following command in the project root folder.
+
+```bash
+./mvnw package -DskipTests=true spring-boot:build-image
+```
+
+#### Running The Petclinic Microservices
+
+To run the services, a handy `docker-compose` configuration has been provided in the file `docker-compose.yml`. This means that you can start all the applications using the command `docker-compose up`. 
+
+```bash
+docker-compose up
+```
+
+However, even though the `depends_on` has been specified, this will rarely work. Docker's concept of an application being "started" is not the same as an application being "ready" to accept traffic. The sample expects a specific boot-order to be respected and when it's not, the applications fast-fail (usually because the Config server is unavailable). See [https://docs.docker.com/compose/startup-order/](https://docs.docker.com/compose/startup-order/).
+
+To work around this issue, use `docker-compose up` to configure everything and then simply restart the containers in the order stated in the "Start The Applications" section above. You may do this however you like. 
+
+I use the excellent Portainer.io for Docker to do this. Installing Portainer is easy, just a few commands. see: [https://www.portainer.io/installation/](https://www.portainer.io/installation/). Below is a snippet:
+
+```bash
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run docker.sock -v portainer_data:/data portainer/portainer-ce
+```
+
+With Portainer in your system, you can use its handy browser interface to control your Petclinic 'Stack'. You can start, stop, and restart containers easily and do other things like view their logs or connect with them over ssh.
+
+Start the microservices one at a time in the right order, checking the logs or the `/actuator/health` endpoint to ensure the app is running before moving on to the next. You can also monitor the [Admin Server](http://localhost:9090) in your browser to check which applications have started and registered with the Discovery service.
+
+#### Visit The Local Petclinic
+
+When the Admin server shows that all the applications have started, point your browser to [http://localhost:8080](http://localhost:8080) to visit the homepage of the Petclinic Microservices application. If all is well, visiting the 'Veterinarians' page will show a list of their names. 
+
 ## Running The Petclinic Microservices on TAS
 
 Running the Petclinic Microservices demo on Tanzu Application Service requires some reconfiguration, re-packaging and "pushing" of the applications to your preferred Org and Space.
@@ -95,7 +138,7 @@ spring:
   cloud:
     config:
       uri: http://<your-config-server-uri>
-``` 
+```
 
 If the configuration server can't be found, the applications tend not to start successfully.
 
@@ -137,12 +180,12 @@ To simplify this process bash scripts and manifests have been provided. It's rec
 
 > [Docs: Installing the CF Cli](https://github.com/cloudfoundry/cli/wiki/V6-CLI-Installation-Guide)
 
-| Script | Purpose |
-| :------ |:------- |
+| Script                         | Purpose                                                                                               |
+|:------------------------------ |:----------------------------------------------------------------------------------------------------- |
 | build-and-deploy-all-to-tas.sh | Uses Maven Wrapper to build the code, then pushes each component to TAS using the Manifests provided. |
-| restart-all-on-tas.sh | Stops and starts all the applications in an orderly fashion. |
-| stop-all-on-tas.sh | Stops all the Petclinic applications but does not delete them. |
-| delete-all-on-tas.sh | Deletes all the applications from TAS. |
+| restart-all-on-tas.sh          | Stops and starts all the applications in an orderly fashion.                                          |
+| stop-all-on-tas.sh             | Stops all the Petclinic applications but does not delete them.                                        |
+| delete-all-on-tas.sh           | Deletes all the applications from TAS.                                                                |
 
 The manifest for each application tells TAS where to find the local code package bundle and which environment properties to set. The environment properties are important - they set the `SPRING_PROFILES_ACTIVE` to `tas`. This profile ensures that the correct configuration gets downloaded from the Config Server. Without this profile, the apps in TAS won't be correctly configured.
 
@@ -154,12 +197,12 @@ When all the applications have started, use the URL of the `spring-petclinic-api
 
 In your forked and cloned [configuration repository][Configuration repository] you'll notice the file `application-tas.yml`. When the `tas` profile is active, the configuration in this file is layered over the configuration in the `application.yml` and any application specific configuration is also added (such as `customers-service.yml` for example). It is the combination of these three files which ultimately provide the configuration used by the application at runtime. The following table clarifies what happens during the configuration process.
 
-| Configuration File | Location | Description |
-| :------- | :-----------: | :------ |
-| bootstrap.yml | packaged in the JAR | Contains the application's given name and the location of the config server for each profile. |
-| application.yml | configuration repo | Common properties used by all the Spring Boot applications in the demo.
-| application-tas.yml | configuration repo | Configuration overrides that should be used by all applications when running under the `tas` profile. |
-| vets-service.yml | configuration repo | Configuration that is exclusive the the Vets microservice. |
+| Configuration File  | Location            | Description                                                                                           |
+|:------------------- |:-------------------:|:----------------------------------------------------------------------------------------------------- |
+| bootstrap.yml       | packaged in the JAR | Contains the application's given name and the location of the config server for each profile.         |
+| application.yml     | configuration repo  | Common properties used by all the Spring Boot applications in the demo.                               |
+| application-tas.yml | configuration repo  | Configuration overrides that should be used by all applications when running under the `tas` profile. |
+| vets-service.yml    | configuration repo  | Configuration that is exclusive the the Vets microservice.                                            |
 
 ## In-Memory Petclinic Databases (Default In All Cases)
 
@@ -177,6 +220,7 @@ You may start a MySql database with docker:
 ```
 docker run -e MYSQL_ROOT_PASSWORD=petclinic -e MYSQL_DATABASE=petclinic -p 3306:3306 mysql:5.7.8
 ```
+
 or download and install the MySQL database (e.g., MySQL Community Server 5.7 GA), which can be found here: https://dev.mysql.com/downloads/
 
 #### Use the Spring 'mysql' profile
@@ -188,9 +232,11 @@ By default, at startup, the database schema will be created and the sample data 
 You may also manually create the PetClinic database and data by executing the `"db/mysql/{schema,data}.sql"` scripts of each 3 data driven microservices (vets, visits, and customers). In the `application.yml` of the [Configuration repository], set the `initialization-mode` to `never`.
 
 If you are running the microservices with Docker, you have to add the `mysql` profile into the (Dockerfile)[docker/Dockerfile]:
+
 ```
 ENV SPRING_PROFILES_ACTIVE docker,mysql
 ```
+
 In the `mysql section` of the `application.yml` from the [Configuration repository], you have to change 
 the host and port of your MySQL JDBC connection string. 
 
