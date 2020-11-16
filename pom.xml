@@ -30,17 +30,10 @@
     <properties>
         <java.version>11</java.version>
         <assertj.version>3.11.1</assertj.version>
-
+        <docker.library.name>benwilcock</docker.library.name>
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
-
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
-
-        <docker.image.prefix>springcommunity</docker.image.prefix>
-        <docker.image.exposed.port>9090</docker.image.exposed.port>
-        <docker.image.dockerfile.dir>${basedir}</docker.image.dockerfile.dir>
-        <docker.image.dockerize.version>v0.6.1</docker.image.dockerize.version>
-        <docker.plugin.version>1.2.0</docker.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -89,7 +82,7 @@
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
                             <image>
-                                <name>docker.io/benwilcock/${project.artifactId}:${project.version}</name>
+                                <name>docker.io/${docker.library.name}/${project.artifactId}:${project.version}</name>
                             </image>
                             <fork>true</fork>
                             <!-- Layered jars optimizes Docker images -->
