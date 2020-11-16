@@ -1,99 +1,130 @@
 version: '2'
 
 services:
-  config-server:
-    image: springcommunity/spring-petclinic-config-server
-    container_name: config-server
-    mem_limit: 512M
+  tracing-server:
+    image: openzipkin/zipkin-slim:2
+    container_name: tracing-server
     ports:
-     - 8888:8888
+      - 9411:9411
+
+  config-server:
+    image: benwilcock/spring-petclinic-config-server:2.3.4
+    container_name: config-server
+    mem_limit: 1024M
+    ports:
+      - 8888:8888
+    environment:
+      - PORT=8888
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - tracing-server
 
   discovery-server:
-    image: springcommunity/spring-petclinic-discovery-server
+    image: benwilcock/spring-petclinic-discovery-server:2.3.4
     container_name: discovery-server
-    mem_limit: 512M
-    depends_on:
-      - config-server
-    entrypoint: ["./dockerize","-wait=tcp://config-server:8888","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher"]
+    mem_limit: 1024M
     ports:
-     - 8761:8761
-
-  customers-service:
-    image: springcommunity/spring-petclinic-customers-service
-    container_name: customers-service
-    mem_limit: 512M
-    depends_on:
-     - config-server
-     - discovery-server
-    entrypoint: ["./dockerize","-wait=tcp://discovery-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher"]
-    ports:
-    - 8081:8081
-
-  visits-service:
-    image: springcommunity/spring-petclinic-visits-service
-    container_name: visits-service
-    mem_limit: 512M
-    depends_on:
-     - config-server
-     - discovery-server
-    entrypoint: ["./dockerize","-wait=tcp://discovery-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher"]
-    ports:
-     - 8082:8082
-
-  vets-service:
-    image: springcommunity/spring-petclinic-vets-service
-    container_name: vets-service
-    mem_limit: 512M
-    depends_on:
-     - config-server
-     - discovery-server
-    entrypoint: ["./dockerize","-wait=tcp://discovery-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher"]
-    ports:
-     - 8083:8083
-
-  api-gateway:
-    image: springcommunity/spring-petclinic-api-gateway
-    container_name: api-gateway
-    mem_limit: 512M
-    depends_on:
-     - config-server
-     - discovery-server
-    entrypoint: ["./dockerize","-wait=tcp://discovery-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher"]
-    ports:
-     - 8080:8080
-
-  tracing-server:
-    image: openzipkin/zipkin
-    container_name: tracing-server
-    mem_limit: 512M
+      - 8761:8761
     environment:
-    - JAVA_OPTS=-XX:+UnlockExperimentalVMOptions -Djava.security.egd=file:/dev/./urandom
-    ports:
-     - 9411:9411
+      - PORT=8761
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - tracing-server
 
   admin-server:
-    image: springcommunity/spring-petclinic-admin-server
+    image: benwilcock/spring-petclinic-admin-server:2.3.4
     container_name: admin-server
-    mem_limit: 512M
+    mem_limit: 1024M
+    ports:
+      - 9090:9090
+    environment:
+      - PORT=9090
+      - SPRING_PROFILES_ACTIVE=docker
     depends_on:
-     - config-server
-     - discovery-server
-    entrypoint: ["./dockerize","-wait=tcp://discovery-server:8761","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher"]
-    ports:
-     - 9090:9090
+      - config-server
+      - discovery-server
+      - tracing-server
 
-  ## Grafana / Prometheus
-
-  grafana-server:
-    build: ./docker/grafana
-    container_name: grafana-server
-    mem_limit: 256M
+  config-checker:
+    image: benwilcock/spring-petclinic-config-checker:2.3.4
+    container_name: config-checker
+    mem_limit: 1024M
     ports:
-    - 3000:3000
+      - 8889:8889
+    environment:
+      - PORT=8889
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - config-server
+      - discovery-server
+      - tracing-server
 
-  prometheus-server:
-    build: ./docker/prometheus
-    container_name: prometheus-server
-    mem_limit: 256M
+  discovery-checker:
+    image: benwilcock/spring-petclinic-discovery-checker:2.3.4
+    container_name: discovery-checker
+    mem_limit: 1024M
     ports:
-    - 9091:9090
+      - 8762:8762
+    environment:
+      - PORT=8762
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - config-server
+      - discovery-server
+      - tracing-server
+
+  customers-service:
+    image: benwilcock/spring-petclinic-customers-service:2.3.4
+    container_name: customers-service
+    mem_limit: 1024M
+    ports:
+      - 8083:8083
+    environment:
+      - PORT=8083
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - config-server
+      - discovery-server
+      - tracing-server
+
+  vets-service:
+    image: benwilcock/spring-petclinic-vets-service:2.3.4
+    container_name: vets-service
+    mem_limit: 1024M
+    ports:
+      - 8082:8082
+    environment:
+      - PORT=8082
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - config-server
+      - discovery-server
+      - tracing-server
+
+  visits-service:
+    image: benwilcock/spring-petclinic-visits-service:2.3.4
+    container_name: visits-service
+    mem_limit: 1024M
+    ports:
+      - 8081:8081
+    environment:
+      - PORT=8082
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - config-server
+      - discovery-server
+      - tracing-server
+
+  gateway-service:
+    image: benwilcock/spring-petclinic-api-gateway:2.3.4
+    container_name: gateway-service
+    mem_limit: 1024M
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - config-server
+      - discovery-server
+      - tracing-server

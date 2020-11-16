@@ -11,6 +11,7 @@ spring:
   cloud:
     config:
       uri: http://config-server:8888
+      fail-fast: true
 
 ---
 spring:
@@ -18,3 +19,4 @@ spring:
   cloud:
     config:
       uri: http://bens-config-server.apps.tas.tanzu-demo.net
+      fail-fast: true
