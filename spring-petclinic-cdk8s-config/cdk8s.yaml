@@ -1,0 +1,4 @@
+language: java
+app:  mvn exec:java -Dexec.mainClass="org.springframework.samples.petclinic.cdk8s.Main"
+imports:
+  - k8s

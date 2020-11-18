@@ -20,3 +20,11 @@ spring:
     config:
       uri: http://bens-config-server.apps.tas.tanzu-demo.net
       fail-fast: true
+
+---
+spring:
+  profiles: kubernetes
+  cloud:
+    config:
+      uri: http://config-server-service.default.svc.cluster.local:8888
+      fail-fast: true

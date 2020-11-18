@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework.samples.petclinic.cdk8s</groupId>
+    <artifactId>spring-petclinic-cdk8s-config</artifactId>
+    <packaging>jar</packaging>
+    <description>Spring PetClinic Kubernetes Config</description>
+    <version>0.0.1-SNAPSHOT</version>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.cdk8s</groupId>
+            <artifactId>cdk8s</artifactId>
+            <version>0.33.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.cdk8s</groupId>
+            <artifactId>cdk8s-plus</artifactId>
+            <version>0.33.0</version>
+        </dependency>
+        <dependency>
+            <groupId>software.constructs</groupId>
+            <artifactId>constructs</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+</project>

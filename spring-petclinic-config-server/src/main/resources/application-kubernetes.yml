@@ -1,0 +1,3 @@
+spring:
+  zipkin:
+    baseUrl: http://tracing-server:9411
