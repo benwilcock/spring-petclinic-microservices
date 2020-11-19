@@ -6,7 +6,7 @@
     <artifactId>spring-petclinic-cdk8s-config</artifactId>
     <packaging>jar</packaging>
     <description>Spring PetClinic Kubernetes Config</description>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>2.3.6</version>
 
 
     <dependencies>

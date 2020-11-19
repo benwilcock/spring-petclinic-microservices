@@ -1,11 +1,7 @@
 #!/bin/sh
 
-# Clean, build, and package the JARs
-echo 'Building the code'
-mvn clean package
-
 # Stop everything
-sh stop-all-on-tas.sh
+sh tas-stop.sh
 
 echo 'pushing bens-zipkin-server'
 cd spring-petclinic-zipkin-server

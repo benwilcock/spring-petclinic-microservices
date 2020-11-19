@@ -8,7 +8,7 @@ services:
       - 9411:9411
 
   config-server:
-    image: benwilcock/spring-petclinic-config-server:2.3.4
+    image: benwilcock/spring-petclinic-config-server:2.3.6
     container_name: config-server
     mem_limit: 1024M
     ports:
@@ -20,7 +20,7 @@ services:
       - tracing-server
 
   discovery-server:
-    image: benwilcock/spring-petclinic-discovery-server:2.3.4
+    image: benwilcock/spring-petclinic-discovery-server:2.3.6
     container_name: discovery-server
     mem_limit: 1024M
     ports:
@@ -32,7 +32,7 @@ services:
       - tracing-server
 
   admin-server:
-    image: benwilcock/spring-petclinic-admin-server:2.3.4
+    image: benwilcock/spring-petclinic-admin-server:2.3.6
     container_name: admin-server
     mem_limit: 1024M
     ports:
@@ -46,7 +46,7 @@ services:
       - tracing-server
 
   customers-service:
-    image: benwilcock/spring-petclinic-customers-service:2.3.4
+    image: benwilcock/spring-petclinic-customers-service:2.3.6
     container_name: customers-service
     mem_limit: 1024M
     ports:
@@ -60,7 +60,7 @@ services:
       - tracing-server
 
   vets-service:
-    image: benwilcock/spring-petclinic-vets-service:2.3.4
+    image: benwilcock/spring-petclinic-vets-service:2.3.6
     container_name: vets-service
     mem_limit: 1024M
     ports:
@@ -74,7 +74,7 @@ services:
       - tracing-server
 
   visits-service:
-    image: benwilcock/spring-petclinic-visits-service:2.3.4
+    image: benwilcock/spring-petclinic-visits-service:2.3.6
     container_name: visits-service
     mem_limit: 1024M
     ports:
@@ -88,7 +88,7 @@ services:
       - tracing-server
 
   gateway-service:
-    image: benwilcock/spring-petclinic-api-gateway:2.3.4
+    image: benwilcock/spring-petclinic-api-gateway:2.3.6
     container_name: gateway-service
     mem_limit: 1024M
     ports:
@@ -102,7 +102,7 @@ services:
       - tracing-server
 
   # config-checker:
-  #   image: benwilcock/spring-petclinic-config-checker:2.3.4
+  #   image: benwilcock/spring-petclinic-config-checker:2.3.6
   #   container_name: config-checker
   #   mem_limit: 1024M
   #   ports:
@@ -116,7 +116,7 @@ services:
   #     - tracing-server
 
   # discovery-checker:
-  #   image: benwilcock/spring-petclinic-discovery-checker:2.3.4
+  #   image: benwilcock/spring-petclinic-discovery-checker:2.3.6
   #   container_name: discovery-checker
   #   mem_limit: 1024M
   #   ports:

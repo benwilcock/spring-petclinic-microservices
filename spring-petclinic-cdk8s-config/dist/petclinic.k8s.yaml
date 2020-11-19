@@ -102,7 +102,7 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8888"
-          image: "benwilcock/spring-petclinic-config-server:2.3.4"
+          image: "benwilcock/spring-petclinic-config-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -139,7 +139,7 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8761"
-          image: "benwilcock/spring-petclinic-discovery-server:2.3.4"
+          image: "benwilcock/spring-petclinic-discovery-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -176,7 +176,7 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "9090"
-          image: "benwilcock/spring-petclinic-admin-server:2.3.4"
+          image: "benwilcock/spring-petclinic-admin-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -213,7 +213,7 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8083"
-          image: "benwilcock/spring-petclinic-vets-service:2.3.4"
+          image: "benwilcock/spring-petclinic-vets-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -250,7 +250,7 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8082"
-          image: "benwilcock/spring-petclinic-visits-service:2.3.4"
+          image: "benwilcock/spring-petclinic-visits-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -287,7 +287,7 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8081"
-          image: "benwilcock/spring-petclinic-customers-service:2.3.4"
+          image: "benwilcock/spring-petclinic-customers-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -324,7 +324,7 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8080"
-          image: "benwilcock/spring-petclinic-api-gateway:2.3.4"
+          image: "benwilcock/spring-petclinic-api-gateway:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:

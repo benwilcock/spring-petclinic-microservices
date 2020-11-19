@@ -1,6 +1,6 @@
 applications:
   - name: bens-config-checker
-    path: target/spring-petclinic-config-checker-2.3.4.jar
+    path: target/spring-petclinic-config-checker-2.3.6.jar
     disk_quota: 1G
     env:
       SPRING_PROFILES_ACTIVE: 'tas'

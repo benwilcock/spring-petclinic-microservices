@@ -16,6 +16,8 @@ import java.util.Map;
 
 public class Main extends Chart
 {
+    private static final String VERSION = "2.3.6";
+    private static final String LIBRARY_NAME = "benwilcock";
 
     public Main(final Construct scope, final String id) {
         this(scope, id, null);
@@ -33,13 +35,13 @@ public class Main extends Chart
         addService(8081, "customers-service-service", "customers-service");
         addService(8080, "api-gateway-service", "api-gateway");
 
-        addDeployment(8888, "config-server", "benwilcock/spring-petclinic-config-server:2.3.4");
-        addDeployment(8761, "discovery-server", "benwilcock/spring-petclinic-discovery-server:2.3.4");
-        addDeployment(9090, "admin-server", "benwilcock/spring-petclinic-admin-server:2.3.4");
-        addDeployment(8083, "vets-service", "benwilcock/spring-petclinic-vets-service:2.3.4");
-        addDeployment(8082, "visits-service", "benwilcock/spring-petclinic-visits-service:2.3.4");
-        addDeployment(8081, "customers-service", "benwilcock/spring-petclinic-customers-service:2.3.4");
-        addDeployment(8080, "api-gateway", "benwilcock/spring-petclinic-api-gateway:2.3.4");
+        addDeployment(8888, "config-server", LIBRARY_NAME + "/spring-petclinic-config-server:" + VERSION);
+        addDeployment(8761, "discovery-server", LIBRARY_NAME + "/spring-petclinic-discovery-server:" + VERSION);
+        addDeployment(9090, "admin-server", LIBRARY_NAME + "/spring-petclinic-admin-server:" + VERSION);
+        addDeployment(8083, "vets-service", LIBRARY_NAME + "/spring-petclinic-vets-service:" + VERSION);
+        addDeployment(8082, "visits-service", LIBRARY_NAME + "/spring-petclinic-visits-service:" + VERSION);
+        addDeployment(8081, "customers-service", LIBRARY_NAME + "/spring-petclinic-customers-service:" + VERSION);
+        addDeployment(8080, "api-gateway", LIBRARY_NAME + "/spring-petclinic-api-gateway:" + VERSION);
     }
 
     private void addService(final Number PORT, final String SERVICE_NAME, final String APP_NAME) {
@@ -93,7 +95,7 @@ public class Main extends Chart
             .ports(containerPorts)
             .imagePullPolicy("Always")
             .env(envVars)
-            .livenessProbe(Probe.builder().initialDelaySeconds(90).periodSeconds(2).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
+            .livenessProbe(Probe.builder().initialDelaySeconds(60).periodSeconds(2).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
             .readinessProbe(Probe.builder().initialDelaySeconds(15).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
             .build();
         containers.add(container);
