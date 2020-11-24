@@ -1,6 +1,6 @@
 #!/bin/sh
 
-kubectl delete -f ./dist
+# kubectl delete -f ./dist
 mvn compile
 cdk8s synth
-kubectl apply -f ./dist
+# kubectl apply -f ./dist

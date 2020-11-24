@@ -18,6 +18,7 @@ public class Main extends Chart
 {
     private static final String VERSION = "2.3.6";
     private static final String LIBRARY_NAME = "benwilcock";
+    private static final String APP_NAMESPACE = "default";
 
     public Main(final Construct scope, final String id) {
         this(scope, id, null);
@@ -95,8 +96,8 @@ public class Main extends Chart
             .ports(containerPorts)
             .imagePullPolicy("Always")
             .env(envVars)
-            .livenessProbe(Probe.builder().initialDelaySeconds(60).periodSeconds(2).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
-            .readinessProbe(Probe.builder().initialDelaySeconds(15).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
+            .livenessProbe(Probe.builder().initialDelaySeconds(90).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
+            .readinessProbe(Probe.builder().initialDelaySeconds(15).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
             .build();
         containers.add(container);
         final PodSpec podSpec = new PodSpec.Builder()

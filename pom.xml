@@ -25,7 +25,6 @@
         <module>spring-petclinic-api-gateway</module>
         <module>spring-petclinic-discovery-checker</module>
         <module>spring-petclinic-config-checker</module>
-        <!--<module>spring-petclinic-cdk8s-config</module>-->
     </modules>
 
     <properties>
