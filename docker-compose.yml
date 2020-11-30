@@ -28,6 +28,7 @@ services:
     environment:
       - PORT=8761
       - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
     depends_on:
       - tracing-server
 
@@ -40,6 +41,8 @@ services:
     environment:
       - PORT=9090
       - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
     depends_on:
       - config-server
       - discovery-server
@@ -50,24 +53,12 @@ services:
     container_name: customers-service
     mem_limit: 1024M
     ports:
-      - 8083:8083
+      - 8081:8081
     environment:
-      - PORT=8083
+      - PORT=8081
       - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - config-server
-      - discovery-server
-      - tracing-server
-
-  vets-service:
-    image: benwilcock/spring-petclinic-vets-service:2.3.6
-    container_name: vets-service
-    mem_limit: 1024M
-    ports:
-      - 8082:8082
-    environment:
-      - PORT=8082
-      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
     depends_on:
       - config-server
       - discovery-server
@@ -78,10 +69,28 @@ services:
     container_name: visits-service
     mem_limit: 1024M
     ports:
-      - 8081:8081
+      - 8082:8082
     environment:
       - PORT=8082
       - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+      - config-server
+      - discovery-server
+      - tracing-server
+
+  vets-service:
+    image: benwilcock/spring-petclinic-vets-service:2.3.6
+    container_name: vets-service
+    mem_limit: 1024M
+    ports:
+      - 8083:8083
+    environment:
+      - PORT=8083
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
     depends_on:
       - config-server
       - discovery-server
@@ -96,6 +105,8 @@ services:
     environment:
       - PORT=8080
       - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
     depends_on:
       - config-server
       - discovery-server
@@ -106,10 +117,12 @@ services:
   #   container_name: config-checker
   #   mem_limit: 1024M
   #   ports:
-  #     - 8889:8889
+  #     - 9091:9091
   #   environment:
-  #     - PORT=8889
+  #     - PORT=9091
   #     - SPRING_PROFILES_ACTIVE=docker
+  #     - CONFIG_SERVER_URI=http://config-server:8888
+  #     - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
   #   depends_on:
   #     - config-server
   #     - discovery-server
@@ -120,10 +133,12 @@ services:
   #   container_name: discovery-checker
   #   mem_limit: 1024M
   #   ports:
-  #     - 8762:8762
+  #     - 9092:9092
   #   environment:
-  #     - PORT=8762
+  #     - PORT=9092
   #     - SPRING_PROFILES_ACTIVE=docker
+  #     - CONFIG_SERVER_URI=http://config-server:8888
+  #     - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
   #   depends_on:
   #     - config-server
   #     - discovery-server

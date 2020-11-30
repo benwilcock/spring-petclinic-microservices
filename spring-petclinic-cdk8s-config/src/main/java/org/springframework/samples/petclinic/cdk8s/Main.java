@@ -19,6 +19,8 @@ public class Main extends Chart
     private static final String VERSION = "2.3.6";
     private static final String LIBRARY_NAME = "benwilcock";
     private static final String APP_NAMESPACE = "default";
+    private static final String CONFIG_SERVER_URI = "http://config-server-service.default.svc.cluster.local:8888";
+    private static final String DISCOVERY_SERVER_URI = "http://discovery-server-service.default.svc.cluster.local:8761/eureka";
 
     public Main(final Construct scope, final String id) {
         this(scope, id, null);

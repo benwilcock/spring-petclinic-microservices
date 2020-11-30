@@ -3,33 +3,12 @@ spring:
     name: api-gateway
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: ${CONFIG_SERVER_URI}
+      fail-fast: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_SERVER_URI}
   sleuth:
     reactor:
       decorate-on-each: false
----
-spring:
-  profiles: docker
-  cloud:
-    config:
-      uri: http://config-server:8888
-
----
-spring:
-  profiles: tas
-  cloud:
-    config:
-      uri: http://bens-config-server.apps.tas.tanzu-demo.net
-#logging:
-#  level:
-#    root: INFO
-#    org.springframework.cloud.sleuth.instrument.web: DEBUG
-#    io.zipkin.brave: DEBUG
-
----
-spring:
-  profiles: kubernetes
-  cloud:
-    config:
-      uri: http://config-server-service.default.svc.cluster.local:8888
-      fail-fast: true
