@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ObjectReference contains enough information to let you inspect or modify the referred object.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.948Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.015Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ObjectReference")
 @software.amazon.jsii.Jsii.Proxy(ObjectReference.Jsii$Proxy.class)
 public interface ObjectReference extends software.amazon.jsii.JsiiSerializable {

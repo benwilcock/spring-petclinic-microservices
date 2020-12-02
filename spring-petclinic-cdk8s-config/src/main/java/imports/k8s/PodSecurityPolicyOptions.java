@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodSecurityPolicy governs the ability to make requests that affect the Security Context that will be applied to a pod and container.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.001Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.052Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodSecurityPolicyOptions")
 @software.amazon.jsii.Jsii.Proxy(PodSecurityPolicyOptions.Jsii$Proxy.class)
 public interface PodSecurityPolicyOptions extends software.amazon.jsii.JsiiSerializable {

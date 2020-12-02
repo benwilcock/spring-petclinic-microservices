@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * IngressSpec describes the Ingress the user wishes to exist.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.854Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.938Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.IngressSpec")
 @software.amazon.jsii.Jsii.Proxy(IngressSpec.Jsii$Proxy.class)
 public interface IngressSpec extends software.amazon.jsii.JsiiSerializable {

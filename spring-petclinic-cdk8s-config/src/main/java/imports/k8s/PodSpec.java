@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodSpec is a description of a pod.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.012Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.061Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodSpec")
 @software.amazon.jsii.Jsii.Proxy(PodSpec.Jsii$Proxy.class)
 public interface PodSpec extends software.amazon.jsii.JsiiSerializable {

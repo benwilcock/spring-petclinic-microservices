@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * NetworkPolicy describes what network traffic is allowed for a set of Pods.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.931Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.000Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NetworkPolicyOptions")
 @software.amazon.jsii.Jsii.Proxy(NetworkPolicyOptions.Jsii$Proxy.class)
 public interface NetworkPolicyOptions extends software.amazon.jsii.JsiiSerializable {

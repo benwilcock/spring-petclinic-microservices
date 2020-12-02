@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Only https is supported, though you are able to disable certificate verification.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.711Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.799Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ApiServiceSpec")
 @software.amazon.jsii.Jsii.Proxy(ApiServiceSpec.Jsii$Proxy.class)
 public interface ApiServiceSpec extends software.amazon.jsii.JsiiSerializable {

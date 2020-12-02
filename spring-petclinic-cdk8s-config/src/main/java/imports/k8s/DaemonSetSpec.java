@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * DaemonSetSpec is the specification of a daemon set.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.793Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.877Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.DaemonSetSpec")
 @software.amazon.jsii.Jsii.Proxy(DaemonSetSpec.Jsii$Proxy.class)
 public interface DaemonSetSpec extends software.amazon.jsii.JsiiSerializable {

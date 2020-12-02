@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.920Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.992Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.MutatingWebhookConfiguration")
 public class MutatingWebhookConfiguration extends org.cdk8s.ApiObject {
 

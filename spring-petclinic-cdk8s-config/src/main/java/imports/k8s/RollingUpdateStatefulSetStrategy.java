@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.089Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.118Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.RollingUpdateStatefulSetStrategy")
 @software.amazon.jsii.Jsii.Proxy(RollingUpdateStatefulSetStrategy.Jsii$Proxy.class)
 public interface RollingUpdateStatefulSetStrategy extends software.amazon.jsii.JsiiSerializable {

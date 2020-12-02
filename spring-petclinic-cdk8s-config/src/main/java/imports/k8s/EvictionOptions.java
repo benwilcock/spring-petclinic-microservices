@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.825Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.910Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.EvictionOptions")
 @software.amazon.jsii.Jsii.Proxy(EvictionOptions.Jsii$Proxy.class)
 public interface EvictionOptions extends software.amazon.jsii.JsiiSerializable {

@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * that is, it represents the OR of the selectors represented by the node selector terms.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.938Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.006Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NodeSelector")
 @software.amazon.jsii.Jsii.Proxy(NodeSelector.Jsii$Proxy.class)
 public interface NodeSelector extends software.amazon.jsii.JsiiSerializable {

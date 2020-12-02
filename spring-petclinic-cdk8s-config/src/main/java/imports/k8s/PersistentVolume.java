@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * It is analogous to a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.949Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.016Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PersistentVolume")
 public class PersistentVolume extends org.cdk8s.ApiObject {
 

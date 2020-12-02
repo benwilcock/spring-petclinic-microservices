@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * CustomResourceSubresourceScale defines how to serve the scale subresource for CustomResources.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.790Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.874Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CustomResourceSubresourceScale")
 @software.amazon.jsii.Jsii.Proxy(CustomResourceSubresourceScale.Jsii$Proxy.class)
 public interface CustomResourceSubresourceScale extends software.amazon.jsii.JsiiSerializable {

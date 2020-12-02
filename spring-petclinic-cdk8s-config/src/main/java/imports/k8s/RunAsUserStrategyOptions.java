@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * RunAsUserStrategyOptions defines the strategy type and any options used to create the strategy.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.093Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.120Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.RunAsUserStrategyOptions")
 @software.amazon.jsii.Jsii.Proxy(RunAsUserStrategyOptions.Jsii$Proxy.class)
 public interface RunAsUserStrategyOptions extends software.amazon.jsii.JsiiSerializable {

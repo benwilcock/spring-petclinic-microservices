@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.795Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.880Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.DaemonSetUpdateStrategy")
 @software.amazon.jsii.Jsii.Proxy(DaemonSetUpdateStrategy.Jsii$Proxy.class)
 public interface DaemonSetUpdateStrategy extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.024Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.069Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PolicyRule")
 @software.amazon.jsii.Jsii.Proxy(PolicyRule.Jsii$Proxy.class)
 public interface PolicyRule extends software.amazon.jsii.JsiiSerializable {

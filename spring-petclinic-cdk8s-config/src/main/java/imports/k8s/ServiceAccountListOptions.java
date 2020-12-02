@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ServiceAccountList is a list of ServiceAccount objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.119Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.143Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ServiceAccountListOptions")
 @software.amazon.jsii.Jsii.Proxy(ServiceAccountListOptions.Jsii$Proxy.class)
 public interface ServiceAccountListOptions extends software.amazon.jsii.JsiiSerializable {

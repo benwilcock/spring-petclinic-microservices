@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * DeploymentStrategy describes how to replace existing pods with new ones.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.808Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.896Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.DeploymentStrategy")
 @software.amazon.jsii.Jsii.Proxy(DeploymentStrategy.Jsii$Proxy.class)
 public interface DeploymentStrategy extends software.amazon.jsii.JsiiSerializable {

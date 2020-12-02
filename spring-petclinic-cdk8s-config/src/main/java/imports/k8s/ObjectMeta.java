@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.940Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.007Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ObjectMeta")
 @software.amazon.jsii.Jsii.Proxy(ObjectMeta.Jsii$Proxy.class)
 public interface ObjectMeta extends software.amazon.jsii.JsiiSerializable {

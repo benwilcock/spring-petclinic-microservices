@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.108Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.136Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SecurityContext")
 @software.amazon.jsii.Jsii.Proxy(SecurityContext.Jsii$Proxy.class)
 public interface SecurityContext extends software.amazon.jsii.JsiiSerializable {

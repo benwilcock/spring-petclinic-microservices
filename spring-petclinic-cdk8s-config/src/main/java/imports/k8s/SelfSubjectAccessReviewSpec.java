@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.113Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.139Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SelfSubjectAccessReviewSpec")
 @software.amazon.jsii.Jsii.Proxy(SelfSubjectAccessReviewSpec.Jsii$Proxy.class)
 public interface SelfSubjectAccessReviewSpec extends software.amazon.jsii.JsiiSerializable {

@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Each node will have a unique identifier in the cache (i.e. in etcd).
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.934Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.003Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Node")
 public class Node extends org.cdk8s.ApiObject {
 

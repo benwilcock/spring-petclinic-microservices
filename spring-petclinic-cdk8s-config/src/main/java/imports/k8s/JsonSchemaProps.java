@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.878Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.956Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.JsonSchemaProps")
 @software.amazon.jsii.Jsii.Proxy(JsonSchemaProps.Jsii$Proxy.class)
 public interface JsonSchemaProps extends software.amazon.jsii.JsiiSerializable {

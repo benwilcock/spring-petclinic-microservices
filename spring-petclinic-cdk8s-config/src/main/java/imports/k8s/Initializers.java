@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Initializers tracks the progress of initialization.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.856Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.940Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Initializers")
 @software.amazon.jsii.Jsii.Proxy(Initializers.Jsii$Proxy.class)
 public interface Initializers extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.823Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.908Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.EventSeries")
 @software.amazon.jsii.Jsii.Proxy(EventSeries.Jsii$Proxy.class)
 public interface EventSeries extends software.amazon.jsii.JsiiSerializable {

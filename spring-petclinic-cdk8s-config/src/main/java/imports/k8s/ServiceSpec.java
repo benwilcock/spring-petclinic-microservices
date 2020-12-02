@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ServiceSpec describes the attributes that a user creates on a service.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.122Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.146Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ServiceSpec")
 @software.amazon.jsii.Jsii.Proxy(ServiceSpec.Jsii$Proxy.class)
 public interface ServiceSpec extends software.amazon.jsii.JsiiSerializable {

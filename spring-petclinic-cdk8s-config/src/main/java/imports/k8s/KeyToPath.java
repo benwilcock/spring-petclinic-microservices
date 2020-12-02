@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Maps a string key to a path within a volume.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.890Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.959Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.KeyToPath")
 @software.amazon.jsii.Jsii.Proxy(KeyToPath.Jsii$Proxy.class)
 public interface KeyToPath extends software.amazon.jsii.JsiiSerializable {

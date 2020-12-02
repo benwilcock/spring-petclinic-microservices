@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * DaemonSetList is a collection of daemon sets.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.791Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.875Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.DaemonSetList")
 public class DaemonSetList extends org.cdk8s.ApiObject {
 

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * WindowsSecurityContextOptions contain Windows-specific options and credentials.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.183Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.200Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.WindowsSecurityContextOptions")
 @software.amazon.jsii.Jsii.Proxy(WindowsSecurityContextOptions.Jsii$Proxy.class)
 public interface WindowsSecurityContextOptions extends software.amazon.jsii.JsiiSerializable {

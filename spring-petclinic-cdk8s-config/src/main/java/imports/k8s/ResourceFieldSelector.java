@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ResourceFieldSelector represents container resources (cpu, memory) and their output format.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.063Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.101Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ResourceFieldSelector")
 @software.amazon.jsii.Jsii.Proxy(ResourceFieldSelector.Jsii$Proxy.class)
 public interface ResourceFieldSelector extends software.amazon.jsii.JsiiSerializable {

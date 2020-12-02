@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Host path volumes do not support ownership management or SELinux relabeling.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.845Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.929Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.HostPathVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(HostPathVolumeSource.Jsii$Proxy.class)
 public interface HostPathVolumeSource extends software.amazon.jsii.JsiiSerializable {

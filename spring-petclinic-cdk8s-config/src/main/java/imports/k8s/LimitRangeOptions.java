@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * LimitRange sets resource usage limits for each kind of resource in a Namespace.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.908Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.984Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.LimitRangeOptions")
 @software.amazon.jsii.Jsii.Proxy(LimitRangeOptions.Jsii$Proxy.class)
 public interface LimitRangeOptions extends software.amazon.jsii.JsiiSerializable {

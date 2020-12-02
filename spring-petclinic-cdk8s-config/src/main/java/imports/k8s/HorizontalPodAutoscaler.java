@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * configuration of a horizontal pod autoscaler.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.839Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.923Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.HorizontalPodAutoscaler")
 public class HorizontalPodAutoscaler extends org.cdk8s.ApiObject {
 

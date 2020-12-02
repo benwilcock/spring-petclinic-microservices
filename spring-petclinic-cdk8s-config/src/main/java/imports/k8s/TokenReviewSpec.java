@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * TokenReviewSpec is a description of the token authentication request.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.159Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.178Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.TokenReviewSpec")
 @software.amazon.jsii.Jsii.Proxy(TokenReviewSpec.Jsii$Proxy.class)
 public interface TokenReviewSpec extends software.amazon.jsii.JsiiSerializable {

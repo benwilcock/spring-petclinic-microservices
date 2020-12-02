@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * for example, a pod is bound to a node by a scheduler. Deprecated in 1.7, please use the bindings subresource of pods instead.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.724Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.809Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.BindingOptions")
 @software.amazon.jsii.Jsii.Proxy(BindingOptions.Jsii$Proxy.class)
 public interface BindingOptions extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Pod anti affinity is a group of inter pod anti affinity scheduling rules.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.982Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.037Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodAntiAffinity")
 @software.amazon.jsii.Jsii.Proxy(PodAntiAffinity.Jsii$Proxy.class)
 public interface PodAntiAffinity extends software.amazon.jsii.JsiiSerializable {

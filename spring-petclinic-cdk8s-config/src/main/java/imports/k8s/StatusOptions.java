@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Status is a return value for calls that don't return other objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.145Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.169Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.StatusOptions")
 @software.amazon.jsii.Jsii.Proxy(StatusOptions.Jsii$Proxy.class)
 public interface StatusOptions extends software.amazon.jsii.JsiiSerializable {

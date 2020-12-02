@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Spec to control the desired behavior of daemon set rolling update.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.088Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.117Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.RollingUpdateDaemonSet")
 @software.amazon.jsii.Jsii.Proxy(RollingUpdateDaemonSet.Jsii$Proxy.class)
 public interface RollingUpdateDaemonSet extends software.amazon.jsii.JsiiSerializable {

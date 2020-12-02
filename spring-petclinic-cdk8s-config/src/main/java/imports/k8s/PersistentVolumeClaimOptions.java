@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PersistentVolumeClaim is a user's request for and claim to a persistent volume.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.953Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.019Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PersistentVolumeClaimOptions")
 @software.amazon.jsii.Jsii.Proxy(PersistentVolumeClaimOptions.Jsii$Proxy.class)
 public interface PersistentVolumeClaimOptions extends software.amazon.jsii.JsiiSerializable {

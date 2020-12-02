@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * It can reference a ClusterRole in the global namespace, and adds who information via Subject.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.737Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.826Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ClusterRoleBinding")
 public class ClusterRoleBinding extends org.cdk8s.ApiObject {
 

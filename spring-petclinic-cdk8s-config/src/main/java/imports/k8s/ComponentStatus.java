@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ComponentStatus (and ComponentStatusList) holds the cluster validation info.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.743Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.831Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ComponentStatus")
 public class ComponentStatus extends org.cdk8s.ApiObject {
 

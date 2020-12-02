@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.062Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.099Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ResourceAttributes")
 @software.amazon.jsii.Jsii.Proxy(ResourceAttributes.Jsii$Proxy.class)
 public interface ResourceAttributes extends software.amazon.jsii.JsiiSerializable {

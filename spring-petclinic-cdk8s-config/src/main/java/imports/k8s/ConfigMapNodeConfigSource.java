@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ConfigMapNodeConfigSource contains the information to reference a ConfigMap as a config source for the Node.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.749Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.837Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ConfigMapNodeConfigSource")
 @software.amazon.jsii.Jsii.Proxy(ConfigMapNodeConfigSource.Jsii$Proxy.class)
 public interface ConfigMapNodeConfigSource extends software.amazon.jsii.JsiiSerializable {

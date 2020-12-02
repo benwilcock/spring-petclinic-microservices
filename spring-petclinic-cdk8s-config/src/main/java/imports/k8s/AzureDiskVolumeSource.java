@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.718Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.805Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.AzureDiskVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(AzureDiskVolumeSource.Jsii$Proxy.class)
 public interface AzureDiskVolumeSource extends software.amazon.jsii.JsiiSerializable {

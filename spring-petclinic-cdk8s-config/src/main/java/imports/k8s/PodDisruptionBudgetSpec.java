@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.988Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.040Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodDisruptionBudgetSpec")
 @software.amazon.jsii.Jsii.Proxy(PodDisruptionBudgetSpec.Jsii$Proxy.class)
 public interface PodDisruptionBudgetSpec extends software.amazon.jsii.JsiiSerializable {

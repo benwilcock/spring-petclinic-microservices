@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * A GCE PD must exist before mounting to a container. The disk must also be in the same GCE project and zone as the kubelet. A GCE PD can only be mounted as read/write once or read-only many times. GCE PDs support ownership management and SELinux relabeling.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.831Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.915Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.GcePersistentDiskVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(GcePersistentDiskVolumeSource.Jsii$Proxy.class)
 public interface GcePersistentDiskVolumeSource extends software.amazon.jsii.JsiiSerializable {

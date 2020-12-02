@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.747Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.835Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ConfigMapEnvSource")
 @software.amazon.jsii.Jsii.Proxy(ConfigMapEnvSource.Jsii$Proxy.class)
 public interface ConfigMapEnvSource extends software.amazon.jsii.JsiiSerializable {

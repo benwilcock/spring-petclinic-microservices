@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * CSIDriverSpec is the specification of a CSIDriver.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.776Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.860Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CsiDriverSpec")
 @software.amazon.jsii.Jsii.Proxy(CsiDriverSpec.Jsii$Proxy.class)
 public interface CsiDriverSpec extends software.amazon.jsii.JsiiSerializable {

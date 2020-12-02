@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * EndpointAddress is a tuple that describes single IP address.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.811Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.898Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.EndpointAddress")
 @software.amazon.jsii.Jsii.Proxy(EndpointAddress.Jsii$Proxy.class)
 public interface EndpointAddress extends software.amazon.jsii.JsiiSerializable {

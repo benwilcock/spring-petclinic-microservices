@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The contents of the target Secret's Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.107Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.135Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SecretProjection")
 @software.amazon.jsii.Jsii.Proxy(SecretProjection.Jsii$Proxy.class)
 public interface SecretProjection extends software.amazon.jsii.JsiiSerializable {

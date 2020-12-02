@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodPreset is a policy resource that defines additional runtime requirements for a Pod.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.996Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.047Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodPresetOptions")
 @software.amazon.jsii.Jsii.Proxy(PodPresetOptions.Jsii$Proxy.class)
 public interface PodPresetOptions extends software.amazon.jsii.JsiiSerializable {

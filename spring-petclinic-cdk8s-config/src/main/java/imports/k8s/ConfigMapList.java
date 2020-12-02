@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ConfigMapList is a resource containing a list of ConfigMap objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.748Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.836Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ConfigMapList")
 public class ConfigMapList extends org.cdk8s.ApiObject {
 

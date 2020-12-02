@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodSecurityPolicyList is a list of PodSecurityPolicy objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.000Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.051Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodSecurityPolicyList")
 public class PodSecurityPolicyList extends org.cdk8s.ApiObject {
 

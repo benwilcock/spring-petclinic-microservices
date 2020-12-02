@@ -1,3 +1,4 @@
+# Settings required by Spring Cloud CONFIG should be in here
 spring:
   application:
     name: visits-service
@@ -5,7 +6,3 @@ spring:
     config:
       uri: ${CONFIG_SERVER_URI}
       fail-fast: true
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${DISCOVERY_SERVER_URI}

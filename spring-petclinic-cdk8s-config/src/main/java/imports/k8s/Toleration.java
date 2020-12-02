@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.159Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.178Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Toleration")
 @software.amazon.jsii.Jsii.Proxy(Toleration.Jsii$Proxy.class)
 public interface Toleration extends software.amazon.jsii.JsiiSerializable {

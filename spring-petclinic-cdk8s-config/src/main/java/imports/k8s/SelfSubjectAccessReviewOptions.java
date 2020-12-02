@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Not filling in a spec.namespace means "in all namespaces".  Self is a special case, because users should always be able to check whether they can perform an action
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.113Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.139Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SelfSubjectAccessReviewOptions")
 @software.amazon.jsii.Jsii.Proxy(SelfSubjectAccessReviewOptions.Jsii$Proxy.class)
 public interface SelfSubjectAccessReviewOptions extends software.amazon.jsii.JsiiSerializable {

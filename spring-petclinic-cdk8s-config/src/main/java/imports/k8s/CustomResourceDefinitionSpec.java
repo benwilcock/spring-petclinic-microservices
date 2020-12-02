@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * CustomResourceDefinitionSpec describes how a user wants their resource to appear.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.787Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.871Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CustomResourceDefinitionSpec")
 @software.amazon.jsii.Jsii.Proxy(CustomResourceDefinitionSpec.Jsii$Proxy.class)
 public interface CustomResourceDefinitionSpec extends software.amazon.jsii.JsiiSerializable {

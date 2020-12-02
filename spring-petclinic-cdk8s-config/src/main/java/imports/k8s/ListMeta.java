@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * A resource may have only one of {ObjectMeta, ListMeta}.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.909Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.985Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ListMeta")
 @software.amazon.jsii.Jsii.Proxy(ListMeta.Jsii$Proxy.class)
 public interface ListMeta extends software.amazon.jsii.JsiiSerializable {

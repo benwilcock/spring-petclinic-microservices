@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ResourceRequirements describes the compute resource requirements.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.069Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.106Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ResourceRequirements")
 @software.amazon.jsii.Jsii.Proxy(ResourceRequirements.Jsii$Proxy.class)
 public interface ResourceRequirements extends software.amazon.jsii.JsiiSerializable {

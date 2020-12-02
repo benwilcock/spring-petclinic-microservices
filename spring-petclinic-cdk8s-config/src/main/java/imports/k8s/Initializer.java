@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Initializer is information about an initializer that has not yet completed.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.856Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.940Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Initializer")
 @software.amazon.jsii.Jsii.Proxy(Initializer.Jsii$Proxy.class)
 public interface Initializer extends software.amazon.jsii.JsiiSerializable {

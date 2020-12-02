@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions checking.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.912Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.987Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.LocalSubjectAccessReviewOptions")
 @software.amazon.jsii.Jsii.Proxy(LocalSubjectAccessReviewOptions.Jsii$Proxy.class)
 public interface LocalSubjectAccessReviewOptions extends software.amazon.jsii.JsiiSerializable {

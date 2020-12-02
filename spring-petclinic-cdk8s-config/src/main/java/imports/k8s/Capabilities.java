@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Adds and removes POSIX capabilities from running containers.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.724Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.810Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Capabilities")
 @software.amazon.jsii.Jsii.Proxy(Capabilities.Jsii$Proxy.class)
 public interface Capabilities extends software.amazon.jsii.JsiiSerializable {

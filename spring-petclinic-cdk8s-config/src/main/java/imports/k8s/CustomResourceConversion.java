@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * CustomResourceConversion describes how to convert different versions of a CR.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.783Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.867Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CustomResourceConversion")
 @software.amazon.jsii.Jsii.Proxy(CustomResourceConversion.Jsii$Proxy.class)
 public interface CustomResourceConversion extends software.amazon.jsii.JsiiSerializable {

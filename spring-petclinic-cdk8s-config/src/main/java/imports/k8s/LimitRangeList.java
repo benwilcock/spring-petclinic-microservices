@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * LimitRangeList is a list of LimitRange items.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.906Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.982Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.LimitRangeList")
 public class LimitRangeList extends org.cdk8s.ApiObject {
 

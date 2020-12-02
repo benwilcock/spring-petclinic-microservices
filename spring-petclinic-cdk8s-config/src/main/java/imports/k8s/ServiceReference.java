@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ServiceReference holds a reference to Service.legacy.k8s.io.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.122Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.146Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ServiceReference")
 @software.amazon.jsii.Jsii.Proxy(ServiceReference.Jsii$Proxy.class)
 public interface ServiceReference extends software.amazon.jsii.JsiiSerializable {

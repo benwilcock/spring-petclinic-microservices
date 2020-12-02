@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.701Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.789Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.AggregationRule")
 @software.amazon.jsii.Jsii.Proxy(AggregationRule.Jsii$Proxy.class)
 public interface AggregationRule extends software.amazon.jsii.JsiiSerializable {

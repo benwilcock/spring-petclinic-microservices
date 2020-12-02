@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ControllerRevisionList is a resource containing a list of ControllerRevision objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.764Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.851Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ControllerRevisionList")
 public class ControllerRevisionList extends org.cdk8s.ApiObject {
 

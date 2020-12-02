@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Node affinity is a group of node affinity scheduling rules.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.935Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.003Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NodeAffinity")
 @software.amazon.jsii.Jsii.Proxy(NodeAffinity.Jsii$Proxy.class)
 public interface NodeAffinity extends software.amazon.jsii.JsiiSerializable {

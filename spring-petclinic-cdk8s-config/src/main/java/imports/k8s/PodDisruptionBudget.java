@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.985Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.038Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodDisruptionBudget")
 public class PodDisruptionBudget extends org.cdk8s.ApiObject {
 

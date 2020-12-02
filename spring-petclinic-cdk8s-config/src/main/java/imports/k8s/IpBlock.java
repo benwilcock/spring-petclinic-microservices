@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * "192.168.1.1/24") that is allowed to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should not be included within this rule.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.859Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.941Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.IpBlock")
 @software.amazon.jsii.Jsii.Proxy(IpBlock.Jsii$Proxy.class)
 public interface IpBlock extends software.amazon.jsii.JsiiSerializable {

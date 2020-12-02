@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The value can be any valid integer.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.027Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.070Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PriorityClass")
 public class PriorityClass extends org.cdk8s.ApiObject {
 

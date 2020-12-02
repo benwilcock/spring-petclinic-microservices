@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.104Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.131Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SeLinuxStrategyOptions")
 @software.amazon.jsii.Jsii.Proxy(SeLinuxStrategyOptions.Jsii$Proxy.class)
 public interface SeLinuxStrategyOptions extends software.amazon.jsii.JsiiSerializable {

@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * It requires both the start and end to be defined.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.845Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.930Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.HostPortRange")
 @software.amazon.jsii.Jsii.Proxy(HostPortRange.Jsii$Proxy.class)
 public interface HostPortRange extends software.amazon.jsii.JsiiSerializable {

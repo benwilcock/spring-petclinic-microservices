@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ExternalDocumentation allows referencing an external resource for extended documentation.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.826Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.910Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ExternalDocumentation")
 @software.amazon.jsii.Jsii.Proxy(ExternalDocumentation.Jsii$Proxy.class)
 public interface ExternalDocumentation extends software.amazon.jsii.JsiiSerializable {

@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * VolumeAttachment objects are non-namespaced.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.177Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.195Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.VolumeAttachmentOptions")
 @software.amazon.jsii.Jsii.Proxy(VolumeAttachmentOptions.Jsii$Proxy.class)
 public interface VolumeAttachmentOptions extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.100Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.127Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ScaleIoPersistentVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(ScaleIoPersistentVolumeSource.Jsii$Proxy.class)
 public interface ScaleIoPersistentVolumeSource extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * AuditSink represents a cluster level audit sink.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.716Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.803Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.AuditSinkOptions")
 @software.amazon.jsii.Jsii.Proxy(AuditSinkOptions.Jsii$Proxy.class)
 public interface AuditSinkOptions extends software.amazon.jsii.JsiiSerializable {

@@ -16,7 +16,7 @@ package imports.k8s;
  * },
  * ]
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.817Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.902Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.EndpointsOptions")
 @software.amazon.jsii.Jsii.Proxy(EndpointsOptions.Jsii$Proxy.class)
 public interface EndpointsOptions extends software.amazon.jsii.JsiiSerializable {

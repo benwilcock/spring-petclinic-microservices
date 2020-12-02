@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The Reason field of a Status object defines what attributes will be set. Clients must ignore fields that do not match the defined type of each attribute, and should assume that any attribute may be empty, invalid, or under defined.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.144Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.169Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.StatusDetails")
 @software.amazon.jsii.Jsii.Proxy(StatusDetails.Jsii$Proxy.class)
 public interface StatusDetails extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ConfigMap holds configuration data for pods to consume.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.749Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.837Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ConfigMapOptions")
 @software.amazon.jsii.Jsii.Proxy(ConfigMapOptions.Jsii$Proxy.class)
 public interface ConfigMapOptions extends software.amazon.jsii.JsiiSerializable {

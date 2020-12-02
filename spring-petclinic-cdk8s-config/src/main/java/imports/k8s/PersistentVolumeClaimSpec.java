@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.953Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.020Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PersistentVolumeClaimSpec")
 @software.amazon.jsii.Jsii.Proxy(PersistentVolumeClaimSpec.Jsii$Proxy.class)
 public interface PersistentVolumeClaimSpec extends software.amazon.jsii.JsiiSerializable {

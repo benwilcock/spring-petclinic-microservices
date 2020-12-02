@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ServiceAccountList is a list of ServiceAccount objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.118Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.142Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ServiceAccountList")
 public class ServiceAccountList extends org.cdk8s.ApiObject {
 

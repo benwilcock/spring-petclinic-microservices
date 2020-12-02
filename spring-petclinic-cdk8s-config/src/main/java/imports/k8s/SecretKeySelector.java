@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * SecretKeySelector selects a key of a Secret.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.106Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.133Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SecretKeySelector")
 @software.amazon.jsii.Jsii.Proxy(SecretKeySelector.Jsii$Proxy.class)
 public interface SecretKeySelector extends software.amazon.jsii.JsiiSerializable {

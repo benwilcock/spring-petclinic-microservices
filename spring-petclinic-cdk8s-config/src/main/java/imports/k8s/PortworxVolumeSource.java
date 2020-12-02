@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PortworxVolumeSource represents a Portworx volume resource.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.026Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.070Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PortworxVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(PortworxVolumeSource.Jsii$Proxy.class)
 public interface PortworxVolumeSource extends software.amazon.jsii.JsiiSerializable {

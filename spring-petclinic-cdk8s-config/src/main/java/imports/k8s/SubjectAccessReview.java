@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * SubjectAccessReview checks whether or not a user or group can perform an action.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.153Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.174Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SubjectAccessReview")
 public class SubjectAccessReview extends org.cdk8s.ApiObject {
 

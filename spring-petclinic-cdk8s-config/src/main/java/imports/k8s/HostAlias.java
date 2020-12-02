@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.844Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.929Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.HostAlias")
 @software.amazon.jsii.Jsii.Proxy(HostAlias.Jsii$Proxy.class)
 public interface HostAlias extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ReplicationControllerSpec is the specification of a replication controller.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.061Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.098Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ReplicationControllerSpec")
 @software.amazon.jsii.Jsii.Proxy(ReplicationControllerSpec.Jsii$Proxy.class)
 public interface ReplicationControllerSpec extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.828Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.911Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.FlexPersistentVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(FlexPersistentVolumeSource.Jsii$Proxy.class)
 public interface FlexPersistentVolumeSource extends software.amazon.jsii.JsiiSerializable {

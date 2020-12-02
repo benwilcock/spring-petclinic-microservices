@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * NamespaceList is a list of Namespaces.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.927Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.996Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NamespaceListOptions")
 @software.amazon.jsii.Jsii.Proxy(NamespaceListOptions.Jsii$Proxy.class)
 public interface NamespaceListOptions extends software.amazon.jsii.JsiiSerializable {

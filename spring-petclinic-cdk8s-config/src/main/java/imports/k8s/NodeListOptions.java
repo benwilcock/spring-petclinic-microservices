@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * NodeList is the whole list of all Nodes which have been registered with master.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.937Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.005Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NodeListOptions")
 @software.amazon.jsii.Jsii.Proxy(NodeListOptions.Jsii$Proxy.class)
 public interface NodeListOptions extends software.amazon.jsii.JsiiSerializable {

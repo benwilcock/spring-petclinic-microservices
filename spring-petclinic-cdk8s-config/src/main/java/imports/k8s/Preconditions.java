@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.027Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.070Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Preconditions")
 @software.amazon.jsii.Jsii.Proxy(Preconditions.Jsii$Proxy.class)
 public interface Preconditions extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * The node this Taint is attached to has the "effect" on any pod that does not tolerate the Taint.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.156Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.176Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Taint")
 @software.amazon.jsii.Jsii.Proxy(Taint.Jsii$Proxy.class)
 public interface Taint extends software.amazon.jsii.JsiiSerializable {

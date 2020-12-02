@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * NFS volumes do not support ownership management or SELinux relabeling.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.934Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.002Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NfsVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(NfsVolumeSource.Jsii$Proxy.class)
 public interface NfsVolumeSource extends software.amazon.jsii.JsiiSerializable {

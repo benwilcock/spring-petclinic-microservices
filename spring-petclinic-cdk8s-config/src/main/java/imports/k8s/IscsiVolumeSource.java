@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.863Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.943Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.IscsiVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(IscsiVolumeSource.Jsii$Proxy.class)
 public interface IscsiVolumeSource extends software.amazon.jsii.JsiiSerializable {

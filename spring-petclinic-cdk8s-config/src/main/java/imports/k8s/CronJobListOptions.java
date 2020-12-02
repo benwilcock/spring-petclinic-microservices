@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * CronJobList is a collection of cron jobs.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.771Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.855Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CronJobListOptions")
 @software.amazon.jsii.Jsii.Proxy(CronJobListOptions.Jsii$Proxy.class)
 public interface CronJobListOptions extends software.amazon.jsii.JsiiSerializable {

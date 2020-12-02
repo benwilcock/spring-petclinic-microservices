@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * StorageClassList is a collection of storage classes.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.147Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.171Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.StorageClassList")
 public class StorageClassList extends org.cdk8s.ApiObject {
 

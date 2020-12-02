@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The traffic must match both ports and to. This type is beta-level in 1.8
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.929Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.998Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NetworkPolicyEgressRule")
 @software.amazon.jsii.Jsii.Proxy(NetworkPolicyEgressRule.Jsii$Proxy.class)
 public interface NetworkPolicyEgressRule extends software.amazon.jsii.JsiiSerializable {

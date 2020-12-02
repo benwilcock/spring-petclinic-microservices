@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.027Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.070Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PreferredSchedulingTerm")
 @software.amazon.jsii.Jsii.Proxy(PreferredSchedulingTerm.Jsii$Proxy.class)
 public interface PreferredSchedulingTerm extends software.amazon.jsii.JsiiSerializable {

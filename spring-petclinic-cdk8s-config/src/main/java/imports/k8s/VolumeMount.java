@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * VolumeMount describes a mounting of a Volume within a container.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.179Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.196Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.VolumeMount")
 @software.amazon.jsii.Jsii.Proxy(VolumeMount.Jsii$Proxy.class)
 public interface VolumeMount extends software.amazon.jsii.JsiiSerializable {

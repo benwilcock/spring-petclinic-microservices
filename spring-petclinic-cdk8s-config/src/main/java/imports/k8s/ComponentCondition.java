@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Information about the condition of a component.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.742Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.830Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ComponentCondition")
 @software.amazon.jsii.Jsii.Proxy(ComponentCondition.Jsii$Proxy.class)
 public interface ComponentCondition extends software.amazon.jsii.JsiiSerializable {

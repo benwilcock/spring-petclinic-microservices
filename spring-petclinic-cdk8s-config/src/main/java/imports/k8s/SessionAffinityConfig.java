@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * SessionAffinityConfig represents the configurations of session affinity.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.135Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.158Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.SessionAffinityConfig")
 @software.amazon.jsii.Jsii.Proxy(SessionAffinityConfig.Jsii$Proxy.class)
 public interface SessionAffinityConfig extends software.amazon.jsii.JsiiSerializable {

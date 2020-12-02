@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ServiceAccount binds together: * a name, understood by users, and perhaps by peripheral systems, for an identity * a principal that can be authenticated and authorized * a set of secrets.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.119Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.143Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ServiceAccountOptions")
 @software.amazon.jsii.Jsii.Proxy(ServiceAccountOptions.Jsii$Proxy.class)
 public interface ServiceAccountOptions extends software.amazon.jsii.JsiiSerializable {

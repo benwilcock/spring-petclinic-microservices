@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.158Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.177Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.TokenReviewOptions")
 @software.amazon.jsii.Jsii.Proxy(TokenReviewOptions.Jsii$Proxy.class)
 public interface TokenReviewOptions extends software.amazon.jsii.JsiiSerializable {

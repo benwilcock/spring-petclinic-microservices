@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Represents storage that is managed by an external CSI volume driver (Beta feature).
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.780Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.864Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CsiPersistentVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(CsiPersistentVolumeSource.Jsii$Proxy.class)
 public interface CsiPersistentVolumeSource extends software.amazon.jsii.JsiiSerializable {

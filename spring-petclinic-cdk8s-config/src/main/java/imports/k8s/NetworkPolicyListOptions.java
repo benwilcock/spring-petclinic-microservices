@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * NetworkPolicyList is a list of NetworkPolicy objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.931Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.999Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NetworkPolicyListOptions")
 @software.amazon.jsii.Jsii.Proxy(NetworkPolicyListOptions.Jsii$Proxy.class)
 public interface NetworkPolicyListOptions extends software.amazon.jsii.JsiiSerializable {

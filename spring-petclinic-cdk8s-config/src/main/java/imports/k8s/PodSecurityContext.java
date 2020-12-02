@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.997Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.048Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodSecurityContext")
 @software.amazon.jsii.Jsii.Proxy(PodSecurityContext.Jsii$Proxy.class)
 public interface PodSecurityContext extends software.amazon.jsii.JsiiSerializable {

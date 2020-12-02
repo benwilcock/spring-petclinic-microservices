@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * LeaseSpec is a specification of a Lease.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.899Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.975Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.LeaseSpec")
 @software.amazon.jsii.Jsii.Proxy(LeaseSpec.Jsii$Proxy.class)
 public interface LeaseSpec extends software.amazon.jsii.JsiiSerializable {

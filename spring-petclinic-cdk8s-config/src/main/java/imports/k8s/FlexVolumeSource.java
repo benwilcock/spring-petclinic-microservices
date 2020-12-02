@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.829Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.912Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.FlexVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(FlexVolumeSource.Jsii$Proxy.class)
 public interface FlexVolumeSource extends software.amazon.jsii.JsiiSerializable {

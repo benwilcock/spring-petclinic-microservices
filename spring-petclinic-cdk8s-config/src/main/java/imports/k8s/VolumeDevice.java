@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * volumeDevice describes a mapping of a raw block device within a container.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.179Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.196Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.VolumeDevice")
 @software.amazon.jsii.Jsii.Proxy(VolumeDevice.Jsii$Proxy.class)
 public interface VolumeDevice extends software.amazon.jsii.JsiiSerializable {

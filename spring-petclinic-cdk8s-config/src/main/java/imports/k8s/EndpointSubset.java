@@ -12,7 +12,7 @@ package imports.k8s;
  * a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],
  * b: [ 10.10.1.1:309, 10.10.2.2:309 ]
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.812Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.899Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.EndpointSubset")
 @software.amazon.jsii.Jsii.Proxy(EndpointSubset.Jsii$Proxy.class)
 public interface EndpointSubset extends software.amazon.jsii.JsiiSerializable {

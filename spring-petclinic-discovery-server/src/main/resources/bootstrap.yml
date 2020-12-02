@@ -1,3 +1,4 @@
+# Settings required by Spring Cloud CONFIG should be in here
 spring:
   application:
     name: discovery-server

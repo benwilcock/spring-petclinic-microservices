@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ClusterRoleBindingList is a collection of ClusterRoleBindings.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.738Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.827Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ClusterRoleBindingList")
 public class ClusterRoleBindingList extends org.cdk8s.ApiObject {
 

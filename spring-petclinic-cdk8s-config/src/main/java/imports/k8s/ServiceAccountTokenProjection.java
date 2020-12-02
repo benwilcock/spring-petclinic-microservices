@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.119Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.143Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ServiceAccountTokenProjection")
 @software.amazon.jsii.Jsii.Proxy(ServiceAccountTokenProjection.Jsii$Proxy.class)
 public interface ServiceAccountTokenProjection extends software.amazon.jsii.JsiiSerializable {

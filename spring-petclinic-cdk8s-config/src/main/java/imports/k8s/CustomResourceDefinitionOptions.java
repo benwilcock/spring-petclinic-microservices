@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Its name MUST be in the format &lt;.spec.name&gt;.&lt;.spec.group&gt;.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.787Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.871Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CustomResourceDefinitionOptions")
 @software.amazon.jsii.Jsii.Proxy(CustomResourceDefinitionOptions.Jsii$Proxy.class)
 public interface CustomResourceDefinitionOptions extends software.amazon.jsii.JsiiSerializable {

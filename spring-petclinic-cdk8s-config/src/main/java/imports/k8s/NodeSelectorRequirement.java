@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.938Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.006Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NodeSelectorRequirement")
 @software.amazon.jsii.Jsii.Proxy(NodeSelectorRequirement.Jsii$Proxy.class)
 public interface NodeSelectorRequirement extends software.amazon.jsii.JsiiSerializable {

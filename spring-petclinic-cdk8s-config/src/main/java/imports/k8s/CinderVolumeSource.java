@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.732Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.820Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CinderVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(CinderVolumeSource.Jsii$Proxy.class)
 public interface CinderVolumeSource extends software.amazon.jsii.JsiiSerializable {

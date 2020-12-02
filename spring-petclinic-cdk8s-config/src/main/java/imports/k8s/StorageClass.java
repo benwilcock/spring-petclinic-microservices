@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * StorageClasses are non-namespaced; the name of the storage class according to etcd is in ObjectMeta.Name.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.146Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.169Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.StorageClass")
 public class StorageClass extends org.cdk8s.ApiObject {
 

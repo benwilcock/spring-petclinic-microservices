@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * AuditSinkList is a list of AuditSink items.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.716Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.803Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.AuditSinkListOptions")
 @software.amazon.jsii.Jsii.Proxy(AuditSinkListOptions.Jsii$Proxy.class)
 public interface AuditSinkListOptions extends software.amazon.jsii.JsiiSerializable {

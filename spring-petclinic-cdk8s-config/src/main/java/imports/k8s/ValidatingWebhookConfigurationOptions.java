@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.167Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.186Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ValidatingWebhookConfigurationOptions")
 @software.amazon.jsii.Jsii.Proxy(ValidatingWebhookConfigurationOptions.Jsii$Proxy.class)
 public interface ValidatingWebhookConfigurationOptions extends software.amazon.jsii.JsiiSerializable {

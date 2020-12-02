@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * LimitRangeItem defines a min/max usage limit for any resource that matches on kind.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.903Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.978Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.LimitRangeItem")
 @software.amazon.jsii.Jsii.Proxy(LimitRangeItem.Jsii$Proxy.class)
 public interface LimitRangeItem extends software.amazon.jsii.JsiiSerializable {

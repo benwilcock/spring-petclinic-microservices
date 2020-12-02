@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Represents a StorageOS persistent volume resource.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.150Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.172Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.StorageOsPersistentVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(StorageOsPersistentVolumeSource.Jsii$Proxy.class)
 public interface StorageOsPersistentVolumeSource extends software.amazon.jsii.JsiiSerializable {

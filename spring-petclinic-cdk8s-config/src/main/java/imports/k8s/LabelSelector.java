@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.891Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.968Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.LabelSelector")
 @software.amazon.jsii.Jsii.Proxy(LabelSelector.Jsii$Proxy.class)
 public interface LabelSelector extends software.amazon.jsii.JsiiSerializable {

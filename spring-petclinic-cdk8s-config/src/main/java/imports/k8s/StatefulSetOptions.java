@@ -11,7 +11,7 @@ package imports.k8s;
  * The StatefulSet guarantees that a given network identity will always map to the same storage identity.</li>
  * </ul>
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.137Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.161Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.StatefulSetOptions")
 @software.amazon.jsii.Jsii.Proxy(StatefulSetOptions.Jsii$Proxy.class)
 public interface StatefulSetOptions extends software.amazon.jsii.JsiiSerializable {

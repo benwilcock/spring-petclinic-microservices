@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodTemplate describes a template for creating copies of a predefined pod.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.023Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.067Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodTemplateOptions")
 @software.amazon.jsii.Jsii.Proxy(PodTemplateOptions.Jsii$Proxy.class)
 public interface PodTemplateOptions extends software.amazon.jsii.JsiiSerializable {

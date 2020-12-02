@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Projection that may be projected along with other supported volume types.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.181Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.197Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.VolumeProjection")
 @software.amazon.jsii.Jsii.Proxy(VolumeProjection.Jsii$Proxy.class)
 public interface VolumeProjection extends software.amazon.jsii.JsiiSerializable {

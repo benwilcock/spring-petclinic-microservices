@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.988Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.040Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodDnsConfig")
 @software.amazon.jsii.Jsii.Proxy(PodDnsConfig.Jsii$Proxy.class)
 public interface PodDnsConfig extends software.amazon.jsii.JsiiSerializable {

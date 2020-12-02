@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * This is an alpha feature and may change in the future.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.160Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.179Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.TopologySelectorLabelRequirement")
 @software.amazon.jsii.Jsii.Proxy(TopologySelectorLabelRequirement.Jsii$Proxy.class)
 public interface TopologySelectorLabelRequirement extends software.amazon.jsii.JsiiSerializable {

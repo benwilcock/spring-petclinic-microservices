@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * NodeList is the whole list of all Nodes which have been registered with master.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.936Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.004Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NodeList")
 public class NodeList extends org.cdk8s.ApiObject {
 

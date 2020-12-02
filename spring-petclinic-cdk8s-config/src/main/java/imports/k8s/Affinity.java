@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Affinity is a group of affinity scheduling rules.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.696Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.784Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Affinity")
 @software.amazon.jsii.Jsii.Proxy(Affinity.Jsii$Proxy.class)
 public interface Affinity extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Describes a certificate signing request.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.729Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.816Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CertificateSigningRequestOptions")
 @software.amazon.jsii.Jsii.Proxy(CertificateSigningRequestOptions.Jsii$Proxy.class)
 public interface CertificateSigningRequestOptions extends software.amazon.jsii.JsiiSerializable {

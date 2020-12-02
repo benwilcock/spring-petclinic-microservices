@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Note that this is identical to a downwardAPI volume source without the default mode.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.809Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.896Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.DownwardApiProjection")
 @software.amazon.jsii.Jsii.Proxy(DownwardApiProjection.Jsii$Proxy.class)
 public interface DownwardApiProjection extends software.amazon.jsii.JsiiSerializable {

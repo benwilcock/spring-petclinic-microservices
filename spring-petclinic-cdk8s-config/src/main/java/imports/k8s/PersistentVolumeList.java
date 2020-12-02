@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PersistentVolumeList is a list of PersistentVolume items.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.965Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.030Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PersistentVolumeList")
 public class PersistentVolumeList extends org.cdk8s.ApiObject {
 

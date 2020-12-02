@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Policy defines the configuration of how audit events are logged.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.024Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.068Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Policy")
 @software.amazon.jsii.Jsii.Proxy(Policy.Jsii$Proxy.class)
 public interface Policy extends software.amazon.jsii.JsiiSerializable {

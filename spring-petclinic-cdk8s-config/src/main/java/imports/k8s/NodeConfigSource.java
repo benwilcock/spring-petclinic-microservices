@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Exactly one subfield (excluding metadata) must be non-nil.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.936Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.004Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NodeConfigSource")
 @software.amazon.jsii.Jsii.Proxy(NodeConfigSource.Jsii$Proxy.class)
 public interface NodeConfigSource extends software.amazon.jsii.JsiiSerializable {

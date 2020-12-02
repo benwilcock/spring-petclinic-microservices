@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ResourceQuota sets aggregate quota restrictions enforced per namespace.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.064Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.102Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ResourceQuota")
 public class ResourceQuota extends org.cdk8s.ApiObject {
 

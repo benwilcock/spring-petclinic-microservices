@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * LimitRange sets resource usage limits for each kind of resource in a Namespace.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.901Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.977Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.LimitRange")
 public class LimitRange extends org.cdk8s.ApiObject {
 

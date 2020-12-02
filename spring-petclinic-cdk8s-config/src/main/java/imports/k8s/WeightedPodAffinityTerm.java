@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s).
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.182Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.200Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.WeightedPodAffinityTerm")
 @software.amazon.jsii.Jsii.Proxy(WeightedPodAffinityTerm.Jsii$Proxy.class)
 public interface WeightedPodAffinityTerm extends software.amazon.jsii.JsiiSerializable {

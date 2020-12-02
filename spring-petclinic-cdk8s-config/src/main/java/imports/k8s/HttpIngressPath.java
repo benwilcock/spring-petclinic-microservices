@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Incoming urls matching the path are forwarded to the backend.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.846Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.932Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.HttpIngressPath")
 @software.amazon.jsii.Jsii.Proxy(HttpIngressPath.Jsii$Proxy.class)
 public interface HttpIngressPath extends software.amazon.jsii.JsiiSerializable {

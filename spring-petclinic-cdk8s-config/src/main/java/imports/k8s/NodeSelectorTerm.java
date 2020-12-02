@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.939Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.006Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.NodeSelectorTerm")
 @software.amazon.jsii.Jsii.Proxy(NodeSelectorTerm.Jsii$Proxy.class)
 public interface NodeSelectorTerm extends software.amazon.jsii.JsiiSerializable {

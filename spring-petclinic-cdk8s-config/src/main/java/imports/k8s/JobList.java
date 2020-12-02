@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * JobList is a collection of jobs.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.867Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.946Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.JobList")
 public class JobList extends org.cdk8s.ApiObject {
 

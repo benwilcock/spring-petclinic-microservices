@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.913Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.988Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ManagedFieldsEntry")
 @software.amazon.jsii.Jsii.Proxy(ManagedFieldsEntry.Jsii$Proxy.class)
 public interface ManagedFieldsEntry extends software.amazon.jsii.JsiiSerializable {

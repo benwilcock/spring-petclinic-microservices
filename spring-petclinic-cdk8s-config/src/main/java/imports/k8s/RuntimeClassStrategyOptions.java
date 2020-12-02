@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.097Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.125Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.RuntimeClassStrategyOptions")
 @software.amazon.jsii.Jsii.Proxy(RuntimeClassStrategyOptions.Jsii$Proxy.class)
 public interface RuntimeClassStrategyOptions extends software.amazon.jsii.JsiiSerializable {

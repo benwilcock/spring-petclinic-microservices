@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ExecAction describes a "run in container" action.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.826Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.910Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ExecAction")
 @software.amazon.jsii.Jsii.Proxy(ExecAction.Jsii$Proxy.class)
 public interface ExecAction extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * IDRange provides a min/max of an allowed range of IDs.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.847Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.932Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.IdRange")
 @software.amazon.jsii.Jsii.Proxy(IdRange.Jsii$Proxy.class)
 public interface IdRange extends software.amazon.jsii.JsiiSerializable {

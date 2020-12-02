@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Only the Request and Usages fields can be set on creation, other fields are derived by Kubernetes and cannot be modified by users.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.729Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.817Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CertificateSigningRequestSpec")
 @software.amazon.jsii.Jsii.Proxy(CertificateSigningRequestSpec.Jsii$Proxy.class)
 public interface CertificateSigningRequestSpec extends software.amazon.jsii.JsiiSerializable {

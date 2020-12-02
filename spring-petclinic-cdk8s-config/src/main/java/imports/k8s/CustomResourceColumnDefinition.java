@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * CustomResourceColumnDefinition specifies a column for server side printing.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.783Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.867Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.CustomResourceColumnDefinition")
 @software.amazon.jsii.Jsii.Proxy(CustomResourceColumnDefinition.Jsii$Proxy.class)
 public interface CustomResourceColumnDefinition extends software.amazon.jsii.JsiiSerializable {

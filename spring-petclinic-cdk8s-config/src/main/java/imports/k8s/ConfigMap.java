@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ConfigMap holds configuration data for pods to consume.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.746Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.834Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ConfigMap")
 public class ConfigMap extends org.cdk8s.ApiObject {
 

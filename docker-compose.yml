@@ -16,6 +16,8 @@ services:
     environment:
       - PORT=8888
       - SPRING_PROFILES_ACTIVE=docker
+      - TRACING_SERVER_URI=http://tracing-server:9411
+      - GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config
     depends_on:
       - tracing-server
 
@@ -29,8 +31,10 @@ services:
       - PORT=8761
       - SPRING_PROFILES_ACTIVE=docker
       - CONFIG_SERVER_URI=http://config-server:8888
+      - TRACING_SERVER_URI=http://tracing-server:9411
     depends_on:
       - tracing-server
+      - config-server
 
   admin-server:
     image: benwilcock/spring-petclinic-admin-server:2.3.6
@@ -43,6 +47,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
       - CONFIG_SERVER_URI=http://config-server:8888
       - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+      - TRACING_SERVER_URI=http://tracing-server:9411
     depends_on:
       - config-server
       - discovery-server
@@ -59,6 +64,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
       - CONFIG_SERVER_URI=http://config-server:8888
       - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+      - TRACING_SERVER_URI=http://tracing-server:9411
     depends_on:
       - config-server
       - discovery-server
@@ -75,6 +81,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
       - CONFIG_SERVER_URI=http://config-server:8888
       - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+      - TRACING_SERVER_URI=http://tracing-server:9411
     depends_on:
       - config-server
       - discovery-server
@@ -91,6 +98,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
       - CONFIG_SERVER_URI=http://config-server:8888
       - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+      - TRACING_SERVER_URI=http://tracing-server:9411
     depends_on:
       - config-server
       - discovery-server
@@ -107,6 +115,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
       - CONFIG_SERVER_URI=http://config-server:8888
       - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+      - TRACING_SERVER_URI=http://tracing-server:9411
     depends_on:
       - config-server
       - discovery-server

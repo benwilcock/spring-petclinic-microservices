@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * This resource is created by clients and scheduled onto hosts.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.990Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.043Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PodOptions")
 @software.amazon.jsii.Jsii.Proxy(PodOptions.Jsii$Proxy.class)
 public interface PodOptions extends software.amazon.jsii.JsiiSerializable {

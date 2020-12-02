@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.079Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.115Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.RoleOptions")
 @software.amazon.jsii.Jsii.Proxy(RoleOptions.Jsii$Proxy.class)
 public interface RoleOptions extends software.amazon.jsii.JsiiSerializable {

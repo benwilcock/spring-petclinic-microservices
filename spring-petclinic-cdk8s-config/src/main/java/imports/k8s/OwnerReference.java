@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.949Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.016Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.OwnerReference")
 @software.amazon.jsii.Jsii.Proxy(OwnerReference.Jsii$Proxy.class)
 public interface OwnerReference extends software.amazon.jsii.JsiiSerializable {

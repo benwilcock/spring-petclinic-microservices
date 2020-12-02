@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.703Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.791Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.AllowedCsiDriver")
 @software.amazon.jsii.Jsii.Proxy(AllowedCsiDriver.Jsii$Proxy.class)
 public interface AllowedCsiDriver extends software.amazon.jsii.JsiiSerializable {

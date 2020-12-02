@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * An AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.717Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.804Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.AwsElasticBlockStoreVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(AwsElasticBlockStoreVolumeSource.Jsii$Proxy.class)
 public interface AwsElasticBlockStoreVolumeSource extends software.amazon.jsii.JsiiSerializable {

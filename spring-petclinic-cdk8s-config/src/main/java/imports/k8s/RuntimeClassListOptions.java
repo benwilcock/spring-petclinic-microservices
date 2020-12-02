@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * RuntimeClassList is a list of RuntimeClass objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.096Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.124Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.RuntimeClassListOptions")
 @software.amazon.jsii.Jsii.Proxy(RuntimeClassListOptions.Jsii$Proxy.class)
 public interface RuntimeClassListOptions extends software.amazon.jsii.JsiiSerializable {

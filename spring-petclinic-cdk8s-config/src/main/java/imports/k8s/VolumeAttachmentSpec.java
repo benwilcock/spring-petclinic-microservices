@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * VolumeAttachmentSpec is the specification of a VolumeAttachment request.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.178Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.196Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.VolumeAttachmentSpec")
 @software.amazon.jsii.Jsii.Proxy(VolumeAttachmentSpec.Jsii$Proxy.class)
 public interface VolumeAttachmentSpec extends software.amazon.jsii.JsiiSerializable {

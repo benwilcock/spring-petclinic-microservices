@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.103Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.130Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ScopeSelector")
 @software.amazon.jsii.Jsii.Proxy(ScopeSelector.Jsii$Proxy.class)
 public interface ScopeSelector extends software.amazon.jsii.JsiiSerializable {

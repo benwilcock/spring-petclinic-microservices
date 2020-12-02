@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Scale represents a scaling request for a resource.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.103Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.129Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ScaleOptions")
 @software.amazon.jsii.Jsii.Proxy(ScaleOptions.Jsii$Proxy.class)
 public interface ScaleOptions extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * RunAsGroupStrategyOptions defines the strategy type and any options used to create the strategy.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.092Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.120Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.RunAsGroupStrategyOptions")
 @software.amazon.jsii.Jsii.Proxy(RunAsGroupStrategyOptions.Jsii$Proxy.class)
 public interface RunAsGroupStrategyOptions extends software.amazon.jsii.JsiiSerializable {

@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PersistentVolumeSpec is the specification of a persistent volume.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.967Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.031Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PersistentVolumeSpec")
 @software.amazon.jsii.Jsii.Proxy(PersistentVolumeSpec.Jsii$Proxy.class)
 public interface PersistentVolumeSpec extends software.amazon.jsii.JsiiSerializable {

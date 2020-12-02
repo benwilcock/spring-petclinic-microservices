@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * PriorityClassList is a collection of priority classes.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.031Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.072Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.PriorityClassListOptions")
 @software.amazon.jsii.Jsii.Proxy(PriorityClassListOptions.Jsii$Proxy.class)
 public interface PriorityClassListOptions extends software.amazon.jsii.JsiiSerializable {

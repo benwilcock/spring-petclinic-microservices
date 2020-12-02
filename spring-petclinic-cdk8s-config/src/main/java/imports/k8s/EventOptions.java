@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Event is a report of an event somewhere in the cluster.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.822Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.907Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.EventOptions")
 @software.amazon.jsii.Jsii.Proxy(EventOptions.Jsii$Proxy.class)
 public interface EventOptions extends software.amazon.jsii.JsiiSerializable {

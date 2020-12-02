@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * ResourceQuotaSpec defines the desired hard limits to enforce for Quota.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.068Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.105Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.ResourceQuotaSpec")
 @software.amazon.jsii.Jsii.Proxy(ResourceQuotaSpec.Jsii$Proxy.class)
 public interface ResourceQuotaSpec extends software.amazon.jsii.JsiiSerializable {

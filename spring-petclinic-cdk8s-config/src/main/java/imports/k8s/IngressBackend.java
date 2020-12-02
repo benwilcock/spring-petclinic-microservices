@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * IngressBackend describes all endpoints for a given service and port.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.848Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.934Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.IngressBackend")
 @software.amazon.jsii.Jsii.Proxy(IngressBackend.Jsii$Proxy.class)
 public interface IngressBackend extends software.amazon.jsii.JsiiSerializable {

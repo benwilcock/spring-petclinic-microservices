@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:22.827Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:27.910Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.FcVolumeSource")
 @software.amazon.jsii.Jsii.Proxy(FcVolumeSource.Jsii$Proxy.class)
 public interface FcVolumeSource extends software.amazon.jsii.JsiiSerializable {

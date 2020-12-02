@@ -3,7 +3,7 @@ package imports.k8s;
 /**
  * Status is a return value for calls that don't return other objects.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.142Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.167Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Status")
 public class Status extends org.cdk8s.ApiObject {
 

@@ -5,7 +5,7 @@ package imports.k8s;
  * <p>
  * The total bytes of the values in the Data field must be less than MaxSecretSize bytes.
  */
-@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-17T15:31:23.104Z")
+@javax.annotation.Generated(value = "jsii-pacmak/1.14.1 (build 828de8a)", date = "2020-11-30T16:28:28.131Z")
 @software.amazon.jsii.Jsii(module = imports.k8s.$Module.class, fqn = "k8s.Secret")
 public class Secret extends org.cdk8s.ApiObject {
 
