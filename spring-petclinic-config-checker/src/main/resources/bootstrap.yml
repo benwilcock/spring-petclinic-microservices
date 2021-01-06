@@ -1,8 +1,0 @@
-# Settings required by Spring Cloud CONFIG should be in here
-spring:
-  application:
-    name: config-checker
-  cloud:
-    config:
-      uri: ${CONFIG_SERVER_URI}
-      fail-fast: true

@@ -1,10 +1,10 @@
 package org.springframework.samples.petclinic.cdk8s;
 
+import imports.k8s.*;
 import org.cdk8s.App;
 import org.cdk8s.Chart;
 import org.cdk8s.ChartOptions;
 import software.constructs.Construct;
-import imports.k8s.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

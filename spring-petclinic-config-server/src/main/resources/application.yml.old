@@ -1,0 +1,16 @@
+# Other defaults needed by the CONFIG-SERVER
+# Note that these don't come from GIT like the other Apps!
+server:
+  port: ${PORT}
+
+# Settings required by Spring Cloud CONFIG should be in here
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      allowOverride: true # Allow the microservices to override the remote properties with their own System properties or config file
+      overrideNone: true # Override configuration with any local property source
+      server:
+        git:
+          uri: ${GIT_CONFIG_URI}

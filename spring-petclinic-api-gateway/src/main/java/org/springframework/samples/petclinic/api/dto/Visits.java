@@ -15,11 +15,10 @@
  */
 package org.springframework.samples.petclinic.api.dto;
 
+import lombok.Value;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import lombok.NoArgsConstructor;
-import lombok.Value;
 
 /**
  * @author Maciej Szarlinski
