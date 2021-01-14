@@ -112,22 +112,16 @@ spec:
         - image: "openzipkin/zipkin-slim:2"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
-              path: "/"
+              path: "/actuator/health"
               port: 9411
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "tracing-server"
           ports:
             - containerPort: 9411
-          readinessProbe:
-            httpGet:
-              path: "/"
-              port: 9411
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -151,27 +145,25 @@ spec:
               value: "8888"
             - name: "GIT_CONFIG_URI"
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
+            - name: "CONFIG_SERVER_URI"
+              value: "http://config-server-service.default.svc.cluster.local:8888"
+            - name: "DISCOVERY_SERVER_URI"
+              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
               value: "http://tracing-server-service.default.svc.cluster.local:9411"
           image: "benwilcock/spring-petclinic-config-server:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
               path: "/actuator/health"
               port: 8888
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "config-server"
           ports:
             - containerPort: 8888
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health"
-              port: 8888
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -193,6 +185,8 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8761"
+            - name: "GIT_CONFIG_URI"
+              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
               value: "http://config-server-service.default.svc.cluster.local:8888"
             - name: "DISCOVERY_SERVER_URI"
@@ -202,22 +196,16 @@ spec:
           image: "benwilcock/spring-petclinic-discovery-server:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
               path: "/actuator/health"
               port: 8761
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "discovery-server"
           ports:
             - containerPort: 8761
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health"
-              port: 8761
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -239,6 +227,8 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "9090"
+            - name: "GIT_CONFIG_URI"
+              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
               value: "http://config-server-service.default.svc.cluster.local:8888"
             - name: "DISCOVERY_SERVER_URI"
@@ -248,22 +238,16 @@ spec:
           image: "benwilcock/spring-petclinic-admin-server:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
               path: "/actuator/health"
               port: 9090
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "admin-server"
           ports:
             - containerPort: 9090
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health"
-              port: 9090
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -285,6 +269,8 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8083"
+            - name: "GIT_CONFIG_URI"
+              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
               value: "http://config-server-service.default.svc.cluster.local:8888"
             - name: "DISCOVERY_SERVER_URI"
@@ -294,22 +280,16 @@ spec:
           image: "benwilcock/spring-petclinic-vets-service:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
               path: "/actuator/health"
               port: 8083
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "vets-service"
           ports:
             - containerPort: 8083
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health"
-              port: 8083
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -331,6 +311,8 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8082"
+            - name: "GIT_CONFIG_URI"
+              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
               value: "http://config-server-service.default.svc.cluster.local:8888"
             - name: "DISCOVERY_SERVER_URI"
@@ -340,22 +322,16 @@ spec:
           image: "benwilcock/spring-petclinic-visits-service:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
               path: "/actuator/health"
               port: 8082
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "visits-service"
           ports:
             - containerPort: 8082
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health"
-              port: 8082
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -377,6 +353,8 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8081"
+            - name: "GIT_CONFIG_URI"
+              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
               value: "http://config-server-service.default.svc.cluster.local:8888"
             - name: "DISCOVERY_SERVER_URI"
@@ -386,22 +364,16 @@ spec:
           image: "benwilcock/spring-petclinic-customers-service:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
               path: "/actuator/health"
               port: 8081
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "customers-service"
           ports:
             - containerPort: 8081
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health"
-              port: 8081
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -423,6 +395,8 @@ spec:
               value: "kubernetes"
             - name: "PORT"
               value: "8080"
+            - name: "GIT_CONFIG_URI"
+              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
               value: "http://config-server-service.default.svc.cluster.local:8888"
             - name: "DISCOVERY_SERVER_URI"
@@ -432,19 +406,13 @@ spec:
           image: "benwilcock/spring-petclinic-api-gateway:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
+            failureThreshold: 4
             httpGet:
               path: "/actuator/health"
               port: 8080
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            timeoutSeconds: 15
           name: "api-gateway"
           ports:
             - containerPort: 8080
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health"
-              port: 8080
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5

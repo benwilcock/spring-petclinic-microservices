@@ -13,4 +13,4 @@
 ========================================================================================================
 
 
-cdk8s synth --app 'mvn exec:java -Dexec.mainClass="org.springframework.samples.petclinic.cdk8s.Main"'
+cdk8s synth --app 'mvn exec:java -Dexec.mainClass="Main"'

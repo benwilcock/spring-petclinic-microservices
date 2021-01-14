@@ -1,9 +1,8 @@
-package org.springframework.samples.petclinic.cdk8s;
-
 import imports.k8s.*;
 import org.cdk8s.App;
 import org.cdk8s.Chart;
 import org.cdk8s.ChartOptions;
+import org.jetbrains.annotations.NotNull;
 import software.constructs.Construct;
 
 import java.util.ArrayList;
@@ -11,9 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Main extends Chart
-{
-    private static final String VERSION = "2.3.6";
+public class Main extends Chart {
+    private static final String VERSION = "2.4.1";
     private static final String LIBRARY_NAME = "benwilcock";
     private static final String APP_NAMESPACE = "default";
     private static final String CONFIG_SERVER_URI = "http://config-server-service.default.svc.cluster.local:8888";
@@ -38,8 +36,8 @@ public class Main extends Chart
         addService(8081, "customers-service-service", "customers-service");
         addService(8080, "api-gateway-service", "api-gateway");
 
-        addDeployment(9411, "tracing-server", "openzipkin/zipkin-slim:2");
-        addSpringConfigServerDeployment(8888, "config-server", LIBRARY_NAME + "/spring-petclinic-config-server:" + VERSION);
+        addRegularDeployment(9411, "tracing-server", "openzipkin/zipkin-slim:2");
+        addSpringDeployment(8888, "config-server", LIBRARY_NAME + "/spring-petclinic-config-server:" + VERSION);
         addSpringDeployment(8761, "discovery-server", LIBRARY_NAME + "/spring-petclinic-discovery-server:" + VERSION);
         addSpringDeployment(9090, "admin-server", LIBRARY_NAME + "/spring-petclinic-admin-server:" + VERSION);
         addSpringDeployment(8083, "vets-service", LIBRARY_NAME + "/spring-petclinic-vets-service:" + VERSION);
@@ -75,54 +73,25 @@ public class Main extends Chart
         new Service(this, SERVICE_NAME, serviceOptions);
     }
 
-    private void addSpringConfigServerDeployment(final Number PORT, final String APP_NAME, final String IMAGE_NAME) {
-
-        final Map<String, String> selector = new HashMap<>();
-        selector.put("app", APP_NAME);
-
-        // Defining a Deployment
-        final LabelSelector labelSelector = new LabelSelector.Builder().matchLabels(selector).build();
-        final ObjectMeta objectMeta = new ObjectMeta.Builder().labels(selector).build();
-
-        final List<ContainerPort> containerPorts = new ArrayList<>();
-        final ContainerPort containerPort = new ContainerPort.Builder().containerPort(PORT).build();
-        containerPorts.add(containerPort);
-
-        final List<EnvVar> envVars = new ArrayList<>();
-        envVars.add(EnvVar.builder().name("SPRING_PROFILES_ACTIVE").value("kubernetes").build());
-        envVars.add(EnvVar.builder().name("PORT").value(String.valueOf(PORT)).build());
-        envVars.add(EnvVar.builder().name("GIT_CONFIG_URI").value(String.valueOf(GIT_CONFIG_URI)).build());
-        envVars.add(EnvVar.builder().name("TRACING_SERVER_URI").value(String.valueOf(TRACING_SERVER_URI)).build());
-
-        final List<Container> containers = new ArrayList<>();
-        final Container container = new Container.Builder()
-            .name(APP_NAME)
-            .image(IMAGE_NAME)
-            .ports(containerPorts)
-            .imagePullPolicy("Always")
-            .env(envVars)
-            .livenessProbe(Probe.builder().initialDelaySeconds(90).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
-            .readinessProbe(Probe.builder().initialDelaySeconds(15).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
+    @NotNull
+    private imports.k8s.Probe getReadynessProbeSpec(Number PORT) {
+        return Probe.builder()
+            .initialDelaySeconds(15)
+            .periodSeconds(30)
+            .timeoutSeconds(15)
+            .httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build())
             .build();
-        containers.add(container);
-        final PodSpec podSpec = new PodSpec.Builder()
-            .containers(containers)
-            .build();
-        final PodTemplateSpec podTemplateSpec = new PodTemplateSpec.Builder()
-            .metadata(objectMeta)
-            .spec(podSpec)
-            .build();
-        final DeploymentSpec deploymentSpec = new DeploymentSpec.Builder()
-            .replicas(1)
-            .selector(labelSelector)
-            .template(podTemplateSpec)
-            .build();
-        final DeploymentOptions deploymentOptions = DeploymentOptions.builder()
-            .spec(deploymentSpec)
-            .metadata(ObjectMeta.builder().name(APP_NAME + "-deployment").build())
-            .build();
+    }
 
-        new Deployment(this, APP_NAME + "-deployment", deploymentOptions);
+    @NotNull
+    private imports.k8s.Probe getLivenessProbeSpec(Number PORT) {
+        return Probe.builder()
+            .initialDelaySeconds(30)
+            .periodSeconds(30)
+            .timeoutSeconds(15)
+            .failureThreshold(4)
+            .httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build())
+            .build();
     }
 
     private void addSpringDeployment(final Number PORT, final String APP_NAME, final String IMAGE_NAME) {
@@ -141,6 +110,7 @@ public class Main extends Chart
         final List<EnvVar> envVars = new ArrayList<>();
         envVars.add(EnvVar.builder().name("SPRING_PROFILES_ACTIVE").value("kubernetes").build());
         envVars.add(EnvVar.builder().name("PORT").value(String.valueOf(PORT)).build());
+        envVars.add(EnvVar.builder().name("GIT_CONFIG_URI").value(String.valueOf(GIT_CONFIG_URI)).build());
         envVars.add(EnvVar.builder().name("CONFIG_SERVER_URI").value(String.valueOf(CONFIG_SERVER_URI)).build());
         envVars.add(EnvVar.builder().name("DISCOVERY_SERVER_URI").value(String.valueOf(DISCOVERY_SERVER_URI)).build());
         envVars.add(EnvVar.builder().name("TRACING_SERVER_URI").value(String.valueOf(TRACING_SERVER_URI)).build());
@@ -153,8 +123,8 @@ public class Main extends Chart
             .ports(containerPorts)
             .imagePullPolicy("Always")
             .env(envVars)
-            .livenessProbe(Probe.builder().initialDelaySeconds(90).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
-            .readinessProbe(Probe.builder().initialDelaySeconds(15).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/actuator/health").port(IntOrString.fromNumber(PORT)).build()).build())
+            .livenessProbe(getLivenessProbeSpec(PORT))
+//            .readinessProbe(getReadynessProbeSpec(PORT))
             .build();
         containers.add(container);
         final PodSpec podSpec = new PodSpec.Builder()
@@ -177,7 +147,7 @@ public class Main extends Chart
         new Deployment(this, APP_NAME + "-deployment", deploymentOptions);
     }
 
-    private void addDeployment(final Number PORT, final String APP_NAME, final String IMAGE_NAME) {
+    private void addRegularDeployment(final Number PORT, final String APP_NAME, final String IMAGE_NAME) {
 
         final Map<String, String> selector = new HashMap<>();
         selector.put("app", APP_NAME);
@@ -196,8 +166,8 @@ public class Main extends Chart
             .image(IMAGE_NAME)
             .ports(containerPorts)
             .imagePullPolicy("Always")
-            .livenessProbe(Probe.builder().initialDelaySeconds(90).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/").port(IntOrString.fromNumber(PORT)).build()).build())
-            .readinessProbe(Probe.builder().initialDelaySeconds(15).periodSeconds(10).timeoutSeconds(5).httpGet(HttpGetAction.builder().path("/").port(IntOrString.fromNumber(PORT)).build()).build())
+            .livenessProbe(getLivenessProbeSpec(PORT))
+//            .readinessProbe(getReadynessProbeSpec(PORT))
             .build();
         containers.add(container);
         final PodSpec podSpec = new PodSpec.Builder()
