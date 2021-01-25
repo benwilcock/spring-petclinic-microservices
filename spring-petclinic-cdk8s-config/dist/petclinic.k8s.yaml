@@ -1,16 +1,16 @@
-apiVersion: "v1"
-kind: "Service"
-metadata:
-  name: "tracing-server-service"
-spec:
-  ports:
-    - port: 9411
-      targetPort: 9411
-  selector:
-    app: "tracing-server"
-  type: "NodePort"
----
-apiVersion: "v1"
+# apiVersion: "v1"
+# kind: "Service"
+# metadata:
+#   name: "tracing-server-service"
+# spec:
+#   ports:
+#     - port: 9411
+#       targetPort: 9411
+#   selector:
+#     app: "tracing-server"
+#   type: "NodePort"
+# ---
+zapiVersion: "v1"
 kind: "Service"
 metadata:
   name: "config-server-service"
@@ -94,41 +94,41 @@ spec:
     app: "api-gateway"
   type: "NodePort"
 ---
-apiVersion: "apps/v1"
-kind: "Deployment"
-metadata:
-  name: "tracing-server-deployment"
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: "tracing-server"
-  template:
-    metadata:
-      labels:
-        app: "tracing-server"
-    spec:
-      containers:
-        - image: "openzipkin/zipkin-slim:2"
-          imagePullPolicy: "Always"
-          livenessProbe:
-            httpGet:
-              path: "/"
-              port: 9411
-            initialDelaySeconds: 90
-            periodSeconds: 10
-            timeoutSeconds: 5
-          name: "tracing-server"
-          ports:
-            - containerPort: 9411
-          readinessProbe:
-            httpGet:
-              path: "/"
-              port: 9411
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
----
+# apiVersion: "apps/v1"
+# kind: "Deployment"
+# metadata:
+#   name: "tracing-server-deployment"
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: "tracing-server"
+#   template:
+#     metadata:
+#       labels:
+#         app: "tracing-server"
+#     spec:
+#       containers:
+#         - image: "openzipkin/zipkin-slim:2"
+#           imagePullPolicy: "Always"
+#           livenessProbe:
+#             httpGet:
+#               path: "/"
+#               port: 9411
+#             initialDelaySeconds: 90
+#             periodSeconds: 10
+#             timeoutSeconds: 5
+#           name: "tracing-server"
+#           ports:
+#             - containerPort: 9411
+#           readinessProbe:
+#             httpGet:
+#               path: "/"
+#               port: 9411
+#             initialDelaySeconds: 15
+#             periodSeconds: 10
+#             timeoutSeconds: 5
+# ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
@@ -150,10 +150,10 @@ spec:
             - name: "PORT"
               value: "8888"
             - name: "GIT_CONFIG_URI"
-              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
+              value: "https://github.com/192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-microservices-config"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-config-server:2.3.6"
+              value: "http://wavefront-proxy.default.svc.cluster.local:9411"
+          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-config-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -198,8 +198,8 @@ spec:
             - name: "DISCOVERY_SERVER_URI"
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-discovery-server:2.3.6"
+              value: "http://wavefront-proxy.default.svc.cluster.local:9411"
+          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-discovery-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -244,8 +244,8 @@ spec:
             - name: "DISCOVERY_SERVER_URI"
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-admin-server:2.3.6"
+              value: "http://wavefront-proxy.default.svc.cluster.local:9411"
+          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-admin-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -290,8 +290,8 @@ spec:
             - name: "DISCOVERY_SERVER_URI"
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-vets-service:2.3.6"
+              value: "http://wavefront-proxy.default.svc.cluster.local:9411"
+          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-vets-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -336,8 +336,8 @@ spec:
             - name: "DISCOVERY_SERVER_URI"
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-visits-service:2.3.6"
+              value: "http://wavefront-proxy.default.svc.cluster.local:9411"
+          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-visits-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -382,8 +382,8 @@ spec:
             - name: "DISCOVERY_SERVER_URI"
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-customers-service:2.3.6"
+              value: "http://wavefront-proxy.default.svc.cluster.local:9411"
+          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-customers-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -428,8 +428,8 @@ spec:
             - name: "DISCOVERY_SERVER_URI"
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-api-gateway:2.3.6"
+              value: "http://wavefront-proxy.default.svc.cluster.local:9411"
+          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-api-gateway:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
