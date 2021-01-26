@@ -150,7 +150,7 @@ spec:
             - name: "PORT"
               value: "8888"
             - name: "GIT_CONFIG_URI"
-              value: "https://github.com/192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-microservices-config"
+              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
           image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-config-server:2.3.6"
