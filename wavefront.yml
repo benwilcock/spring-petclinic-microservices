@@ -33,7 +33,6 @@ spec:
             secretKeyRef:
               name: wf-token
               key: token
-          #value: e7a460e3-a77b-4aff-b8aa-a3c0e338d6f1
         # Uncomment the below lines to consume Zipkin/Istio traces
         - name: WAVEFRONT_PROXY_ARGS
           value: --traceZipkinListenerPorts 9411 --traceZipkinApplicationName PetClinic
