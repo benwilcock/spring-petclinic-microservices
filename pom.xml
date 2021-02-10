@@ -21,7 +21,7 @@
         <module>spring-petclinic-vets-service</module>
         <module>spring-petclinic-visits-service</module>
         <module>spring-petclinic-config-server</module>
-        <module>spring-petclinic-discovery-server</module>
+<!--        <module>spring-petclinic-discovery-server</module>-->
         <module>spring-petclinic-api-gateway</module>
         <module>spring-petclinic-discovery-checker</module>
         <module>spring-petclinic-config-checker</module>
@@ -31,6 +31,7 @@
         <java.version>11</java.version>
         <assertj.version>3.11.1</assertj.version>
         <docker.library.name>benwilcock</docker.library.name>
+        <docker.image.name>docker.io/${docker.library.name}/${project.artifactId}:${project.version}</docker.image.name>
         <spring-boot.version>2.4.1</spring-boot.version>
         <spring-cloud.version>2020.0.0</spring-cloud.version>
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
@@ -74,7 +75,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <image>
-                        <name>docker.io/${docker.library.name}/${project.artifactId}:${project.version}</name>
+                        <name>${docker.image.name}</name>
                     </image>
                 </configuration>
                 <executions>
@@ -117,5 +118,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>k8s</id>
+            <properties>
+                <docker.image.name>docker.io/${docker.library.name}/${project.artifactId}-k8s:${project.version}</docker.image.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>eureka</id>
+            <properties>
+                <docker.image.name>docker.io/${docker.library.name}/${project.artifactId}:${project.version}</docker.image.name>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

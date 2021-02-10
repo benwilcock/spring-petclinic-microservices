@@ -1,112 +1,100 @@
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "tracing-server-service"
+  name: "tracing-server"
 spec:
   ports:
     - port: 9411
       targetPort: 9411
   selector:
-    app: "tracing-server"
+    app: "tracing"
   type: "NodePort"
 ---
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "config-server-service"
+  name: "config-server"
 spec:
   ports:
     - port: 8888
       targetPort: 8888
   selector:
-    app: "config-server"
+    app: "config"
   type: "NodePort"
 ---
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "discovery-server-service"
-spec:
-  ports:
-    - port: 8761
-      targetPort: 8761
-  selector:
-    app: "discovery-server"
-  type: "NodePort"
----
-apiVersion: "v1"
-kind: "Service"
-metadata:
-  name: "admin-server-service"
+  name: "admin-server"
 spec:
   ports:
     - port: 9090
       targetPort: 9090
   selector:
-    app: "admin-server"
+    app: "admin"
   type: "NodePort"
 ---
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "vets-service-service"
+  name: "vets-service"
 spec:
   ports:
     - port: 8083
       targetPort: 8083
   selector:
-    app: "vets-service"
+    app: "vets"
   type: "NodePort"
 ---
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "visits-service-service"
+  name: "visits-service"
 spec:
   ports:
     - port: 8082
       targetPort: 8082
   selector:
-    app: "visits-service"
+    app: "visits"
   type: "NodePort"
 ---
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "customers-service-service"
+  name: "customers-service"
 spec:
   ports:
     - port: 8081
       targetPort: 8081
   selector:
-    app: "customers-service"
+    app: "customers"
   type: "NodePort"
 ---
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "api-gateway-service"
+  name: "api-gateway"
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: "api-gateway"
+    app: "gateway"
   type: "NodePort"
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "tracing-server-deployment"
+  name: "tracing-deployment"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "tracing-server"
+      app: "tracing"
   template:
     metadata:
       labels:
-        app: "tracing-server"
+        app: "tracing"
     spec:
       containers:
         - image: "openzipkin/zipkin-slim:2"
@@ -119,23 +107,23 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 15
-          name: "tracing-server"
+          name: "tracing"
           ports:
             - containerPort: 9411
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "config-server-deployment"
+  name: "config-deployment"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "config-server"
+      app: "config"
   template:
     metadata:
       labels:
-        app: "config-server"
+        app: "config"
     spec:
       containers:
         - env:
@@ -146,11 +134,9 @@ spec:
             - name: "GIT_CONFIG_URI"
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
-              value: "http://config-server-service.default.svc.cluster.local:8888"
-            - name: "DISCOVERY_SERVER_URI"
-              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
+              value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
+              value: "http://tracing-server.default.svc.cluster.local:9411"
           image: "benwilcock/spring-petclinic-config-server:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
@@ -161,65 +147,23 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 15
-          name: "config-server"
+          name: "config"
           ports:
             - containerPort: 8888
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "discovery-server-deployment"
+  name: "admin-deployment"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "discovery-server"
+      app: "admin"
   template:
     metadata:
       labels:
-        app: "discovery-server"
-    spec:
-      containers:
-        - env:
-            - name: "SPRING_PROFILES_ACTIVE"
-              value: "kubernetes"
-            - name: "PORT"
-              value: "8761"
-            - name: "GIT_CONFIG_URI"
-              value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
-            - name: "CONFIG_SERVER_URI"
-              value: "http://config-server-service.default.svc.cluster.local:8888"
-            - name: "DISCOVERY_SERVER_URI"
-              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
-            - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-discovery-server:2.4.1"
-          imagePullPolicy: "Always"
-          livenessProbe:
-            failureThreshold: 4
-            httpGet:
-              path: "/actuator/health"
-              port: 8761
-            initialDelaySeconds: 30
-            periodSeconds: 30
-            timeoutSeconds: 15
-          name: "discovery-server"
-          ports:
-            - containerPort: 8761
----
-apiVersion: "apps/v1"
-kind: "Deployment"
-metadata:
-  name: "admin-server-deployment"
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: "admin-server"
-  template:
-    metadata:
-      labels:
-        app: "admin-server"
+        app: "admin"
     spec:
       containers:
         - env:
@@ -230,12 +174,10 @@ spec:
             - name: "GIT_CONFIG_URI"
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
-              value: "http://config-server-service.default.svc.cluster.local:8888"
-            - name: "DISCOVERY_SERVER_URI"
-              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
+              value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-admin-server:2.4.1"
+              value: "http://tracing-server.default.svc.cluster.local:9411"
+          image: "benwilcock/spring-petclinic-admin-server-k8s:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
             failureThreshold: 4
@@ -245,23 +187,23 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 15
-          name: "admin-server"
+          name: "admin"
           ports:
             - containerPort: 9090
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "vets-service-deployment"
+  name: "vets-deployment"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "vets-service"
+      app: "vets"
   template:
     metadata:
       labels:
-        app: "vets-service"
+        app: "vets"
     spec:
       containers:
         - env:
@@ -272,11 +214,9 @@ spec:
             - name: "GIT_CONFIG_URI"
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
-              value: "http://config-server-service.default.svc.cluster.local:8888"
-            - name: "DISCOVERY_SERVER_URI"
-              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
+              value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
+              value: "http://tracing-server.default.svc.cluster.local:9411"
           image: "benwilcock/spring-petclinic-vets-service:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
@@ -287,23 +227,23 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 15
-          name: "vets-service"
+          name: "vets"
           ports:
             - containerPort: 8083
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "visits-service-deployment"
+  name: "visits-deployment"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "visits-service"
+      app: "visits"
   template:
     metadata:
       labels:
-        app: "visits-service"
+        app: "visits"
     spec:
       containers:
         - env:
@@ -314,11 +254,9 @@ spec:
             - name: "GIT_CONFIG_URI"
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
-              value: "http://config-server-service.default.svc.cluster.local:8888"
-            - name: "DISCOVERY_SERVER_URI"
-              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
+              value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
+              value: "http://tracing-server.default.svc.cluster.local:9411"
           image: "benwilcock/spring-petclinic-visits-service:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
@@ -329,23 +267,23 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 15
-          name: "visits-service"
+          name: "visits"
           ports:
             - containerPort: 8082
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "customers-service-deployment"
+  name: "customers-deployment"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "customers-service"
+      app: "customers"
   template:
     metadata:
       labels:
-        app: "customers-service"
+        app: "customers"
     spec:
       containers:
         - env:
@@ -356,11 +294,9 @@ spec:
             - name: "GIT_CONFIG_URI"
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
-              value: "http://config-server-service.default.svc.cluster.local:8888"
-            - name: "DISCOVERY_SERVER_URI"
-              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
+              value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
+              value: "http://tracing-server.default.svc.cluster.local:9411"
           image: "benwilcock/spring-petclinic-customers-service:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
@@ -371,23 +307,23 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 15
-          name: "customers-service"
+          name: "customers"
           ports:
             - containerPort: 8081
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "api-gateway-deployment"
+  name: "gateway-deployment"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "api-gateway"
+      app: "gateway"
   template:
     metadata:
       labels:
-        app: "api-gateway"
+        app: "gateway"
     spec:
       containers:
         - env:
@@ -398,11 +334,9 @@ spec:
             - name: "GIT_CONFIG_URI"
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "CONFIG_SERVER_URI"
-              value: "http://config-server-service.default.svc.cluster.local:8888"
-            - name: "DISCOVERY_SERVER_URI"
-              value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
+              value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
-              value: "http://tracing-server-service.default.svc.cluster.local:9411"
+              value: "http://tracing-server.default.svc.cluster.local:9411"
           image: "benwilcock/spring-petclinic-api-gateway:2.4.1"
           imagePullPolicy: "Always"
           livenessProbe:
@@ -413,6 +347,6 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 15
-          name: "api-gateway"
+          name: "gateway"
           ports:
             - containerPort: 8080

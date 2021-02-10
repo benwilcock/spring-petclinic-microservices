@@ -102,4 +102,29 @@
         </dependency>
 	</dependencies>
 
+    <profiles>
+        <profile>
+            <id>k8s</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-kubernetes</artifactId>
+                    <version>1.1.6.RELEASE</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>eureka</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
 </project>
