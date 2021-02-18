@@ -22,3 +22,5 @@ spring-petclinic-microservices-config
 
 # Zipkin server binary
 **/*.jar
+**/*.asc
+**/*.md5
