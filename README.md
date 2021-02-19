@@ -2,43 +2,154 @@
 
 > Building these microservices requires Java 11 and Maven. I use the excellent [SDKMan](sdkman.io) to install these tools.
 
-This microservices branch was initially derived from [spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) to demonstrate how to split sample Spring application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal we use Spring Cloud API Gateway, Spring Cloud Config, Spring Cloud Sleuth, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
+This microservices branch was initially derived from [spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) which cleverly demonstrates how to split the [Spring Petclinic](https://github.com/spring-projects/spring-petclinic) sample application into [microservices](http://www.martinfowler.com/articles/microservices.html). To achieve that goal, spring-petclinic-microservices uses Spring Cloud API Gateway, Spring Cloud Config, and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.com/spring-cloud/spring-cloud-netflix) technology stack.
 
-Decide if you want to run locally on your PC (bare or Docker) or remotely on [Tanzu Application Service](https://tanzu.vmware.com/application-service) and then follow the relevant instructions below.
+This sample in this fork takes the work done already and provides these additional features:-
 
-## In All Cases: Configure The Config Server
+* Updates the sample code to Spring Boot 2.4.1
+* Updates the sample code to Spring Cloud 2020.0.1
+* Adds configuration to run on Docker using `docker-compose`
+* Adds configuration to run on Kubernetes (minus Spring Cloud Netflix Eureka)
+* Introduces [spring-native](https://github.com/spring-projects-experimental/spring-native) to reduce application startup times and memory footprint.
 
-The Config Server is the source of most of the configuration properties used in this Petclinic Microservices demo. 
+## Getting Started: Running the sample.
 
-Step one is to get a copy of the configuration files that you can modify. To do this you must fork the configuration repository at [https://github.com/benwilcock/spring-petclinic-microservices-config](https://github.com/benwilcock/spring-petclinic-microservices-config). 
+First, decide if you would like to run the sample locally on your machine, locally using docker-compose, or locally using Kubernetes.
 
-To tell your Config Server to use _your_ forked configuration, change the `spring.cloud.config.server.git.uri` property in the `bootstrap.yml` file located in the `src/main/resources` folder of the `spring-petclinic-config-server`. Change this setting to use the URI of your forked configuration repository, for example: `https://github.com/<your-github-username>/spring-petclinic-microservices-config`
+Next, take a look at the following table of services. It contains details of where each service can be found once you have started the sample. In particular, note the PORT numbers and suggested boot order. When you run the sample, these are the ports where each service can be found. Remember that in Kubernetes, you'll need to use a *port forward* to map the kubernetes hostes services to your local network address (localhost).
 
-> When you make changes to the files in this repository, be sure to commit and push your changes back to your fork and restart any applications who's configuration has been modified.
+| Service                                                     | Port | Boot Order | Optional? |
+| ----------------------------------------------------------- |:----:|:----------:|:---------:|
+| Spring Cloud Config Server                                               | 8888 | 1          | No        |
+| Spring Cloud Discovery Server                                            | 8761 | 2          | No        |
+| Petclinic Vets Microservice                                           | 8083 | 3          | No        |
+| Petclinic Visits Microservice                                         | 8082 | 3          | No        |
+| Petclinic Customers Microservice                                      | 8081 | 3          | No        |
+| [Spring Boot Admin Server](http://localhost:9090)           | 9090 | 3          | Yes       |
+| [Zipkin Tracing Server](http://localhost:9411)              | 9411 | 2          | Yes       |
+| Petclinic [Api Gateway Service (UI & Routing)](http://localhost:8080) | 8080 | 4          | No        |
 
-Because the config server is the primary location for all the application config, you'll notice that the Spring Boot applications themselves have exceptionally light configuration files within their `src/main/resources` folders. Generally, only a `bootstrap.yml` file has been provided, and its configuration limited to the application name property, and the location of the config server for each possible Spring profile. 
+# Step 0 (Optional): Build The Docker Container Images
 
-For example, if you examine the Discovery Server's `src/main/resources/bootstrap.yml` file, you'll see only the following items:
+If you would prefer to use your own Docker images rather than the ones I've already created, you must build them and push them to your Docker Hub or your preferred docker repository. The steps are as follows.
 
-```yaml
-spring:
-  application:
-    name: discovery-server
-  cloud:
-    config:
-      uri: http://localhost:8888
+Make sure the docker daemon is running in the background, that your docker system is working, and that you have logged in.
 
----
-spring:
-  profiles: tas
-  cloud:
-    config:
-      uri: http://bens-config-server.apps.tas.tanzu-demo.net
+```bash
+docker run hello-world
 ```
 
-In this example, the config server uri is expected to be hosted locally at `http://localhost:8888`, but when the `tas` profile is active, the config server is expected to be hosted remotely at `http://bens-config-server.apps.tas.tanzu-demo.net`. 
+Override the property `<docker.library.name>` in the `pom.xml` with your docker hub library name.
 
-> NOTE: When running locally, no change to this configuration is required - the default setting of http://localhost:8888 should work if the Config Server is running on the correct port. When running on TAS a small change to this configuration is required and is detailed later in the 'Running The Petclinic Microservices on TAS' instructions.
+```xml
+...
+<properties>
+    <docker.library.name>your-docker-library-name</docker.library.name>
+...
+```
+
+Now, build the docker images using the `spring-boot:build-image` tool as follows:
+```bash
+# In the folder spring-petclinic-microservices/
+./mvnw clean package -DskipTests=true spring-boot:build-image
+```
+
+Finally, push your images to docker hub or your preferred docker image repository.
+
+## Step 1: Fork The Configuration Repository
+
+Spring Cloud Config Server is the source of most of the configuration properties used in this sample, and it takes its configuration from a GitHub repository. In order to control the configuration being served by the server, you need to control the repository. You can acheive this by forking the configuration repository. 
+
+Fork the [https://github.com/benwilcock/spring-petclinic-microservices-config](https://github.com/benwilcock/spring-petclinic-microservices-config) to your GutHub user space using the 'Fork' button.
+
+> When you make changes to the files in this repository, be sure to commit and push your changes back to your fork and restart any applications who's configuration has been modified by the changes you commit.
+
+## Step 2: Run The Configuration Server Using Your Forked Configuration
+
+To tell your Config Server where to find _your_ forked configuration, you will use an environment variable called `GIT_CONFIG_URI`. You must set this property to be the location of your fork. For example if your git username was 'bob' the url might be `https://github.com/bob/spring-petclinic-microservices-config`. The method you use to set this environment variable will depend on your personal preferences if you're running locally on your machine (bare-metal), or on settings contains in YAMl configuration files if you're using Docker or Kubernetes.
+
+### Bare metal
+
+You have many choices for setting the `GIT_CONFIG_URI` environment property to the URI of your forked configuration. You could use an application 'run configuration' in your IDE, an OS level configuration for you terminal, or by setting the value as you run the JAR application either using the `spring-boot:run` maven command or the Java `jar` command.
+
+For example, if using environment variables with MacOS, Linux, or Windows Subsystem for Linux, your command line may look like this:
+
+```bash
+# In the folder spring-petclinic-microservices/spring-petclinic-config-server
+export PORT=8888; export GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config; mvn package spring-boot:run
+```
+
+### Docker
+
+In the `docker-compose.yml` overwrite the `config-server:` `environment:` value for the entry `GIT_CONFIG_URI` to the URL of your forked configuration repository. Don't start the application yet, there's more work required to customise it for your environment.
+
+```yaml
+...
+config-server:
+    image: benwilcock/spring-petclinic-config-server-native:2.4.1
+    container_name: config-server
+    mem_limit: 1024M
+    ports:
+        - 8888:8888
+    environment:
+        - PORT=8888
+        - SPRING_PROFILES_ACTIVE=docker
+        - TRACING_SERVER_URI=http://tracing-server:9411
+        - GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config
+```
+
+### Kubernetes
+
+In the `petclinic.k8s.yml` overwrite the `config-deployment:` spec's `env:` value for the entry `GIT_CONFIG_URI` to the URL of your forked configuration repository. Don't start the application yet, there's more work required to customise it for your environment.
+
+```yaml
+...
+  spec:
+      containers:
+        - env:
+            - name: "SPRING_PROFILES_ACTIVE"
+              value: "kubernetes"
+            - name: "PORT"
+              value: "8888"
+            - name: "GIT_CONFIG_URI"
+              value: "https://github.com/<your-github-username>/spring-petclinic-microservices-config"
+```
+
+Because the config server is the primary location for all the application config, you'll notice that the other Spring Boot microservices have almost zero configuration within their `src/main/resources` folders. Generally, only a `application.properties` file has been provided, and its configuration is limited to the application name, and some settings that define how to communicate with the config server. 
+
+For example, if you examine the Discovery Server's `src/main/resources/application.properties` file, you'll see only the following items:
+
+```java
+spring.application.name=discovery-server
+spring.config.import=configserver:${CONFIG_SERVER_URI}
+spring.cloud.config.fail-fast=true
+spring.cloud.compatibility-verifier.enabled=true
+management.endpoints.web.exposure.include=*
+```
+
+In this example, the config server uri is expected to be provided by an environment property named `CONFIG_SERVER_URI`. This must be provided to the microservice as an environment variable at runtime.
+
+## Step 3: Run The Other Microservices
+
+| Service                                                     | Port | Boot Priority | Optional? |
+| ----------------------------------------------------------- |:----:|:----------:|:---------:|
+| Spring Cloud Config Server                                  | 8888 | 1          | No        |
+| [Zipkin Tracing Server](http://localhost:9411)              | 9411 | 2          | Yes       |
+| Spring Cloud Discovery Server                               | 8761 | 2          | No        |
+| Petclinic Vets Microservice                                 | 8083 | 3          | No        |
+| Petclinic Visits Microservice                               | 8082 | 3          | No        |
+| Petclinic Customers Microservice                            | 8081 | 3          | No        |
+| [Spring Boot Admin Server](http://localhost:9090)           | 9090 | 3          | Yes       |
+| Petclinic [Api Gateway Service (UI & Routing)](http://localhost:8080) | 8080 | 4          | No        |
+
+### Bare Metal
+
+These are the Environment properties
+
+
+### Docker
+
+### Kubernetes
 
 ## Running The Petclinic Microservices Locally
 
@@ -65,36 +176,12 @@ The boot order specified in the table above is important. The Config Server must
 
 > NOTE: The Config Server and the Zipkin Server do NOT require or use the Discovery Server or any other microservices.
 
-#### [Optional] Run The Config Server Locally Using A Clone Of The Configuration Repository
-
-A `native` profile exists which allows you to set the local filesystem as the location of the configuration repository. This means that you don't have to rely on GitHub being available or files being pushed when testing. You can activate and control the location of the configuration folder with the following VM options. Use these options when starting the config server:
-
-```
--Dspring.profiles.active=native
--DGIT_REPO=/<path-to-forked-and-cloned-folder-location>/spring-petclinic-microservices-config
-```
-
 #### Visit The Local Petclinic
 
 When all the applications have started, point your browser to [http://localhost:8080](http://localhost:8080) to visit the homepage of the Petclinic Microservices application. If all is well, visiting the 'Veterinarians' page will show a list of their names. 
 
 > Notice how the API Gateway provides a dual function - hosting the UI and routing REST requests to vets, visits, and customers.
 
-## Running The Petclinic Microservices on Docker
-
-Running this sample on Docker works well, but you need to build docker images, and be prepared to get your hands dirty in order to control the start order of the applications in Docker.
-
-> Note: A `docker` profile has been added to control the configuration in this mode.
-
-#### Build The Petclinic Microservice Docker Images
-
-Before building the Docker images, set the property `docker.library.name` in the `properties` section of the `pom.xml` file. By default, this is set to `benwilcock`.
-
-Spring Boot's Maven plugin can build your images for you, you just need to have the Docker demon running in the background. To start the build process, run the following command in the project root folder.
-
-```bash
-./mvnw package -DskipTests=true spring-boot:build-image
-```
 
 #### Running The Petclinic Microservices
 
