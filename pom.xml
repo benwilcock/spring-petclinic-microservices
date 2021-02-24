@@ -149,20 +149,4 @@
             </plugin>
         </plugins>
     </build>
-
-<!--    <profiles>
-        <profile>
-            <id>k8s</id>
-            <properties>
-                <docker.image.name>docker.io/${docker.library.name}/${project.artifactId}-k8s:${project.version}</docker.image.name>
-            </properties>
-        </profile>
-        <profile>
-            <id>eureka</id>
-            <properties>
-                <docker.image.name>docker.io/${docker.library.name}/${project.artifactId}:${project.version}</docker.image.name>
-            </properties>
-        </profile>
-    </profiles>-->
-
 </project>

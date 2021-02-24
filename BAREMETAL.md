@@ -35,7 +35,7 @@ For example, if using the `spring-boot:run` method with MacOS, Linux, or Windows
 
 ```bash
 # In the folder spring-petclinic-microservices/spring-petclinic-config-server
-> export PORT=8888; export GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config; mvn package spring-boot:run
+> export PORT=8888; export GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config; ../mvnw package spring-boot:run
 ```
 
 Choose your preferred method and start your configuration server. You'll see output similar to that shown below.
@@ -85,7 +85,7 @@ Now the Config Server is ready, proceed to start the other microservices in the 
 
 1. Use the 'Boot Order' from Table 1 above to help prevent race conditions.
 1. Set the correct `PORT` value from Table 1 for each microservice. 
-1. If using the terminal to start your microservices, start a new terminal for each service.
+1. If using the terminal to start your microservices, start from the correct folder and begin a new terminal for each service.
 1. Pass the correct additional environment variables as shown in Table 2.
 
 ### Step 5: Admire Your Work!
