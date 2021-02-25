@@ -173,7 +173,7 @@ spec:
               value: "https://github.com/benwilcock/spring-petclinic-microservices-config"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
-          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-config-server:2.3.6"
+          image: "benwilcock/spring-petclinic-config-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -219,7 +219,7 @@ spec:
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
-          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-discovery-server:2.3.6"
+          image: "benwilcock/spring-petclinic-discovery-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -265,7 +265,7 @@ spec:
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
-          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-admin-server:2.3.6"
+          image: "benwilcock/spring-petclinic-admin-server:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -311,7 +311,7 @@ spec:
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
-          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-vets-service:2.3.6"
+          image: "benwilcock/spring-petclinic-vets-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -357,7 +357,7 @@ spec:
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
-          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-visits-service:2.3.6"
+          image: "benwilcock/spring-petclinic-visits-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -403,7 +403,7 @@ spec:
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
-          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-customers-service:2.3.6"
+          image: "benwilcock/spring-petclinic-customers-service:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
@@ -449,7 +449,7 @@ spec:
               value: "http://discovery-server-service.default.svc.cluster.local:8761/eureka"
             - name: "TRACING_SERVER_URI"
               value: "http://wavefront-proxy.default.svc.cluster.local:9411"
-          image: "192.168.1.8:80/spring-petclinic-microservices-fork/spring-petclinic-api-gateway:2.3.6"
+          image: "benwilcock/spring-petclinic-api-gateway:2.3.6"
           imagePullPolicy: "Always"
           livenessProbe:
             httpGet:
