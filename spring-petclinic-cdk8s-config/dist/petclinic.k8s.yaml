@@ -1,15 +1,23 @@
-# apiVersion: "v1"
-# kind: "Service"
-# metadata:
-#   name: "tracing-server-service"
-# spec:
-#   ports:
-#     - port: 9411
-#       targetPort: 9411
-#   selector:
-#     app: "tracing-server"
-#   type: "NodePort"
-# ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wavefront-proxy
+  labels:
+    app: wavefront-proxy
+  namespace: default
+spec:
+  ports:
+  - name: wavefront
+    port: 2878
+    protocol: TCP
+  # Uncomment the below lines to consume Zipkin/Istio traces
+  - name: http
+    port: 9411
+    targetPort: 9411
+    protocol: TCP
+  selector:
+    app: wavefront-proxy
+---
 apiVersion: "v1"
 kind: "Service"
 metadata:
@@ -94,41 +102,53 @@ spec:
     app: "api-gateway"
   type: "NodePort"
 ---
-# apiVersion: "apps/v1"
-# kind: "Deployment"
-# metadata:
-#   name: "tracing-server-deployment"
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: "tracing-server"
-#   template:
-#     metadata:
-#       labels:
-#         app: "tracing-server"
-#     spec:
-#       containers:
-#         - image: "openzipkin/zipkin-slim:2"
-#           imagePullPolicy: "Always"
-#           livenessProbe:
-#             httpGet:
-#               path: "/"
-#               port: 9411
-#             initialDelaySeconds: 90
-#             periodSeconds: 10
-#             timeoutSeconds: 5
-#           name: "tracing-server"
-#           ports:
-#             - containerPort: 9411
-#           readinessProbe:
-#             httpGet:
-#               path: "/"
-#               port: 9411
-#             initialDelaySeconds: 15
-#             periodSeconds: 10
-#             timeoutSeconds: 5
-# ---
+apiVersion: apps/v1
+# Kubernetes versions after 1.9.0 should use apps/v1
+# Kubernetes version 1.8.x should use apps/v1beta2
+# Kubernetes versions before 1.8.0 should use apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: wavefront-proxy
+    name: wavefront-proxy
+  name: wavefront-proxy
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wavefront-proxy
+  template:
+    metadata:
+      labels:
+        app: wavefront-proxy
+    spec:
+      containers:
+      - name: wavefront-proxy
+        image: wavefronthq/proxy:9.1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: WAVEFRONT_URL
+        # Replace with your tenant URIL
+          value: https://longboard.wavefront.com/api/
+        - name: WAVEFRONT_TOKEN
+          valueFrom:
+           # Add your token as a secret like so: wf-token:token
+            secretKeyRef:
+              name: wf-token
+              key: token
+        # Uncomment the below lines to consume Zipkin/Istio traces
+        - name: WAVEFRONT_PROXY_ARGS
+          value: --traceZipkinListenerPorts 9411 --traceZipkinApplicationName PetClinic
+        ports:
+        - containerPort: 2878
+          protocol: TCP
+        # Uncomment the below lines to consume Zipkin/Istio traces
+        - containerPort: 9411
+          protocol: TCP
+        securityContext:
+          privileged: false
+---
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
