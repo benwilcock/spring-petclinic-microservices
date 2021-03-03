@@ -47,7 +47,7 @@ Choose your preferred method and start your configuration server. You'll see out
  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.4.1)
+ :: Spring Boot ::                (v2.4.3)
 
 2021-02-23 15:37:21.883  INFO 70290 --- [           main] o.s.s.p.c.NativeConfigServerApplication  : Starting NativeConfigServerApplication using Java 11.0.10 on nuc-pop-os with PID 70290
 2021-02-23 15:37:21.885  INFO 70290 --- [           main] o.s.s.p.c.NativeConfigServerApplication  : No active profile set, falling back to default profiles: default

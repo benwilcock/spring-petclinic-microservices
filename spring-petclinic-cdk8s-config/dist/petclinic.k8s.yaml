@@ -137,7 +137,7 @@ spec:
               value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
               value: "http://tracing-server.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-config-server:2.4.1"
+          image: "benwilcock/spring-petclinic-config-server:2.4.3"
           imagePullPolicy: "Always"
           livenessProbe:
             failureThreshold: 4
@@ -177,7 +177,7 @@ spec:
               value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
               value: "http://tracing-server.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-admin-server-k8s:2.4.1"
+          image: "benwilcock/spring-petclinic-admin-server-k8s:2.4.3"
           imagePullPolicy: "Always"
           livenessProbe:
             failureThreshold: 4
@@ -217,7 +217,7 @@ spec:
               value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
               value: "http://tracing-server.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-vets-service:2.4.1"
+          image: "benwilcock/spring-petclinic-vets-service:2.4.3"
           imagePullPolicy: "Always"
           livenessProbe:
             failureThreshold: 4
@@ -257,7 +257,7 @@ spec:
               value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
               value: "http://tracing-server.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-visits-service:2.4.1"
+          image: "benwilcock/spring-petclinic-visits-service:2.4.3"
           imagePullPolicy: "Always"
           livenessProbe:
             failureThreshold: 4
@@ -297,7 +297,7 @@ spec:
               value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
               value: "http://tracing-server.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-customers-service:2.4.1"
+          image: "benwilcock/spring-petclinic-customers-service:2.4.3"
           imagePullPolicy: "Always"
           livenessProbe:
             failureThreshold: 4
@@ -337,7 +337,7 @@ spec:
               value: "http://config-server.default.svc.cluster.local:8888"
             - name: "TRACING_SERVER_URI"
               value: "http://tracing-server.default.svc.cluster.local:9411"
-          image: "benwilcock/spring-petclinic-api-gateway:2.4.1"
+          image: "benwilcock/spring-petclinic-api-gateway:2.4.3"
           imagePullPolicy: "Always"
           livenessProbe:
             failureThreshold: 4

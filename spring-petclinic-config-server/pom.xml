@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.samples</groupId>
         <artifactId>spring-petclinic-microservices</artifactId>
-        <version>2.4.1</version>
+        <version>2.4.3</version>
     </parent>
 
     <dependencies>
@@ -57,23 +57,26 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <!-- needed for now, till native 0.9.0 -->
-                <spring-cloud.version>2020.0.0</spring-cloud.version>
+                <main.class>org.springframework.samples.petclinic.configserver.ConfigServerApplication</main.class>
             </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.springframework.experimental</groupId>
-                    <artifactId>spring-graalvm-native</artifactId>
-                    <version>0.8.5</version>
+                    <artifactId>spring-native</artifactId>
                 </dependency>
             </dependencies>
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.springframework.experimental</groupId>
+                        <artifactId>spring-aot-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
                             <image>
+                                <builder>paketobuildpacks/builder:tiny</builder>
                                 <name>docker.io/${docker.library.name}/${project.artifactId}-native:${project.version}</name>
                                 <env>
                                     <BP_BOOT_NATIVE_IMAGE>true</BP_BOOT_NATIVE_IMAGE>

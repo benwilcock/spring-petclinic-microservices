@@ -6,7 +6,7 @@ This microservices branch was initially derived from [spring-petclinic-microserv
 
 This sample in this fork takes the work done already and provides these additional features:-
 
-* Updates the Petclinic Microservices sample code to use [Spring Boot 2.4.1](https://spring.io/projects/spring-boot#learn)
+* Updates the Petclinic Microservices sample code to use [Spring Boot 2.4.3](https://spring.io/projects/spring-boot#learn)
 * Updates the Petclinic Microservices sample code to [Spring Cloud 2020.0.1](https://spring.io/projects/spring-cloud#learn)
 * Allows for the Spring microservice Docker containers to be built using `spring-boot:build-image`.  
 * Adds configuration to run containers on Docker using `docker-compose`
@@ -37,7 +37,7 @@ If the build is successful, you will see output like that shown below:
 ```bash
 [INFO] Reactor Summary:
 [INFO]
-[INFO] spring-petclinic-microservices 2.4.1 ............... SUCCESS [  0.361 s]
+[INFO] spring-petclinic-microservices 2.4.3 ............... SUCCESS [  0.361 s]
 [INFO] spring-petclinic-admin-server ...................... SUCCESS [  2.658 s]
 [INFO] spring-petclinic-customers-service ................. SUCCESS [  4.990 s]
 [INFO] spring-petclinic-vets-service ...................... SUCCESS [  4.365 s]
@@ -46,7 +46,7 @@ If the build is successful, you will see output like that shown below:
 [INFO] spring-petclinic-discovery-server .................. SUCCESS [  1.067 s]
 [INFO] spring-petclinic-api-gateway ....................... SUCCESS [ 58.462 s]
 [INFO] spring-petclinic-discovery-checker ................. SUCCESS [  1.145 s]
-[INFO] spring-petclinic-config-checker 2.4.1 .............. SUCCESS [  0.885 s]
+[INFO] spring-petclinic-config-checker 2.4.3 .............. SUCCESS [  0.885 s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -87,22 +87,22 @@ This may take some time as Docker image downloads are required. When complete, M
 > docker images
 
 REPOSITORY                                                TAG        IMAGE ID       CREATED         SIZE
-your-library-name/spring-petclinic-discovery-server       2.4.1      12fe39c7ecd0   41 years ago    289MB
-your-library-name/spring-petclinic-vets-service           2.4.1      65e273c1e81a   41 years ago    309MB
-your-library-name/spring-petclinic-config-server          2.4.1      80744530a792   41 years ago    273MB
-your-library-name/spring-petclinic-config-checker         2.4.1      dc3874ff468d   41 years ago    282MB
-your-library-name/spring-petclinic-api-gateway            2.4.1      662559354fe7   41 years ago    295MB
-your-library-name/spring-petclinic-admin-server           2.4.1      6665982ae691   41 years ago    294MB
-your-library-name/spring-petclinic-discovery-checker      2.4.1      d5dfe2e8f742   41 years ago    288MB
-your-library-name/spring-petclinic-config-server-native   2.4.1      154ee77e64ab   41 years ago    223MB
-your-library-name/spring-petclinic-visits-service         2.4.1      ba5c9d1f7f2f   41 years ago    307MB
-your-library-name/spring-petclinic-customers-service      2.4.1      6cb5dda7460e   41 years ago    307MB
+your-library-name/spring-petclinic-discovery-server       2.4.3      12fe39c7ecd0   41 years ago    289MB
+your-library-name/spring-petclinic-vets-service           2.4.3      65e273c1e81a   41 years ago    309MB
+your-library-name/spring-petclinic-config-server          2.4.3      80744530a792   41 years ago    273MB
+your-library-name/spring-petclinic-config-checker         2.4.3      dc3874ff468d   41 years ago    282MB
+your-library-name/spring-petclinic-api-gateway            2.4.3      662559354fe7   41 years ago    295MB
+your-library-name/spring-petclinic-admin-server           2.4.3      6665982ae691   41 years ago    294MB
+your-library-name/spring-petclinic-discovery-checker      2.4.3      d5dfe2e8f742   41 years ago    288MB
+your-library-name/spring-petclinic-config-server-native   2.4.3      154ee77e64ab   41 years ago    223MB
+your-library-name/spring-petclinic-visits-service         2.4.3      ba5c9d1f7f2f   41 years ago    307MB
+your-library-name/spring-petclinic-customers-service      2.4.3      6cb5dda7460e   41 years ago    307MB
 ```
 
 Finally, push your images to [Docker Hub](https://hub.docker.com/) or your preferred docker image repository using the `docker push` command like the one shown in the example below:
 
 ```bash
-> docker push your-library-name/spring-petclinic-discovery-server:2.4.1
+> docker push your-library-name/spring-petclinic-discovery-server:2.4.3
 ```
 
 ## Step 3: Fork The Sample Configuration Code Repository
