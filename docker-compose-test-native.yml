@@ -1,0 +1,69 @@
+version: '2'
+
+services:
+# --------------------- vv NATIVE vv -----------------------------------
+
+  config-server:
+    image: benwilcock/spring-petclinic-config-server-native:2.4.3
+    container_name: config-server
+    mem_limit: 1024M
+    ports:
+      - 8888:8888
+    environment:
+      - PORT=8888
+      - SPRING_PROFILES_ACTIVE=docker
+      - TRACING_SERVER_URI=http://tracing-server:9411
+      - GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config
+
+  config-checker:
+    image: benwilcock/spring-petclinic-config-checker-native:2.4.3
+    container_name: config-checker
+    mem_limit: 1024M
+    ports:
+      - 9091:9091
+    environment:
+      - PORT=9091
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+      - config-server
+#      - discovery-server > Can't use discovery client yet in native images, so checker to checker comms are down!
+
+# --------------------- vv NOT NATIVE vv -----------------------------------
+
+  tracing-server:
+    image: openzipkin/zipkin-slim:2
+    container_name: tracing-server
+    ports:
+      - 9411:9411
+
+  discovery-server:
+    image: benwilcock/spring-petclinic-discovery-server:2.4.3
+    container_name: discovery-server
+    mem_limit: 1024M
+    ports:
+      - 8761:8761
+    environment:
+      - PORT=8761
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - TRACING_SERVER_URI=http://tracing-server:9411
+    depends_on:
+      - config-server
+      - tracing-server
+
+  discovery-checker:
+    image: benwilcock/spring-petclinic-discovery-checker:2.4.3
+    container_name: discovery-checker
+    mem_limit: 1024M
+    ports:
+     - 9092:9092
+    environment:
+     - PORT=9092
+     - SPRING_PROFILES_ACTIVE=docker
+     - CONFIG_SERVER_URI=http://config-server:8888
+     - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+     - config-server
+     - discovery-server

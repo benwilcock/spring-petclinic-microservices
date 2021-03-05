@@ -58,6 +58,7 @@
             </activation>
             <properties>
                 <main.class>org.springframework.samples.petclinic.configserver.ConfigServerApplication</main.class>
+                <native.build.args></native.build.args>
             </properties>
             <dependencies>
                 <dependency>
@@ -80,6 +81,7 @@
                                 <name>docker.io/${docker.library.name}/${project.artifactId}-native:${project.version}</name>
                                 <env>
                                     <BP_BOOT_NATIVE_IMAGE>true</BP_BOOT_NATIVE_IMAGE>
+                                    <BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>${native.build.args}</BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
                                 </env>
                             </image>
                         </configuration>
