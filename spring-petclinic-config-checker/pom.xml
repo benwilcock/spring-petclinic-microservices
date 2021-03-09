@@ -62,7 +62,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <main.class>org.springframework.samples.petclinic.configserver.ConfigServerApplication</main.class>
+                <main.class>com.vmware.trellis.configchecker.ConfigCheckerApplication</main.class>
                 <native.build.args></native.build.args>
             </properties>
             <dependencies>

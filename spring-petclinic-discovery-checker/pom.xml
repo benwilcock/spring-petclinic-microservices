@@ -49,7 +49,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <dependencies>
-                <!-- Doesn't want to play with Native images...-->
+                <!-- Don't want to play yet with Native images...-->
                 <dependency>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -59,6 +59,44 @@
                     <artifactId>spring-cloud-sleuth-zipkin</artifactId>
                 </dependency>
             </dependencies>
+        </profile>
+        <profile>
+            <id>native</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <main.class>com.vmware.trellis.discoverychecker.DiscoveryCheckerApplication</main.class>
+                <native.build.args></native.build.args>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.experimental</groupId>
+                    <artifactId>spring-native</artifactId>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.experimental</groupId>
+                        <artifactId>spring-aot-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <image>
+                                <builder>paketobuildpacks/builder:tiny</builder>
+                                <name>docker.io/${docker.library.name}/${project.artifactId}-native:${project.version}</name>
+                                <env>
+                                    <BP_BOOT_NATIVE_IMAGE>true</BP_BOOT_NATIVE_IMAGE>
+                                    <BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>${native.build.args}</BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
+                                </env>
+                            </image>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
