@@ -2,12 +2,6 @@ version: '2'
 
 services:
 
-#  tracing-server:
-#    image: openzipkin/zipkin-slim:2
-#    container_name: tracing-server
-#    ports:
-#      - 9411:9411
-
   config-server:
     image: benwilcock/spring-petclinic-config-server-native:2.4.3
     container_name: config-server
@@ -98,24 +92,22 @@ services:
 #    depends_on:
 #      - config-server
 #      - discovery-server
-#      - tracing-server
 #
-#  vets-service:
-#    image: benwilcock/spring-petclinic-vets-service:2.4.3
-#    container_name: vets-service
-#    mem_limit: 1024M
-#    ports:
-#      - 8083:8083
-#    environment:
-#      - PORT=8083
-#      - SPRING_PROFILES_ACTIVE=docker
-#      - CONFIG_SERVER_URI=http://config-server:8888
-#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
-#      - TRACING_SERVER_URI=http://tracing-server:9411
-#    depends_on:
-#      - config-server
-#      - discovery-server
-#      - tracing-server
+  vets-service:
+    image: benwilcock/spring-petclinic-vets-service-native:2.4.3
+    container_name: vets-service
+    mem_limit: 1024M
+    ports:
+      - 8083:8083
+    environment:
+      - PORT=8083
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+      - config-server
+      - discovery-server
+
 #
 #  gateway-service:
 #    image: benwilcock/spring-petclinic-api-gateway:2.4.3

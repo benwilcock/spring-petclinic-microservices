@@ -16,8 +16,7 @@
 package org.springframework.samples.petclinic.vets.web;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.samples.petclinic.vets.model.Vet;
 import org.springframework.samples.petclinic.vets.model.VetRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,14 +32,13 @@ import java.util.List;
  * @author Arjen Poutsma
  * @author Maciej Szarlinski
  */
+@Slf4j
 @RequestMapping("/vets")
 @RestController
 @RequiredArgsConstructor
 class VetResource {
 
     private final VetRepository vetRepository;
-    private static Logger log = LoggerFactory.getLogger(VetResource.class);
-
 
     @GetMapping
     public List<Vet> showResourcesVetList() {
