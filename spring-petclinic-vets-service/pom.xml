@@ -14,6 +14,11 @@
 		<version>2.4.3</version>
 	</parent>
 
+    <properties>
+        <main.class>org.springframework.samples.petclinic.vets.VetsServiceApplication</main.class>
+        <native.build.args>-H:+ReportExceptionStackTraces</native.build.args>
+    </properties>
+
 	<dependencies>
         <!-- Spring Boot -->
 		<dependency>
@@ -52,14 +57,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-        </dependency>
 
         <!-- Third parties-->
 		<dependency>
@@ -88,22 +85,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
-        </dependency>
-
-        <!-- Testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
 	</dependencies>
 
     <profiles>
