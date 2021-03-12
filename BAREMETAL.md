@@ -84,9 +84,13 @@ If you saw a similar string to the one shown above, your forked configuration is
 Now the Config Server is ready, proceed to start the other microservices in the sample using the following hints:
 
 1. Use the 'Boot Order' from Table 1 above to help prevent race conditions.
-1. Set the correct `PORT` value from Table 1 for each microservice. 
+1. Set the correct `PORT` value from Table 1 above for each microservice. 
 1. If using the terminal to start your microservices, start from the correct folder and begin a new terminal for each service.
 1. Pass the correct additional environment variables as shown in Table 2.
+
+```bash
+export PORT=????; export CONFIG_SERVER_URI=http://localhost:8888; export DISCOVERY_SERVER_URI=http://localhost:8761/eureka
+```
 
 ### Step 5: Admire Your Work!
 

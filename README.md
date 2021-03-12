@@ -119,7 +119,7 @@ The sample supports three runtimes. Follow the links provided to see the instruc
 
 1. [Localy (on bare metal)](BAREMETAL.md)
 1. [Docker](DOCKER.md) - using `docker-compose` and the provided YAML configuration file.
-3. [Kubernetes](KUBERNETES.md) - using `kubectl` and the provided YAML configuration file.
+1. [Kubernetes](KUBERNETES.md) - using `kubectl` and the provided YAML configuration file.
 
 Follow the instructions in the links above to bring up the Petclinic Microservices sample application in your preferred runtime environment.
 

@@ -30,22 +30,21 @@ services:
       - config-server
       - discovery-server
 
-  discovery-checker:
-#    image: docker.io/library/discoveryclient:0.0.1-SNAPSHOT
-    image: benwilcock/spring-petclinic-discovery-checker-native:2.4.3
-    container_name: discovery-checker
-    mem_limit: 1024M
-    ports:
-      - 9092:9092
-    environment:
-      - PORT=9092
-      - SPRING_PROFILES_ACTIVE=docker
-      - CONFIG_SERVER_URI=http://config-server:8888
-      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+#  discovery-checker:
+#    image: benwilcock/spring-petclinic-discovery-checker-native:2.4.3
+#    container_name: discovery-checker
+#    mem_limit: 1024M
+#    ports:
+#      - 9092:9092
+#    environment:
+#      - PORT=9092
+#      - SPRING_PROFILES_ACTIVE=docker
+#      - CONFIG_SERVER_URI=http://config-server:8888
+#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
 #      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-    depends_on:
-      - config-server
-      - discovery-server
+#    depends_on:
+#      - config-server
+#      - discovery-server
 
 # --------------------- vv NOT NATIVE vv -----------------------------------
 
