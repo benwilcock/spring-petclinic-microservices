@@ -37,20 +37,4 @@
             <artifactId>jaxb-runtime</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <!-- Spring Boot Maven Additions -->
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <image>
-                        <builder>paketobuildpacks/builder:base</builder>
-                        <name>${docker.image.name}</name>
-                    </image>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

@@ -15,15 +15,23 @@
  */
 package org.springframework.samples.petclinic.visits;
 
+import org.hibernate.validator.internal.constraintvalidators.bv.size.SizeValidatorForCharSequence;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.nativex.hint.AccessBits;
+import org.springframework.nativex.hint.TypeHint;
+import org.springframework.nativex.hint.TypeHints;
 
 /**
  * @author Maciej Szarlinski
  */
 @EnableDiscoveryClient
 @SpringBootApplication
+@TypeHints({
+    @TypeHint(types = {HttpStatus.class, SizeValidatorForCharSequence.class}, access = AccessBits.ALL)
+})
 public class VisitsServiceApplication {
 
     public static void main(String[] args) {

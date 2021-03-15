@@ -21,15 +21,10 @@
         <module>spring-petclinic-discovery-server</module>
         <module>spring-petclinic-config-checker</module>
         <module>spring-petclinic-vets-service</module>
-
-        <!--        <module>spring-petclinic-admin-server</module>-->
-<!--        <module>spring-petclinic-customers-service</module>-->
-<!--        <module>spring-petclinic-vets-service</module>-->
-<!--        <module>spring-petclinic-visits-service</module>-->
-
-<!--        <module>spring-petclinic-api-gateway</module>-->
-
-<!--        -->
+        <module>spring-petclinic-visits-service</module>
+        <module>spring-petclinic-customers-service</module>
+        <module>spring-petclinic-api-gateway</module>
+        <!--<module>spring-petclinic-admin-server</module>-->
     </modules>
 
     <!-- configure the project's build properties -->
@@ -46,6 +41,8 @@
         <spring-native.version>0.9.0</spring-native.version>
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
         <native-image-plugin.version>21.0.0</native-image-plugin.version>
+        <native-image.build.args>-H:+ReportExceptionStackTraces</native-image.build.args>
+        <native-image.build>true</native-image.build>
     </properties>
 
     <build>

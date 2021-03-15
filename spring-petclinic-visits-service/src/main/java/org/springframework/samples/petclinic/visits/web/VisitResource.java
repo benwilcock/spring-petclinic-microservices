@@ -15,7 +15,6 @@
  */
 package org.springframework.samples.petclinic.visits.web;
 
-import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +36,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
-@Timed("petclinic.visit")
 class VisitResource {
 
     private final VisitRepository visitRepository;

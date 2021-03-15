@@ -15,15 +15,25 @@
  */
 package org.springframework.samples.petclinic.customers;
 
+import com.fasterxml.jackson.databind.ser.std.SqlDateSerializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.nativex.hint.AccessBits;
+import org.springframework.nativex.hint.TypeHint;
+import org.springframework.nativex.hint.TypeHints;
+
+import java.util.HashSet;
 
 /**
  * @author Maciej Szarlinski
  */
 @EnableDiscoveryClient
 @SpringBootApplication
+@TypeHints({
+    @TypeHint(types = {HttpStatus.class, SqlDateSerializer.class, HashSet.class}, access = AccessBits.ALL)
+})
 public class CustomersServiceApplication {
 
 	public static void main(String[] args) {

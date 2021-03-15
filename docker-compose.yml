@@ -60,39 +60,22 @@ services:
 #      - discovery-server
 #      - tracing-server
 #
-#  customers-service:
-#    image: benwilcock/spring-petclinic-customers-service:2.4.3
-#    container_name: customers-service
-#    mem_limit: 1024M
-#    ports:
-#      - 8081:8081
-#    environment:
-#      - PORT=8081
-#      - SPRING_PROFILES_ACTIVE=docker
-#      - CONFIG_SERVER_URI=http://config-server:8888
-#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
-#      - TRACING_SERVER_URI=http://tracing-server:9411
-#    depends_on:
-#      - config-server
-#      - discovery-server
-#      - tracing-server
-#
-#  visits-service:
-#    image: benwilcock/spring-petclinic-visits-service:2.4.3
-#    container_name: visits-service
-#    mem_limit: 1024M
-#    ports:
-#      - 8082:8082
-#    environment:
-#      - PORT=8082
-#      - SPRING_PROFILES_ACTIVE=docker
-#      - CONFIG_SERVER_URI=http://config-server:8888
-#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
-#      - TRACING_SERVER_URI=http://tracing-server:9411
-#    depends_on:
-#      - config-server
-#      - discovery-server
-#
+
+  visits-service:
+    image: benwilcock/spring-petclinic-visits-service-native:2.4.3
+    container_name: visits-service
+    mem_limit: 1024M
+    ports:
+      - 8082:8082
+    environment:
+      - PORT=8082
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+      - config-server
+      - discovery-server
+
   vets-service:
     image: benwilcock/spring-petclinic-vets-service-native:2.4.3
     container_name: vets-service
@@ -108,23 +91,35 @@ services:
       - config-server
       - discovery-server
 
-#
-#  gateway-service:
-#    image: benwilcock/spring-petclinic-api-gateway:2.4.3
-#    container_name: gateway-service
-#    mem_limit: 1024M
-#    ports:
-#      - 8080:8080
-#    environment:
-#      - PORT=8080
-#      - SPRING_PROFILES_ACTIVE=docker
-#      - CONFIG_SERVER_URI=http://config-server:8888
-#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
-#      - TRACING_SERVER_URI=http://tracing-server:9411
-#    depends_on:
-#      - config-server
-#      - discovery-server
-#      - tracing-server
+  customers-service:
+    image: benwilcock/spring-petclinic-customers-service-native:2.4.3
+    container_name: customers-service
+    mem_limit: 1024M
+    ports:
+      - 8081:8081
+    environment:
+      - PORT=8081
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+      - config-server
+      - discovery-server
+
+  gateway-service:
+    image: benwilcock/spring-petclinic-api-gateway:2.4.3
+    container_name: gateway-service
+    mem_limit: 1024M
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+      - config-server
+      - discovery-server
 
 
 

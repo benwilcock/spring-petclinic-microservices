@@ -15,7 +15,6 @@
  */
 package org.springframework.samples.petclinic.customers.web;
 
-import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -32,14 +31,13 @@ import java.util.Optional;
  * @author Maciej Szarlinski
  */
 @RestController
-@Timed("petclinic.pet")
 @RequiredArgsConstructor
 @Slf4j
-class PetResource {
+class
+PetResource {
 
     private final PetRepository petRepository;
     private final OwnerRepository ownerRepository;
-
 
     @GetMapping("/petTypes")
     public List<PetType> getPetTypes() {
