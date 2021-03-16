@@ -3,7 +3,7 @@ version: '2'
 services:
 
   config-server:
-    image: benwilcock/spring-petclinic-config-server-native:2.4.3
+    image: benwilcock/spring-petclinic-config-server:2.4.3
     container_name: config-server
     mem_limit: 1024M
     ports:
@@ -28,20 +28,20 @@ services:
     depends_on:
       - config-server
 
-#  admin-server:
-#    image: benwilcock/spring-petclinic-admin-server:2.4.3
-#    container_name: admin-server
-#    mem_limit: 1024M
-#    ports:
-#      - 9090:9090
-#    environment:
-#      - PORT=9090
-#      - SPRING_PROFILES_ACTIVE=docker
-#      - CONFIG_SERVER_URI=http://config-server:8888
-#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
-#    depends_on:
-#      - config-server
-#      - discovery-server
+  admin-server:
+    image: benwilcock/spring-petclinic-admin-server:2.4.3
+    container_name: admin-server
+    mem_limit: 1024M
+    ports:
+      - 9090:9090
+    environment:
+      - PORT=9090
+      - SPRING_PROFILES_ACTIVE=docker
+      - CONFIG_SERVER_URI=http://config-server:8888
+      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
+    depends_on:
+      - config-server
+      - discovery-server
 
   gateway-server:
     image: benwilcock/spring-petclinic-api-gateway:2.4.3
@@ -59,7 +59,7 @@ services:
       - discovery-server
 
   visits-service:
-    image: benwilcock/spring-petclinic-visits-service-native:2.4.3
+    image: benwilcock/spring-petclinic-visits-service:2.4.3
     container_name: visits-service
     mem_limit: 1024M
     ports:
@@ -72,10 +72,10 @@ services:
     depends_on:
       - config-server
       - discovery-server
-#      - gateway-server
+      - gateway-server
 
   vets-service:
-    image: benwilcock/spring-petclinic-vets-service-native:2.4.3
+    image: benwilcock/spring-petclinic-vets-service:2.4.3
     container_name: vets-service
     mem_limit: 1024M
     ports:
@@ -88,10 +88,10 @@ services:
     depends_on:
       - config-server
       - discovery-server
-#      - gateway-server
+      - gateway-server
 
   customers-service:
-    image: benwilcock/spring-petclinic-customers-service-native:2.4.3
+    image: benwilcock/spring-petclinic-customers-service:2.4.3
     container_name: customers-service
     mem_limit: 1024M
     ports:
@@ -104,4 +104,4 @@ services:
     depends_on:
       - config-server
       - discovery-server
-#      - gateway-server
+      - gateway-server

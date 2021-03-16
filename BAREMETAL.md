@@ -1,6 +1,6 @@
 # Running The Sample on Bare Metal (Local PC)
 
-> This guide assumes that you have already performed the "Getting Started" tasks in the [README](README.md) and have decided to run the Petclinic Microservices sample on your local PC (a.k.a. 'bare metal'.) This is a very common development scenario as it makes debugging applications that little-bit easier.
+> This guide assumes that you have already performed the "Getting Started" tasks in the [README](README.md.old) and have decided to run the Petclinic Microservices sample on your local PC (a.k.a. 'bare metal'.) This is a very common development scenario as it makes debugging applications that little-bit easier.
 
 Take a look at the following tables. The first is a list of microservices. It contains details of the `PORT` numbers, and boot order to use when running the sample. The secomd table contains a list of the environment variables expected by the microservices. Without these environment variables, the sample will not function correctly. The instructions below describe how to use these tables when starting the various microservices in the sample.
 
@@ -22,7 +22,7 @@ Take a look at the following tables. The first is a list of microservices. It co
 | Envitonment Variables                 | Value | Notes      |
 | ------------------------------------- |:----- |:---------- |
 | `PORT`                                | -- | Depends on the service, see Table 1 above |
-| `GIT_CONFIG_URI`                      | The URL of your config fork. | If you didn't follow the setup steps, [go back](README.md). |
+| `GIT_CONFIG_URI`                      | The URL of your config fork. | If you didn't follow the setup steps, [go back](README.md.old). |
 | `CONFIG_SERVER_URI`                   | `http://localhost:8888`             | Use correct IP address/DNS entry. Assumed to be on port 8888 |
 | `DISCOVERY_SERVER_URI`                | `http://localhost:8761/eureka`      | Use correct IP address/DNS entry. Assumed to be on port 8761 |
 | `TRACING_SERVER_URI`                  | `http://localhost:9411`             | Use correct IP address/DNS entry. Assumed to be on port 9411 |

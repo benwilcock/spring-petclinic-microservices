@@ -30,29 +30,7 @@ services:
       - config-server
       - discovery-server
 
-#  discovery-checker:
-#    image: benwilcock/spring-petclinic-discovery-checker-native:2.4.3
-#    container_name: discovery-checker
-#    mem_limit: 1024M
-#    ports:
-#      - 9092:9092
-#    environment:
-#      - PORT=9092
-#      - SPRING_PROFILES_ACTIVE=docker
-#      - CONFIG_SERVER_URI=http://config-server:8888
-#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
-#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-#    depends_on:
-#      - config-server
-#      - discovery-server
-
-# --------------------- vv NOT NATIVE vv -----------------------------------
-
-  tracing-server:
-    image: openzipkin/zipkin-slim:2
-    container_name: tracing-server
-    ports:
-      - 9411:9411
+  # --------------------- vv NOT NATIVE (but required) vv -----------------------------------
 
   discovery-server:
     image: benwilcock/spring-petclinic-discovery-server:2.4.3
@@ -67,20 +45,3 @@ services:
       - TRACING_SERVER_URI=http://tracing-server:9411
     depends_on:
       - config-server
-      - tracing-server
-
-#  discovery-checker:
-#    image: benwilcock/spring-petclinic-discovery-checker:2.4.3
-#    container_name: discovery-checker
-#    mem_limit: 1024M
-#    ports:
-#      - 9092:9092
-#    environment:
-#      - PORT=9092
-#      - SPRING_PROFILES_ACTIVE=docker
-#      - CONFIG_SERVER_URI=http://config-server:8888
-#      - DISCOVERY_SERVER_URI=http://discovery-server:8761/eureka
-#    depends_on:
-#      - config-server
-#      - discovery-server
-

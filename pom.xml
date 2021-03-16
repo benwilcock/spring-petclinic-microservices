@@ -24,7 +24,7 @@
         <module>spring-petclinic-visits-service</module>
         <module>spring-petclinic-customers-service</module>
         <module>spring-petclinic-api-gateway</module>
-        <!--<module>spring-petclinic-admin-server</module>-->
+<!--        <module>spring-petclinic-admin-server</module>-->
     </modules>
 
     <!-- configure the project's build properties -->
@@ -48,7 +48,7 @@
     <build>
         <plugins>
             <plugin>
-                <!-- Spring Boot Maven Additions -->
+                <!-- Build config for non-native applications. For native sub-modules, see their POM -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>

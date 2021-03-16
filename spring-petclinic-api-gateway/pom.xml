@@ -21,19 +21,10 @@
         <webjars-angular.version>1.6.4</webjars-angular.version>
         <webjars-angular-ui-router.version>1.0.3</webjars-angular-ui-router.version>
         <wro4j.version>1.10.0</wro4j.version>
-        <main.class>org.springframework.samples.petclinic.api</main.class>
-        <native-image.build.args>-H:+ReportExceptionStackTraces</native-image.build.args>
-        <native-image.build>false</native-image.build>
     </properties>
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.experimental</groupId>
-            <artifactId>spring-native</artifactId>
-            <version>${spring-native.version}</version>
-        </dependency>
-
         <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,7 +48,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
         </dependency>
-
 
         <!-- Third parties -->
         <dependency>
@@ -158,38 +148,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <!-- Enable building a native image using a local installation of native-image with GraalVM native-image-maven-plugin -->
-        <profile>
-            <id>native-image</id>
-            <activation><activeByDefault>false</activeByDefault></activation>
-            <properties>
-                <!-- Avoid a clash between Spring Boot repackaging and native-image-maven-plugin -->
-                <classifier>exec</classifier>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.graalvm.nativeimage</groupId>
-                        <artifactId>native-image-maven-plugin</artifactId>
-                        <version>${native-image-plugin.version}</version>
-                        <configuration>
-                            <mainClass>${main.class}</mainClass>
-                            <imageName>${project.artifactId}</imageName>
-                            <buildArgs>${native.build.args}</buildArgs>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>native-image</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
