@@ -4,7 +4,7 @@ services:
 # --------------------- vv NATIVE vv -----------------------------------
 
   config-server:
-    image: benwilcock/spring-petclinic-config-server-native:2.4.3
+    image: benwilcock/spring-petclinic-config-server-native:2.4.4
     container_name: config-server
     mem_limit: 1024M
     ports:
@@ -16,7 +16,7 @@ services:
       - GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config
 
   config-checker:
-    image: benwilcock/spring-petclinic-config-checker-native:2.4.3
+    image: benwilcock/spring-petclinic-config-checker-native:2.4.4
     container_name: config-checker
     mem_limit: 1024M
     ports:
@@ -33,7 +33,7 @@ services:
   # --------------------- vv NOT NATIVE (but required) vv -----------------------------------
 
   discovery-server:
-    image: benwilcock/spring-petclinic-discovery-server:2.4.3
+    image: benwilcock/spring-petclinic-discovery-server:2.4.4
     container_name: discovery-server
     mem_limit: 1024M
     ports:

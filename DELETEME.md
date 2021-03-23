@@ -22,7 +22,7 @@ In the `docker-compose.yml` overwrite the `config-server:` `environment:` value 
 ```yaml
 ...
 config-server:
-    image: benwilcock/spring-petclinic-config-server-native:2.4.3
+    image: benwilcock/spring-petclinic-config-server-native:2.4.4
     container_name: config-server
     mem_limit: 1024M
     ports:

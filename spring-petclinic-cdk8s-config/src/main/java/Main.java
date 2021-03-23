@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Main extends Chart {
-    private static final String VERSION = "2.4.3";
+    private static final String VERSION = "2.4.4";
     private static final String LIBRARY_NAME = "benwilcock";
     private static final String APP_NAMESPACE = "default";
     private static final String CONFIG_SERVER_URI = "http://config-server.default.svc.cluster.local:8888";

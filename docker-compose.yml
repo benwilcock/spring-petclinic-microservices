@@ -3,7 +3,7 @@ version: '2'
 services:
 
   config-server:
-    image: benwilcock/spring-petclinic-config-server-native:2.4.3
+    image: benwilcock/spring-petclinic-config-server-native:2.4.4
     container_name: config-server
     mem_limit: 1024M
     ports:
@@ -15,7 +15,7 @@ services:
       - GIT_CONFIG_URI=https://github.com/benwilcock/spring-petclinic-microservices-config
 
   discovery-server:
-    image: benwilcock/spring-petclinic-discovery-server:2.4.3
+    image: benwilcock/spring-petclinic-discovery-server:2.4.4
     container_name: discovery-server
     mem_limit: 1024M
     ports:
@@ -29,7 +29,7 @@ services:
       - config-server
 
 #  admin-server:
-#    image: benwilcock/spring-petclinic-admin-server:2.4.3
+#    image: benwilcock/spring-petclinic-admin-server:2.4.4
 #    container_name: admin-server
 #    mem_limit: 1024M
 #    ports:
@@ -44,7 +44,7 @@ services:
 #      - discovery-server
 
   gateway-server:
-    image: benwilcock/spring-petclinic-api-gateway:2.4.3
+    image: benwilcock/spring-petclinic-api-gateway:2.4.4
     container_name: gateway-server
     mem_limit: 1024M
     ports:
@@ -59,7 +59,7 @@ services:
       - discovery-server
 
   visits-service:
-    image: benwilcock/spring-petclinic-visits-service-native:2.4.3
+    image: benwilcock/spring-petclinic-visits-service-native:2.4.4
     container_name: visits-service
     mem_limit: 1024M
     ports:
@@ -75,7 +75,7 @@ services:
 #      - gateway-server
 
   vets-service:
-    image: benwilcock/spring-petclinic-vets-service-native:2.4.3
+    image: benwilcock/spring-petclinic-vets-service-native:2.4.4
     container_name: vets-service
     mem_limit: 1024M
     ports:
@@ -91,7 +91,7 @@ services:
 #      - gateway-server
 
   customers-service:
-    image: benwilcock/spring-petclinic-customers-service-native:2.4.3
+    image: benwilcock/spring-petclinic-customers-service-native:2.4.4
     container_name: customers-service
     mem_limit: 1024M
     ports:
